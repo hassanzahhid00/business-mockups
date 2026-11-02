@@ -90,6 +90,14 @@ a.soc:hover{border-color:var(--vio)}
 .emailbox .enone{padding:15px 17px;color:var(--mut);font-size:13.5px}
 .mockbtn{display:inline-block;margin-top:16px;background:var(--grad);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 20px;border-radius:13px;box-shadow:0 10px 24px rgba(139,92,246,.35)}
 .nextline{margin-top:16px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);color:#bae6fd;border-radius:13px;padding:12px 15px;font-size:13.5px;line-height:1.55}
+.clockbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:0 0 22px}
+.clk{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:15px;padding:11px 12px;text-align:center}
+.clk.home{border-color:rgba(168,85,247,.55)}
+.clk .ab{font-size:11px;font-weight:800;letter-spacing:.13em;color:var(--mut);text-transform:uppercase}
+.clk.home .ab{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.clk .tm2{font-family:Sora,sans-serif;font-size:16.5px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:3px;white-space:nowrap}
+.clk .tm2 small{font-size:10px;color:var(--mut);font-weight:700}
+.clk .cy{font-size:11px;color:var(--mut2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 footer{margin-top:44px;text-align:center;color:var(--mut2);font-size:12.5px;line-height:1.7}
 @media(max-width:560px){.sheet{padding:21px}.kv{grid-template-columns:1fr 1fr}}
 </style>
@@ -106,6 +114,8 @@ footer{margin-top:44px;text-align:center;color:var(--mut2);font-size:12.5px;line
       <a href="https://github.com/hassanzahhid00/business-mockups/actions/workflows/send-emails.yml" target="_blank" rel="noopener" style="background:var(--grad);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 20px;border-radius:999px;box-shadow:0 10px 24px rgba(139,92,246,.4)">✉ Send Emails</a>
     </div>
   </header>
+
+  <section class="clockbar" id="clockbar"></section>
 
   <section class="stats" id="stats"></section>
 
@@ -463,6 +473,39 @@ async function loadStatuses(){
   }catch(e){}
 }
 loadStatuses().then(()=>{buildChrome();render();});
+</script>
+<script>
+(function(){
+  const ZONES=[
+    {z:'Asia/Karachi',city:'Karachi · You',home:true},
+    {z:'UTC',city:'Coordinated Universal'},
+    {z:'America/New_York',city:'New York'},
+    {z:'America/Chicago',city:'Chicago · Texas'},
+    {z:'America/Denver',city:'Denver'},
+    {z:'America/Phoenix',city:'Phoenix'},
+    {z:'America/Los_Angeles',city:'Los Angeles'},
+    {z:'America/Anchorage',city:'Anchorage'},
+    {z:'Pacific/Honolulu',city:'Honolulu'}
+  ];
+  const bar=document.getElementById('clockbar');
+  const fmts=ZONES.map(Z=>({
+    t:new Intl.DateTimeFormat('en-US',{timeZone:Z.z,hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23',timeZoneName:'short'}),
+    d:new Intl.DateTimeFormat('en-US',{timeZone:Z.z,weekday:'short',month:'short',day:'numeric'})
+  }));
+  bar.innerHTML=ZONES.map((Z,i)=>'<div class="clk'+(Z.home?' home':'')+'"><div class="ab" id="cab'+i+'">···</div><div class="tm2" id="ctm'+i+'">--:--:--</div><div class="cy">'+Z.city+' · <span id="cdt'+i+'"></span></div></div>').join('');
+  function pad(n){return String(n).padStart(2,'0');}
+  function upd(){
+    const now=new Date();
+    ZONES.forEach((Z,i)=>{
+      const parts={};fmts[i].t.formatToParts(now).forEach(p=>parts[p.type]=p.value);
+      const hr=+parts.hour, hr12=hr%12===0?12:hr%12, ap=hr<12?'AM':'PM';
+      document.getElementById('cab'+i).textContent=parts.timeZoneName||Z.z;
+      document.getElementById('ctm'+i).innerHTML=hr12+':'+pad(+parts.minute)+':'+pad(+parts.second)+' <small>'+ap+'</small>';
+      document.getElementById('cdt'+i).textContent=fmts[i].d.format(now);
+    });
+  }
+  upd();setInterval(upd,500);
+})();
 </script>
 </body>
 </html>
