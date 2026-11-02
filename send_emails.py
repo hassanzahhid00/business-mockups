@@ -94,20 +94,15 @@ SIGNATURE_HTML = r"""<table cellpadding="0" cellspacing="0" border="0" role="pre
 
 
 def body_to_html(plain: str) -> str:
+    # The body stays regular text: plain paragraphs with simple line breaks,
+    # no fonts, colors or styling of any kind. The ONLY designed HTML in the
+    # email is the signature, appended after the body.
     paras = [p.strip() for p in plain.strip().split("\n\n") if p.strip()]
     parts = []
     for p in paras:
         safe = html.escape(p).replace("\n", "<br>")
-        parts.append(
-            '<p style="margin:0 0 14px 0;font-family:Arial,Helvetica,sans-serif;'
-            'font-size:15px;line-height:1.65;color:#1c2333;">' + safe + "</p>"
-        )
-    return (
-        '<div style="max-width:640px;">'
-        + "".join(parts)
-        + SIGNATURE_HTML
-        + "</div>"
-    )
+        parts.append("<p>" + safe + "</p>")
+    return "".join(parts) + SIGNATURE_HTML
 
 
 def main() -> int:
