@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mowtown Landscape | San Antonio Lawn Care, Landscaping and Tree Service</title>
+<style>
+  :root{ --deep:#14532d; --mid:#166534; --lime:#84cc16; --lime-l:#a3e635; --mut:#5b7263; --cream:#f6faf0; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",Arial,sans-serif;color:#1e2b1e;background:#fff}
+  .topbar{background:var(--deep);color:#d9f99d;text-align:center;padding:9px 12px;font-size:14px}
+  .topbar b{color:#fff}
+  header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:13px 6%;background:rgba(255,255,255,.97);border-bottom:3px solid var(--lime)}
+  .logo{font-size:25px;font-weight:800;color:var(--mid)}
+  .logo span{color:#65a30d}
+  .logo small{display:block;font-size:10px;font-weight:700;color:#8aa582;letter-spacing:3px}
+  nav a{color:#3c5540;text-decoration:none;margin-left:24px;font-size:15px}
+  .callbtn{background:var(--mid);color:#fff!important;padding:11px 20px;border-radius:8px;font-weight:700}
+  .hero{position:relative;color:#fff;overflow:hidden}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.62)}
+  .hero .wrap{position:relative;max-width:1140px;margin:0 auto;padding:100px 6% 88px}
+  .badge{display:inline-block;background:rgba(20,83,45,.55);border:1px solid var(--lime-l);color:#ecfccb;padding:7px 14px;border-radius:30px;font-size:13px;font-weight:700;margin-bottom:22px}
+  .hero h1{font-size:54px;line-height:1.07;max-width:660px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+  .hero h1 span{color:var(--lime-l)}
+  .hero p{margin:20px 0 30px;font-size:19px;color:#eef7e6;max-width:560px;line-height:1.6;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+  .actions a{display:inline-block;text-decoration:none;padding:15px 28px;border-radius:9px;font-weight:700;font-size:16px;margin-right:14px;transition:.25s}
+  .primary{background:var(--lime);color:var(--deep)}.primary:hover{transform:translateY(-2px)}
+  .ghost{border:2px solid #e6f2d8;color:#fff}
+  section{padding:74px 6%}
+  .inner{max-width:1140px;margin:0 auto}
+  h2{font-size:35px;margin-bottom:12px;color:var(--deep)}
+  .sub{color:var(--mut);font-size:17px;margin-bottom:40px;max-width:660px;line-height:1.6}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .card{border:1px solid #e2ecd9;border-radius:16px;padding:28px;transition:.3s;background:#fff}
+  .card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(20,83,45,.12)}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card h3:before{content:"";display:block;width:34px;height:5px;background:var(--lime);border-radius:3px;margin-bottom:14px}
+  .card p{color:var(--mut);line-height:1.6;font-size:15px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .gallery figure{border-radius:16px;overflow:hidden;position:relative}
+  .gallery img{width:100%;height:250px;object-fit:cover;display:block;transition:.4s}
+  .gallery figure:hover img{transform:scale(1.05)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 16px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(180deg,transparent,rgba(10,40,20,.75))}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;counter-reset:st}
+  .step{background:var(--cream);border-radius:16px;padding:28px;position:relative}
+  .step:before{counter-increment:st;content:counter(st);font-size:42px;font-weight:800;color:var(--lime);opacity:.4;position:absolute;top:8px;right:16px}
+  .step b{display:block;font-size:17px;margin-bottom:8px}
+  .step p{color:var(--mut);font-size:15px;line-height:1.6}
+  .band{background:var(--mid);color:#fff;padding:54px 6%}
+  .band .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .band h2{color:#fff;margin:0}
+  .band p{opacity:.92;font-size:17px;margin-top:6px}
+  .band a{background:#fff;color:var(--deep);text-decoration:none;padding:15px 28px;border-radius:9px;font-weight:700}
+  details{border:1px solid #e2ecd9;border-radius:12px;padding:18px 22px;margin-bottom:12px}
+  summary{font-weight:700;cursor:pointer;font-size:16px}
+  details p{color:var(--mut);line-height:1.6;margin-top:10px;font-size:15px}
+  .contact{background:var(--deep);color:#fff}
+  .contact h2{color:#fff}.contact .sub{color:#b5cba8}
+  .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .cbox{border:1px solid #2f663f;border-radius:14px;padding:26px}
+  .cbox b{color:var(--lime-l);display:block;margin-bottom:8px;font-size:13px;letter-spacing:1.6px}
+  .cbox p{line-height:1.7;color:#e4efdd}
+  footer{background:#0e3a1f;color:#87a87c;text-align:center;padding:26px 12px;font-size:13px;line-height:1.7}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:640px){.hero h1{font-size:36px} nav a{margin-left:13px}}
+</style>
+</head>
+<body>
+<div class="topbar">LAWN CARE AND LANDSCAPING, SAN ANTONIO &nbsp;|&nbsp; <b>(210) 480-6724</b></div>
+<header>
+  <div class="logo">MOWTOWN <span>LANDSCAPE</span><small>SAN ANTONIO, TEXAS</small></div>
+  <nav>
+    <a href="#services">Services</a><a href="#work">Our Work</a><a href="#how">How It Works</a>
+    <a href="#contact" class="callbtn">Call (210) 480-6724</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <img class="bg" src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/mowtown/photo1.jpg" alt="A finished Mowtown backyard in San Antonio">
+  <div class="wrap">
+    <div class="badge">LOCAL LAWN AND LANDSCAPE CREW, SAN ANTONIO</div>
+    <h1>A yard that turns heads, <span>without lifting a finger.</span></h1>
+    <p>That lawn in the photo is a real Mowtown job. Weekly mowing, crisp edging, healthy beds, tree work, fencing and hauling, handled by one local crew while you get your weekends back.</p>
+    <div class="actions">
+      <a class="primary" href="tel:+12104806724">Call (210) 480-6724</a>
+      <a class="ghost" href="#work">See our work</a>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="inner">
+    <h2 class="reveal">What Mowtown does</h2>
+    <p class="sub reveal">In their own words: mowing, trimming, edging, mulching and gardening, tree service, private fencing and hauling. One crew for the whole property.</p>
+    <div class="grid">
+      <div class="card reveal"><h3>Lawn Mowing</h3><p>Regular mowing at the right height for San Antonio heat, so the lawn stays thick instead of stressed.</p></div>
+      <div class="card reveal"><h3>Trimming and Edging</h3><p>The crisp lines along drives, walks and beds that make a yard look finished, not nearly done.</p></div>
+      <div class="card reveal"><h3>Mulching and Gardening</h3><p>Fresh mulch, tidy beds and garden care that keeps plants healthy and weeds on the losing side.</p></div>
+      <div class="card reveal"><h3>Tree Service</h3><p>Trimming and tree work handled safely, with the mess hauled away when we are done.</p></div>
+      <div class="card reveal"><h3>Private Fencing</h3><p>Privacy fencing that gives your yard its own space, built straight and built to last.</p></div>
+      <div class="card reveal"><h3>Hauling</h3><p>Yard waste, storm debris and the pile in the corner you keep meaning to deal with. Gone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">Recent Mowtown yards</h2>
+    <p class="sub reveal">Straight from our own Facebook page: real San Antonio yards, real Mowtown work.</p>
+    <div class="gallery">
+      <figure class="reveal"><img src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/mowtown/photo3.jpg" alt="Landscaped backyard by Mowtown" loading="lazy"><figcaption>Recent Mowtown work</figcaption></figure>
+      <figure class="reveal"><img src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/mowtown/photo4.jpg" alt="Lawn care by Mowtown" loading="lazy"><figcaption>Recent Mowtown work</figcaption></figure>
+      <figure class="reveal"><img src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/mowtown/photo5.jpg" alt="Garden beds by Mowtown" loading="lazy"><figcaption>Recent Mowtown work</figcaption></figure>
+      <figure class="reveal"><img src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/mowtown/photo6.jpg" alt="Tree and yard work by Mowtown" loading="lazy"><figcaption>Recent Mowtown work</figcaption></figure>
+      <figure class="reveal"><img src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/mowtown/photo7.jpg" alt="Fencing work by Mowtown" loading="lazy"><figcaption>Recent Mowtown work</figcaption></figure>
+      <figure class="reveal"><img src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/mowtown/photo8.jpg" alt="Finished yard by Mowtown" loading="lazy"><figcaption>Recent Mowtown work</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">How it works</h2>
+    <p class="sub reveal">No apps, no portals, no chasing anyone. Three steps and your yard is handled.</p>
+    <div class="steps">
+      <div class="step reveal"><b>Call us</b><p>One phone call to (210) 480-6724. Tell us about the yard and what you need done.</p></div>
+      <div class="step reveal"><b>We walk the yard</b><p>We come out, look at the property with you, and price the work straight, no surprises later.</p></div>
+      <div class="step reveal"><b>We keep it up</b><p>Regular visits on a schedule you can set your watch by, plus one off clean ups whenever you need them.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="inner">
+    <div>
+      <h2>Follow the work on Facebook and Instagram</h2>
+      <p>Fresh yards, before and afters, and seasonal openings, posted as we finish them.</p>
+    </div>
+    <a href="tel:+12104806724">Call (210) 480-6724</a>
+  </div>
+</div>
+
+<section id="faq">
+  <div class="inner">
+    <h2 class="reveal">Quick answers</h2>
+    <p class="sub reveal">What San Antonio homeowners ask us first.</p>
+    <details class="reveal"><summary>Do you offer regular lawn schedules?</summary><p>Yes. Most customers are on a recurring mowing and edging schedule, and we add beds, mulch and tree work as the seasons call for them.</p></details>
+    <details class="reveal"><summary>Can you do a one off clean up?</summary><p>Absolutely. Overgrown yards, storm debris and move in or move out clean ups are a big part of what we do, hauling included.</p></details>
+    <details class="reveal"><summary>Which parts of San Antonio do you cover?</summary><p>We are based on West Olmos Drive and work across San Antonio. Call and tell us your neighborhood and we will confirm on the spot.</p></details>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="inner">
+    <h2 class="reveal">Talk to Mowtown Landscape</h2>
+    <p class="sub reveal">Call for a quote on regular lawn care or a one off clean up. We will walk the yard with you and price it straight.</p>
+    <div class="cgrid">
+      <div class="cbox reveal"><b>PHONE</b><p>(210) 480-6724</p></div>
+      <div class="cbox reveal"><b>BASED IN</b><p>538 W Olmos Dr<br>San Antonio, TX</p></div>
+      <div class="cbox reveal"><b>HOURS</b><p>Mon to Fri: 7 AM to 5 PM<br>Saturday: 8 AM to 12 PM</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Mowtown Landscape, San Antonio, TX &nbsp;|&nbsp; (210) 480-6724<br>
+  Concept homepage design prepared for Mowtown Landscape. Photos from the company's own Facebook page.
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

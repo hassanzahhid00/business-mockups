@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sparks Electricians | Dallas Electrician Open 24 Hours</title>
+<style>
+  :root{ --bg:#0a0f1a; --panel:#101827; --line:#22314a; --amb:#f5b301; --amb-l:#ffd34d; --txt:#e8eef6; --mut:#93a5bb; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--txt)}
+  .pulse{background:var(--amb);color:#131313;text-align:center;padding:9px 12px;font-size:14px;font-weight:700}
+  header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:13px 6%;background:rgba(10,15,26,.96);border-bottom:1px solid var(--line)}
+  .logo{font-size:22px;font-weight:800;letter-spacing:.4px}
+  .logo span{color:var(--amb)}
+  .logo small{display:block;font-size:10px;font-weight:700;color:var(--mut);letter-spacing:3px}
+  nav a{color:#d7e1ee;text-decoration:none;margin-left:24px;font-size:15px}
+  .callbtn{background:var(--amb);color:#131313!important;padding:11px 20px;border-radius:8px;font-weight:800}
+  .hero{padding:76px 6% 70px;background:radial-gradient(900px 480px at 85% 0%,rgba(245,179,1,.14),transparent 60%),var(--bg)}
+  .wrap{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .badge{display:inline-block;border:1px solid var(--amb);color:var(--amb-l);background:rgba(245,179,1,.10);padding:7px 14px;border-radius:30px;font-size:13px;font-weight:700;margin-bottom:20px}
+  .hero h1{font-size:52px;line-height:1.07}
+  .hero h1 span{color:var(--amb)}
+  .hero .lede{margin:20px 0 28px;font-size:18px;color:var(--mut);line-height:1.65;max-width:520px}
+  .actions a{display:inline-block;text-decoration:none;padding:15px 28px;border-radius:9px;font-weight:700;font-size:16px;margin-right:14px;transition:.25s}
+  .primary{background:var(--amb);color:#131313}.primary:hover{transform:translateY(-2px)}
+  .ghost{border:2px solid #41536e;color:#fff}
+  .hero figure{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+  .hero figure img{width:100%;height:430px;object-fit:cover;display:block}
+  .hero figcaption{padding:13px 18px;background:var(--panel);font-size:13px;color:var(--mut)}
+  .stats{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:6px}
+  .stat{padding:24px 36px 4px 0;margin-right:36px}
+  .stat b{font-size:36px;display:block;color:#fff}
+  .stat span{font-size:12px;color:var(--mut);letter-spacing:1.2px}
+  section{padding:74px 6%}
+  .inner{max-width:1140px;margin:0 auto}
+  h2{font-size:35px;margin-bottom:12px;color:#fff}
+  .sub{color:var(--mut);font-size:17px;margin-bottom:40px;max-width:660px;line-height:1.6}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;transition:.3s}
+  .card:hover{transform:translateY(-5px);border-color:var(--amb)}
+  .card h3{font-size:19px;margin-bottom:8px;color:#fff}
+  .card p{color:var(--mut);line-height:1.6;font-size:15px}
+  .bolt{display:inline-flex;width:44px;height:44px;border-radius:12px;background:rgba(245,179,1,.13);align-items:center;justify-content:center;margin-bottom:15px}
+  .spot{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .spot .quote{font-family:Georgia,serif;font-size:23px;line-height:1.55;font-style:italic;color:#f3f6fb}
+  .spot .who{margin-top:14px;color:var(--amb-l);font-size:14px;letter-spacing:1px;font-style:normal}
+  .rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+  .rev{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .rev .stars{color:var(--amb);letter-spacing:3px;margin-bottom:12px}
+  .rev p{line-height:1.65;font-size:15px;color:#dbe4ef}
+  .rev span{display:block;margin-top:14px;font-size:13px;color:var(--mut);letter-spacing:.6px}
+  .band{background:var(--amb);color:#131313;padding:52px 6%}
+  .band .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .band h2{color:#131313;margin:0}
+  .band p{font-size:17px;margin-top:6px}
+  .band a{background:#131313;color:#fff;text-decoration:none;padding:15px 28px;border-radius:9px;font-weight:700}
+  details{border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px;background:var(--panel)}
+  summary{font-weight:700;cursor:pointer;font-size:16px;color:#fff}
+  details p{color:var(--mut);line-height:1.6;margin-top:10px;font-size:15px}
+  .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .cbox{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--panel)}
+  .cbox b{color:var(--amb-l);display:block;margin-bottom:8px;font-size:13px;letter-spacing:1.6px}
+  .cbox p{line-height:1.7;color:#dbe4ef}
+  footer{background:#060a12;color:#68798d;text-align:center;padding:26px 12px;font-size:13px;line-height:1.7}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:860px){.wrap,.spot{grid-template-columns:1fr}.hero h1{font-size:37px} nav a{margin-left:13px}}
+</style>
+</head>
+<body>
+<div class="pulse">POWER OUT? WE ARE OPEN 24 HOURS, CALL (469) 914-9927</div>
+<header>
+  <div class="logo">SPARKS <span>ELECTRICIANS</span><small>DALLAS, TEXAS</small></div>
+  <nav>
+    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+    <a href="#contact" class="callbtn">Call (469) 914-9927</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="badge">★ 4.9 FROM 92 GOOGLE REVIEWS</div>
+      <h1>Dallas calls Sparks when the lights go out. <span>Any hour.</span></h1>
+      <p class="lede">Lighting, outlets, panels, smart security and straight up emergencies: one Dallas electrical team that answers around the clock and tests everything before we call it done.</p>
+      <div class="actions">
+        <a class="primary" href="tel:+14699149927">Call (469) 914-9927</a>
+        <a class="ghost" href="#services">Our services</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b><span data-count="4.9" data-dec="1">0.0</span> ★</b><span>GOOGLE RATING</span></div>
+        <div class="stat"><b><span data-count="92">0</span></b><span>CUSTOMER REVIEWS</span></div>
+        <div class="stat"><b>24/7</b><span>ALWAYS OPEN</span></div>
+      </div>
+    </div>
+    <figure class="reveal">
+      <img src="https://raw.githubusercontent.com/hassanzahhid00/business-mockups/main/assets/sparks/listing.png" alt="Electrical plans and tools, Sparks Electricians Dallas">
+      <figcaption>Planned properly, wired carefully, tested before completion. That is the Sparks standard on every job.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="services">
+  <div class="inner">
+    <h2 class="reveal">What we do</h2>
+    <p class="sub reveal">If it plugs in, lights up or powers your home, Sparks handles it, day or night.</p>
+    <div class="grid">
+      <div class="card reveal"><span class="bolt"><svg width="22" height="22" viewBox="0 0 24 24" fill="#f5b301"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2z"/></svg></span><h3>Lighting Installation and Repair</h3><p>Indoor and outdoor lighting, recessed fittings, garden lighting and fault finding when a circuit will not behave.</p></div>
+      <div class="card reveal"><span class="bolt"><svg width="22" height="22" viewBox="0 0 24 24" fill="#f5b301"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2z"/></svg></span><h3>Outlets and Switches</h3><p>Broken switches, dead plugs and new points where you actually need them, including GFCI protection.</p></div>
+      <div class="card reveal"><span class="bolt"><svg width="22" height="22" viewBox="0 0 24 24" fill="#f5b301"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2z"/></svg></span><h3>Smoke Detector Replacement</h3><p>Fresh detectors, correctly placed, so your family is protected and your home stays up to code.</p></div>
+      <div class="card reveal"><span class="bolt"><svg width="22" height="22" viewBox="0 0 24 24" fill="#f5b301"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2z"/></svg></span><h3>Emergency Electrical Service</h3><p>Power loss, sparking, burning smells. We answer 24 hours a day and make it safe first, then fixed.</p></div>
+      <div class="card reveal"><span class="bolt"><svg width="22" height="22" viewBox="0 0 24 24" fill="#f5b301"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2z"/></svg></span><h3>Smart Home Security</h3><p>Cameras, video doorbells and floodlights installed neatly, with the app set up and sensors aligned before we leave.</p></div>
+      <div class="card reveal"><span class="bolt"><svg width="22" height="22" viewBox="0 0 24 24" fill="#f5b301"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2z"/></svg></span><h3>Ceiling Fans and Power Restoration</h3><p>Fan installs and fast fault tracing when part of the house loses power without warning.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="inner spot">
+    <div class="reveal">
+      <h2>Smart homes, wired by Sparks</h2>
+      <p class="sub" style="margin-bottom:0">Security cameras, video doorbells and floodlights are now half the calls we get. We install the hardware and stay until the app on your phone works the way it should.</p>
+    </div>
+    <div class="reveal">
+      <p class="quote">"We got great service installing our smart home security cameras, video doorbell, and floodlights. Tech-savvy expert guided us through app connection and sensor alignment. Great service!"</p>
+      <p class="who">GOOGLE REVIEW, MAY 2026</p>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">Dallas homeowners, in their words</h2>
+    <p class="sub reveal">Real reviews for Sparks Electricians: 5.0 on BestProsInTown, 4.9 across 92 Google reviews.</p>
+    <div class="rgrid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"We booked electrical services for house improvement. This electrician installed all wiring carefully and effectively. Everything was properly tested before completion. Strong professional background."</p><span>REVIEW, FEBRUARY 2026</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"I phoned this company because I needed a repairman to come fix a broken switch in my home. Their level of diligence and attention to detail in sticking to our schedule really pleased me."</p><span>REVIEW, JUNE 2024</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"We got great service installing our smart home security cameras, video doorbell, and floodlights. Tech-savvy expert guided us through app connection and sensor alignment. Great service!"</p><span>REVIEW, MAY 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="inner">
+    <div>
+      <h2>Electrical problem right now?</h2>
+      <p>It is never a bad time to call. We are open 24 hours, every single day.</p>
+    </div>
+    <a href="tel:+14699149927">Call (469) 914-9927</a>
+  </div>
+</div>
+
+<section id="faq">
+  <div class="inner">
+    <h2 class="reveal">Quick answers</h2>
+    <p class="sub reveal">What Dallas asks us on the phone.</p>
+    <details class="reveal"><summary>Are you really open all night?</summary><p>Yes, 24 hours, seven days a week, including holidays. Electrical emergencies do not wait for morning, and neither do we.</p></details>
+    <details class="reveal"><summary>Do you test the work before finishing?</summary><p>Every job is tested before completion. It is the detail our reviewers mention most, and it is non negotiable here.</p></details>
+    <details class="reveal"><summary>Can you set up the app for my cameras?</summary><p>Yes. We connect the app, align the sensors and walk you through it, so the system works from your phone the day it goes in.</p></details>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">Talk to Sparks Electricians</h2>
+    <p class="sub reveal">One call, any hour, and a Dallas electrician is on it.</p>
+    <div class="cgrid">
+      <div class="cbox reveal"><b>PHONE</b><p>(469) 914-9927<br>Open 24 hours, 7 days</p></div>
+      <div class="cbox reveal"><b>BASED IN</b><p>120 Turtle Creek Blvd<br>Dallas, TX 75207</p></div>
+      <div class="cbox reveal"><b>RATED</b><p>4.9 stars, 92 Google reviews<br>5.0 on BestProsInTown</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Sparks Electricians, Dallas, TX &nbsp;|&nbsp; (469) 914-9927<br>
+  Concept homepage design prepared for Sparks Electricians.
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return; const el=e.target,end=parseFloat(el.dataset.count),dec=parseInt(el.dataset.dec||0);let t0=null;
+    const tick=t=>{if(!t0)t0=t;const p=Math.min((t-t0)/1200,1);el.textContent=(end*p).toFixed(dec);if(p<1)requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);cio.unobserve(el);
+  }),{threshold:.4});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>

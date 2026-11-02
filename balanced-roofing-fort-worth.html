@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balanced Roofing | Fort Worth Roofing, Drone Inspections and Insurance Claims</title>
+<style>
+  :root{ --ink:#22303c; --rust:#bc5837; --rust-d:#9c4527; --cream:#faf6f0; --sand:#f1e7da; --mut:#5d6d7a; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff}
+  h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif}
+  .topbar{background:var(--ink);color:#f3d9c8;text-align:center;padding:9px 12px;font-size:14px}
+  .topbar b{color:#fff}
+  header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 6%;background:rgba(255,255,255,.96);border-bottom:1px solid #eadfd2;backdrop-filter:blur(6px)}
+  .logo{font-size:24px;font-weight:800;letter-spacing:.4px}
+  .logo span{color:var(--rust)}
+  .logo small{display:block;font-family:"Segoe UI",Arial,sans-serif;font-size:10px;font-weight:700;color:#93a1ad;letter-spacing:3.5px}
+  nav a{color:#40505f;text-decoration:none;margin-left:24px;font-size:15px}
+  .callbtn{background:var(--rust);color:#fff!important;padding:11px 20px;border-radius:8px;font-weight:700;transition:.25s}
+  .callbtn:hover{background:var(--rust-d)}
+  .hero{background:linear-gradient(180deg,var(--cream),#fff);padding:78px 6% 30px;text-align:left}
+  .wrap{max-width:1140px;margin:0 auto}
+  .kicker{color:var(--rust);font-weight:700;letter-spacing:2.5px;font-size:13px;margin-bottom:18px}
+  .hero h1{font-size:56px;line-height:1.06;max-width:780px;font-weight:700}
+  .hero h1 em{color:var(--rust);font-style:italic}
+  .hero p{margin:22px 0 30px;font-size:19px;color:var(--mut);max-width:600px;line-height:1.6}
+  .actions a{display:inline-block;text-decoration:none;padding:15px 28px;border-radius:9px;font-weight:700;font-size:16px;margin-right:14px;transition:.25s}
+  .primary{background:var(--rust);color:#fff}.primary:hover{background:var(--rust-d);transform:translateY(-2px)}
+  .ghost{border:2px solid #cbb99f;color:var(--ink)}
+  .stats{display:flex;gap:0;margin-top:52px;border-top:1px solid #eadfd2;flex-wrap:wrap}
+  .stat{padding:26px 34px 8px 0;margin-right:34px}
+  .stat b{font-family:Georgia,serif;font-size:38px;display:block}
+  .stat span{font-size:13px;color:var(--mut);letter-spacing:.6px}
+  section{padding:74px 6%}
+  .inner{max-width:1140px;margin:0 auto}
+  h2{font-size:36px;margin-bottom:12px}
+  .sub{color:var(--mut);font-size:17px;margin-bottom:40px;max-width:660px;line-height:1.6}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .card{border:1px solid #eee2d2;border-radius:16px;padding:30px;background:#fff;transition:.3s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(34,48,60,.10)}
+  .card .n{font-family:Georgia,serif;color:var(--rust);font-size:15px;letter-spacing:2px}
+  .card h3{font-size:20px;margin:10px 0 8px}
+  .card p{color:var(--mut);line-height:1.6;font-size:15px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;counter-reset:step}
+  .step{background:var(--cream);border-radius:16px;padding:28px;position:relative}
+  .step:before{counter-increment:step;content:counter(step);font-family:Georgia,serif;font-size:44px;color:var(--rust);opacity:.28;position:absolute;top:10px;right:18px}
+  .step b{display:block;font-size:17px;margin-bottom:8px}
+  .step p{color:var(--mut);font-size:15px;line-height:1.6}
+  .reviews{background:var(--ink);color:#fff}
+  .reviews h2{color:#fff}.reviews .sub{color:#aeb9c2}
+  .rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+  .rev{background:#2b3d4b;border:1px solid #3a4f61;border-radius:16px;padding:28px}
+  .rev .stars{color:#f5b301;letter-spacing:3px;margin-bottom:12px}
+  .rev p{line-height:1.65;font-size:15px;color:#e6edf2}
+  .rev span{display:block;margin-top:14px;font-size:13px;color:#93a7b5;letter-spacing:.6px}
+  .band{background:var(--rust);color:#fff;padding:56px 6%}
+  .band .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .band h2{color:#fff;margin:0}
+  .band p{opacity:.92;font-size:17px;margin-top:6px}
+  .band a{background:#fff;color:var(--rust-d);text-decoration:none;padding:15px 28px;border-radius:9px;font-weight:700}
+  details{border:1px solid #eee2d2;border-radius:12px;padding:18px 22px;margin-bottom:12px;background:#fff}
+  summary{font-weight:700;cursor:pointer;font-size:16px}
+  details p{color:var(--mut);line-height:1.6;margin-top:10px;font-size:15px}
+  .contact{background:var(--cream)}
+  .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .cbox{background:#fff;border:1px solid #eee2d2;border-radius:14px;padding:26px}
+  .cbox b{color:var(--rust);display:block;margin-bottom:8px;font-size:13px;letter-spacing:1.6px}
+  .cbox p{line-height:1.7;color:#40505f}
+  footer{background:#18242e;color:#8296a5;text-align:center;padding:26px 12px;font-size:13px;line-height:1.7}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:640px){.hero h1{font-size:36px} nav a{margin-left:13px}}
+</style>
+</head>
+<body>
+<div class="topbar">HD DRONE ROOF INSPECTIONS &nbsp;|&nbsp; LIFETIME LABOR WARRANTY &nbsp;|&nbsp; <b>(817) 771-3094</b></div>
+<header>
+  <div class="logo">BALANCED <span>ROOFING</span><small>FORT WORTH, TEXAS</small></div>
+  <nav>
+    <a href="#services">Services</a><a href="#process">Claims Process</a><a href="#reviews">Reviews</a>
+    <a href="#contact" class="callbtn">Call (817) 771-3094</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">FORT WORTH ROOFING AND INSURANCE CLAIM SPECIALISTS</div>
+    <h1>The roof over your head, <em>proved from the sky down.</em></h1>
+    <p>Balanced Roofing flies an HD drone over every inspection, documents the damage properly, and walks the roof with your insurance inspector, so your claim is decided on evidence, not opinions.</p>
+    <div class="actions">
+      <a class="primary" href="tel:+18177713094">Book a drone inspection</a>
+      <a class="ghost" href="#reviews">Read customer reviews</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b><span data-count="5" data-dec="1">0.0</span> ★</b><span>GOOGLE RATING</span></div>
+      <div class="stat"><b><span data-count="12">0</span></b><span>FIVE STAR REVIEWS</span></div>
+      <div class="stat"><b>Lifetime</b><span>LABOR WARRANTY</span></div>
+      <div class="stat"><b>DFW</b><span>HOMES AND BUSINESSES</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="inner">
+    <h2 class="reveal">Roofing services</h2>
+    <p class="sub reveal">Residential and commercial roofing across Dallas Fort Worth, from a single leak to a full storm claim replacement.</p>
+    <div class="grid">
+      <div class="card reveal"><div class="n">01</div><h3>Roof Replacement</h3><p>Full replacements in shingle, tile and metal, finished clean and guaranteed with a lifetime labor warranty.</p></div>
+      <div class="card reveal"><div class="n">02</div><h3>HD Drone Inspections</h3><p>High definition drone imagery of every slope, so hail damage that is invisible from the ground is documented properly.</p></div>
+      <div class="card reveal"><div class="n">03</div><h3>Insurance Claim Support</h3><p>We prepare the documentation, meet your inspector on the roof, and make sure nothing gets missed or underpaid.</p></div>
+      <div class="card reveal"><div class="n">04</div><h3>Roof Repair</h3><p>Leaks, missing shingles, flashing and storm damage, repaired the right way instead of patched over.</p></div>
+      <div class="card reveal"><div class="n">05</div><h3>Commercial Roofing</h3><p>Roofing for Fort Worth businesses, planned around your hours so your work never stops for ours.</p></div>
+      <div class="card reveal"><div class="n">06</div><h3>Gutters, Skylights and Coatings</h3><p>The finishing work that protects the roof you just paid for, including gutters, skylights and roof coatings.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">How a storm claim works with us</h2>
+    <p class="sub reveal">Most homeowners have never filed a roof claim. We have, hundreds of times, and we guide every step.</p>
+    <div class="steps">
+      <div class="step reveal"><b>Drone inspection</b><p>We fly your roof and photograph every slope, valley and vent, catching hail hits the eye cannot see.</p></div>
+      <div class="step reveal"><b>Damage report</b><p>You get the images and a clear report of what is damaged, what is fine, and what we recommend.</p></div>
+      <div class="step reveal"><b>We meet your inspector</b><p>When the insurance inspector climbs up, we are beside them with the documentation, point by point.</p></div>
+      <div class="step reveal"><b>Build and warranty</b><p>Your new roof goes on, and our lifetime labor warranty, backed by a national insurance company, goes with it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="inner">
+    <h2 class="reveal">What Fort Worth customers say</h2>
+    <p class="sub reveal">Real Google reviews for Balanced Roofing, 5.0 stars across the board.</p>
+    <div class="rgrid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Michael was patient, professional and detail oriented. He provided HD drone images for us to file claim with the insurance company, waited and walked through the roof with the insurance company inspector, documented all details to make sure our claim was approved. We wouldn't have noticed our roof damage, and couldn't have got a new roof without Michael's professional help."</p><span>GOOGLE REVIEW, INSURANCE CLAIM</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"The representative that I use for this company was Mike Jones through the whole process. During the roof installation I got to watch the workers on the roof by drone, this was very impressive. I will highly recommend this company to anyone needing a new roof."</p><span>GOOGLE REVIEW, ROOF REPLACEMENT</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Michael and his team have continued to amaze me in taking care of my clients. I'd highly recommend them for any of your roofing needs regardless of what they are."</p><span>GOOGLE REVIEW</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Michael and his team did a very good job replacing our roof. We had to replace our roof due to hail damages and he walked us through the process."</p><span>GOOGLE REVIEW, HAIL DAMAGE</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"They worked very hard to get it done including gutters, fence and pergola. We are very satisfied with the work they have done, especially the color option we chose for our new roof. We got a lot of compliments from our neighbors and friends."</p><span>GOOGLE REVIEW, FULL REPLACEMENT</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="inner">
+    <div>
+      <h2>Not sure what the storm did to your roof?</h2>
+      <p>One drone flight answers it. No obligation, just clear photos of your own roof.</p>
+    </div>
+    <a href="tel:+18177713094">Call (817) 771-3094</a>
+  </div>
+</div>
+
+<section id="faq">
+  <div class="inner">
+    <h2 class="reveal">Questions we hear after every storm</h2>
+    <p class="sub reveal">Straight answers, the same ones we give on the doorstep.</p>
+    <details class="reveal"><summary>Can hail really damage a roof without leaking?</summary><p>Yes. Hail bruises and cracks shingles long before water gets in, which is why a drone inspection matters: the damage is documented while your claim window is still open.</p></details>
+    <details class="reveal"><summary>Do you meet the insurance inspector?</summary><p>We do. We walk the roof with your inspector and the drone documentation in hand, so damaged areas are not overlooked.</p></details>
+    <details class="reveal"><summary>What does the lifetime labor warranty cover?</summary><p>Our workmanship for the life of the roof, backed by a national insurance company. If our installation ever fails, we put it right.</p></details>
+    <details class="reveal"><summary>Do you work on commercial roofs?</summary><p>Yes, residential and commercial roofing across Dallas Fort Worth, including repairs, replacements and coatings.</p></details>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="inner">
+    <h2 class="reveal">Talk to Balanced Roofing</h2>
+    <p class="sub reveal">Call for an inspection, or send us photos of a roof you are worried about. Straight answers, no pressure.</p>
+    <div class="cgrid">
+      <div class="cbox reveal"><b>PHONE</b><p>(817) 771-3094</p></div>
+      <div class="cbox reveal"><b>OFFICE</b><p>777 Main St, Suite 600<br>Fort Worth, TX 76102</p></div>
+      <div class="cbox reveal"><b>HOURS</b><p>Mon to Fri: 7 AM to 9 PM<br>Sat: 9 AM to 6 PM<br>Sun: 12 PM to 6 PM</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Balanced Roofing, Fort Worth, TX &nbsp;|&nbsp; (817) 771-3094<br>
+  Concept homepage design prepared for Balanced Roofing.
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return; const el=e.target,end=parseFloat(el.dataset.count),dec=parseInt(el.dataset.dec||0);let t0=null;
+    const tick=t=>{if(!t0)t0=t;const p=Math.min((t-t0)/1200,1);el.textContent=(end*p).toFixed(dec);if(p<1)requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);cio.unobserve(el);
+  }),{threshold:.4});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>

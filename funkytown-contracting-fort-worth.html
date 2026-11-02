@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FunkyTown Contracting | Fort Worth Roofing and Remodeling Since 2016</title>
+<style>
+  :root{ --plum:#3b0764; --plum2:#581c87; --amb:#f59e0b; --amb-l:#fbbf24; --cream:#fff8ec; --ink:#2b2135; --mut:#6f5c84; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--cream)}
+  .topbar{background:var(--plum);color:#fde68a;text-align:center;padding:9px 12px;font-size:14px}
+  .topbar b{color:#fff}
+  header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:13px 6%;background:rgba(255,248,236,.97);border-bottom:3px solid var(--amb)}
+  .logo{font-size:24px;font-weight:800;color:var(--plum)}
+  .logo span{color:#d97706}
+  .logo small{display:block;font-size:10px;font-weight:700;color:#a08bb5;letter-spacing:3px}
+  nav a{color:#4c3a5e;text-decoration:none;margin-left:24px;font-size:15px}
+  .callbtn{background:var(--plum);color:#fff!important;padding:11px 20px;border-radius:8px;font-weight:700}
+  .hero{background:linear-gradient(125deg,var(--plum) 55%,var(--plum2));color:#fff;padding:88px 6% 0;overflow:hidden}
+  .wrap{max-width:1140px;margin:0 auto}
+  .badge{display:inline-block;background:rgba(245,158,11,.16);border:1px solid var(--amb);color:#fcd34d;padding:7px 14px;border-radius:30px;font-size:13px;font-weight:700;margin-bottom:22px}
+  .hero h1{font-size:56px;line-height:1.08;max-width:760px}
+  .hero h1 span{color:var(--amb-l)}
+  .hero p{margin:22px 0 30px;font-size:19px;color:#ddd0ec;max-width:580px;line-height:1.6}
+  .actions a{display:inline-block;text-decoration:none;padding:15px 28px;border-radius:9px;font-weight:700;font-size:16px;margin-right:14px;transition:.25s}
+  .primary{background:var(--amb);color:var(--plum)}.primary:hover{transform:translateY(-2px)}
+  .ghost{border:2px solid #8b76a8;color:#fff}
+  .wave{display:block;width:100%;height:70px;margin-top:56px}
+  .marquee{background:var(--amb);color:var(--plum);overflow:hidden;white-space:nowrap;padding:13px 0;font-weight:800;letter-spacing:1.5px;font-size:15px}
+  .marquee div{display:inline-block;animation:mq 26s linear infinite}
+  @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  section{padding:74px 6%}
+  .inner{max-width:1140px;margin:0 auto}
+  h2{font-size:35px;margin-bottom:12px;color:var(--plum)}
+  .sub{color:var(--mut);font-size:17px;margin-bottom:40px;max-width:660px;line-height:1.6}
+  .story{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  .story .big{font-family:Georgia,serif;font-size:25px;line-height:1.55;color:var(--plum)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fact{background:#fff;border:1px solid #f0e0bd;border-radius:14px;padding:22px}
+  .fact b{display:block;font-size:22px;color:var(--plum)}
+  .fact span{font-size:13px;color:var(--mut)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .card{background:#fff;border:1px solid #f0e0bd;border-radius:16px;padding:28px;transition:.3s}
+  .card:hover{transform:translateY(-5px) rotate(-.4deg);box-shadow:0 16px 32px rgba(59,7,100,.13)}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card h3:before{content:"";display:block;width:34px;height:5px;background:var(--amb);border-radius:3px;margin-bottom:14px}
+  .card p{color:var(--mut);line-height:1.6;font-size:15px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;counter-reset:st}
+  .step{background:#fff;border:1px solid #f0e0bd;border-radius:16px;padding:28px;position:relative}
+  .step:before{counter-increment:st;content:counter(st);font-size:42px;font-weight:800;color:var(--amb);opacity:.35;position:absolute;top:8px;right:16px}
+  .step b{display:block;font-size:17px;margin-bottom:8px}
+  .step p{color:var(--mut);font-size:15px;line-height:1.6}
+  details{border:1px solid #f0e0bd;border-radius:12px;padding:18px 22px;margin-bottom:12px;background:#fff}
+  summary{font-weight:700;cursor:pointer;font-size:16px}
+  details p{color:var(--mut);line-height:1.6;margin-top:10px;font-size:15px}
+  .contact{background:var(--plum);color:#fff}
+  .contact h2{color:#fff}.contact .sub{color:#c4b2da}
+  .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .cbox{border:1px solid #5b3a80;border-radius:14px;padding:26px}
+  .cbox b{color:var(--amb-l);display:block;margin-bottom:8px;font-size:13px;letter-spacing:1.6px}
+  .cbox p{line-height:1.7;color:#ece4f5}
+  footer{background:#2a0549;color:#a68fc4;text-align:center;padding:26px 12px;font-size:13px;line-height:1.7}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:860px){.story{grid-template-columns:1fr}.hero h1{font-size:37px} nav a{margin-left:13px}}
+</style>
+</head>
+<body>
+<div class="topbar">ROOFING AND REMODELING, FORT WORTH PROUD &nbsp;|&nbsp; <b>(817) 917-5938</b></div>
+<header>
+  <div class="logo">FUNKYTOWN <span>CONTRACTING</span><small>FORT WORTH, TEXAS</small></div>
+  <nav>
+    <a href="#story">Our Story</a><a href="#services">Services</a><a href="#process">Process</a>
+    <a href="#contact" class="callbtn">Call (817) 917-5938</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="badge">FORT WORTH OWNED SINCE 2016</div>
+    <h1>Covering the world in spots, <span>one home at a time.</span></h1>
+    <p>Roofs, remodels and everything between, from a Fort Worth crew that named itself after this city on purpose. Where the funk don't stop, and neither does the craftsmanship.</p>
+    <div class="actions">
+      <a class="primary" href="tel:+18179175938">Call (817) 917-5938</a>
+      <a class="ghost" href="#services">See what we do</a>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,40 L1440,70 L0,70 Z" fill="#f59e0b"/></svg>
+</div>
+<div class="marquee"><div>ROOFING &nbsp;✦&nbsp; REMODELING &nbsp;✦&nbsp; GENERAL CONTRACTING &nbsp;✦&nbsp; TILE AND BACKSPLASH &nbsp;✦&nbsp; ACCESSIBILITY RETROFITS &nbsp;✦&nbsp; FORT WORTH, TEXAS &nbsp;✦&nbsp; ROOFING &nbsp;✦&nbsp; REMODELING &nbsp;✦&nbsp; GENERAL CONTRACTING &nbsp;✦&nbsp; TILE AND BACKSPLASH &nbsp;✦&nbsp; ACCESSIBILITY RETROFITS &nbsp;✦&nbsp; FORT WORTH, TEXAS &nbsp;✦&nbsp;</div></div>
+
+<section id="story">
+  <div class="inner story">
+    <div class="reveal">
+      <h2>A Fort Worth original</h2>
+      <p class="big">"Covering the world in spots one home at a time, where the funk don't stop!"</p>
+      <p class="sub" style="margin-top:18px;margin-bottom:0">That is not agency copy. That is how FunkyTown describes itself, and it is exactly how the company works: bold name, serious craft, and a crew whose customers are the same people they see at the grocery store.</p>
+    </div>
+    <div class="facts">
+      <div class="fact reveal"><b>2016</b><span>IN BUSINESS SINCE</span></div>
+      <div class="fact reveal"><b>Todd Daniel</b><span>OWNER AND PRESIDENT</span></div>
+      <div class="fact reveal"><b>Roof + Remodel</b><span>ONE CREW, WHOLE HOUSE</span></div>
+      <div class="fact reveal"><b>Fort Worth</b><span>BASED ON W BELKNAP ST</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">Roofing and remodeling, one crew</h2>
+    <p class="sub reveal">Most homeowners need a roofer one year and a remodeler the next. FunkyTown is both, so one call covers the whole house.</p>
+    <div class="grid">
+      <div class="card reveal"><h3>Roofing</h3><p>Repairs and replacements from a local crew that treats your roof like it covers our own house.</p></div>
+      <div class="card reveal"><h3>General Contracting</h3><p>One accountable team coordinating your whole project, start to finish, no hand offs and no runaround.</p></div>
+      <div class="card reveal"><h3>Remodeling</h3><p>Kitchens, bathrooms and living spaces rebuilt with the detail that makes a house feel new again.</p></div>
+      <div class="card reveal"><h3>Backsplash and Tile</h3><p>The finishing touches that pull a kitchen or bath together, measured twice and set once.</p></div>
+      <div class="card reveal"><h3>Accessibility Retrofitting</h3><p>Thoughtful design and retrofitting that keeps Fort Worth homeowners comfortable and independent at home.</p></div>
+      <div class="card reveal"><h3>Balusters and Detail Carpentry</h3><p>Stairs, rails and trim finished with care, because the small details are what you notice every day.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">How a FunkyTown project runs</h2>
+    <p class="sub reveal">Simple, owner led, and clear at every step.</p>
+    <div class="steps">
+      <div class="step reveal"><b>Walk the home together</b><p>We look at the roof, the rooms, or both, and talk honestly about what needs doing and what can wait.</p></div>
+      <div class="step reveal"><b>One clear quote</b><p>The whole job in one number, from the one crew doing all of it. No juggling three contractors.</p></div>
+      <div class="step reveal"><b>Build, with the owner on it</b><p>FunkyTown is owner led, so the buck stops with a person you can call, not a call center.</p></div>
+      <div class="step reveal"><b>Walk it again, together</b><p>We finish by walking the work with you, top to bottom, until it is right.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="inner">
+    <h2 class="reveal">Quick answers</h2>
+    <p class="sub reveal">What Fort Worth homeowners ask first.</p>
+    <details class="reveal"><summary>Do you do roofs and remodels, or do I need two companies?</summary><p>One company, ours. Roofing and general contracting sit under the same roof here, literally, which keeps schedules and standards in one place.</p></details>
+    <details class="reveal"><summary>How long have you been in Fort Worth?</summary><p>FunkyTown Contracting started in 2016 and is based on West Belknap Street in Fort Worth.</p></details>
+    <details class="reveal"><summary>Who runs my project?</summary><p>The company is led by its owner, Todd Daniel. Owner led means decisions happen fast and accountability has a name.</p></details>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="inner">
+    <h2 class="reveal">Talk to FunkyTown Contracting</h2>
+    <p class="sub reveal">Roof trouble, a remodel in mind, or a home that needs both? Call and tell us what you are dreaming up.</p>
+    <div class="cgrid">
+      <div class="cbox reveal"><b>PHONE</b><p>(817) 917-5938</p></div>
+      <div class="cbox reveal"><b>BASED IN</b><p>350 W Belknap St<br>Fort Worth, TX</p></div>
+      <div class="cbox reveal"><b>HOURS</b><p>Monday to Saturday<br>8 AM to 7 PM</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  FunkyTown Contracting, Fort Worth, TX &nbsp;|&nbsp; (817) 917-5938<br>
+  Concept homepage design prepared for FunkyTown Contracting.
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
