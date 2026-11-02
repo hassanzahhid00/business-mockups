@@ -469,6 +469,7 @@ async function loadStatuses(){
     const r=await fetch('statuses.json',{cache:'no-store'});
     if(r.ok){const d=await r.json();const ov=d.overrides||{};
       LEADS.forEach(l=>{if(ov[l.n]){l.st=ov[l.n];if(ov[l.n]==='sent')l.next='Sent via the dashboard sender. Watch inbox for reply or bounce, bump in 3 to 4 days if silent.';}});
+      if(d.lastRunAt){const t=new Date(d.lastRunAt);const f=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Karachi',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',hour12:true}).format(t);document.getElementById('todayLine').textContent='Sender last ran: '+f+' PKT'+(d.lastRunNote?' · '+d.lastRunNote:'');}
     }
   }catch(e){}
 }

@@ -127,6 +127,15 @@ def main() -> int:
     today = datetime.now(PKT).strftime("%Y-%m-%d")
     already = int(status["sentCounts"].get(today, 0))
 
+    if not args.dry_run:
+        status["lastRunAt"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        status["lastRunNote"] = (
+            f"Send run: lead={args.lead or 'next batch'}, override={args.override}"
+        )
+        STATUS_FILE.write_text(
+            json.dumps(status, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+
     if args.lead:
         targets = [q for q in queue if q["name"].lower() == args.lead.strip().lower()]
         if not targets:
