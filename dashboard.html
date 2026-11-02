@@ -101,7 +101,10 @@ footer{margin-top:44px;text-align:center;color:var(--mut2);font-size:12.5px;line
       <h1>Lead <span class="g">Command Center</span></h1>
       <p>Every Texas home services lead in one place: website status, socials, contact details, the exact email for each business, and live mockup links. Click any lead to open its full file.</p>
     </div>
-    <div class="livepill"><span class="dot"></span><span id="todayLine">Outreach pipeline · updated Nov 3, 2026</span></div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <div class="livepill"><span class="dot"></span><span id="todayLine">Outreach pipeline · updated Nov 3, 2026</span></div>
+      <a href="https://github.com/hassanzahhid00/business-mockups/actions/workflows/send-emails.yml" target="_blank" rel="noopener" style="background:var(--grad);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 20px;border-radius:999px;box-shadow:0 10px 24px rgba(139,92,246,.4)">✉ Send Emails</a>
+    </div>
   </header>
 
   <section class="stats" id="stats"></section>
@@ -386,6 +389,7 @@ Hassan`},
 const grid=document.getElementById('grid'),tabsEl=document.getElementById('tabs'),statsEl=document.getElementById('stats');
 const q=document.getElementById('q'),tradeSel=document.getElementById('tradeSel'),campSel=document.getElementById('campSel');
 let curTab='all';
+function buildChrome(){
 const counts={all:LEADS.length};Object.keys(STATUS).forEach(k=>counts[k]=LEADS.filter(l=>l.st===k).length);
 const mockCount=LEADS.filter(l=>l.mock).length;
 statsEl.innerHTML=
@@ -396,7 +400,8 @@ statsEl.innerHTML=
  '<div class="stat"><b>'+LEADS.filter(l=>l.web.s==='none'||l.web.s==='lapsed').length+'</b><span>Without a website</span><small>The core target group</small></div>'+
  '<div class="stat"><b>'+counts.dropped+'</b><span>Dropped</span><small>Dead emails, bounces, quality</small></div>';
 const tabDefs=[['all','All Leads'],['queued','Coming Next'],['inprogress','In Progress'],['sent','Sent'],['mockup','Mockup Ready'],['dropped','Dropped']];
-tabsEl.innerHTML=tabDefs.map(d=>'<button class="tab'+(d[0]==='all'?' on':'')+'" data-tab="'+d[0]+'">'+d[1]+'<span class="cnt">'+counts[d[0]]+'</span></button>').join('');
+tabsEl.innerHTML=tabDefs.map(d=>'<button class="tab'+(d[0]===curTab?' on':'')+'" data-tab="'+d[0]+'">'+d[1]+'<span class="cnt">'+counts[d[0]]+'</span></button>').join('');
+}
 tabsEl.addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;curTab=b.dataset.tab;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t===b));render();});
 [...new Set(LEADS.map(l=>l.t))].sort().forEach(t=>tradeSel.insertAdjacentHTML('beforeend','<option>'+t+'</option>'));
 [...new Set(LEADS.map(l=>l.camp))].sort().forEach(t=>campSel.insertAdjacentHTML('beforeend','<option>'+t+'</option>'));
@@ -435,6 +440,7 @@ function openLead(i){
    '<div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut2);font-weight:700;margin-bottom:7px">Platforms and profiles</div><div class="socs">'+socs+'</div>'+
    '<p style="font-size:14px;color:var(--mut);line-height:1.65;margin-top:12px">'+esc(l.note)+'</p>'+
    (l.mock?'<a class="mockbtn" href="'+l.mock+'" target="_blank" rel="noopener">🖥 Open the live mockup</a>':'')+
+   (l.st==='queued'?'<a class="mockbtn" href="https://github.com/hassanzahhid00/business-mockups/actions/workflows/send-emails.yml" target="_blank" rel="noopener">✉ Send this email</a><div style="font-size:12.5px;color:var(--mut2);margin-top:9px;line-height:1.55">Opens the sender page on GitHub. Click <b>Run workflow</b>, type this business name in the optional lead box to send only this one, or leave it empty to send the next batch of up to 5. The daily cap of 5 applies unless you tick the override box there.</div>':'')+
    (l.next?'<div class="nextline"><b>Next step:</b> '+esc(l.next)+'</div>':'')+
    '<div class="emailbox"><div class="eh"><b>✉ Email for this lead</b>'+(l.body?'<button class="copybtn" id="cpBtn">Copy email</button>':'')+'</div>'+
    (l.subj?'<div class="esub">'+esc(l.subj)+'</div>':'')+
@@ -448,7 +454,15 @@ function openLead(i){
 function closeModal(){modal.classList.remove('show');document.body.style.overflow='';}
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
-render();
+async function loadStatuses(){
+  try{
+    const r=await fetch('statuses.json',{cache:'no-store'});
+    if(r.ok){const d=await r.json();const ov=d.overrides||{};
+      LEADS.forEach(l=>{if(ov[l.n]){l.st=ov[l.n];if(ov[l.n]==='sent')l.next='Sent via the dashboard sender. Watch inbox for reply or bounce, bump in 3 to 4 days if silent.';}});
+    }
+  }catch(e){}
+}
+loadStatuses().then(()=>{buildChrome();render();});
 </script>
 </body>
 </html>

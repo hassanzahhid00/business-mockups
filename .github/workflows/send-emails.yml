@@ -1,0 +1,51 @@
+name: Send outreach emails
+
+on:
+  workflow_dispatch:
+    inputs:
+      lead:
+        description: "Optional: send only this business name (leave empty for the next batch)"
+        required: false
+        default: ""
+      override:
+        description: "Go beyond the daily cap of 5"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Send emails via PurelyMail
+        env:
+          PURELYMAIL_USER: ${{ secrets.PURELYMAIL_USER }}
+          PURELYMAIL_APP_PASSWORD: ${{ secrets.PURELYMAIL_APP_PASSWORD }}
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.lead }}" ]; then ARGS="$ARGS --lead \"${{ inputs.lead }}\""; fi
+          if [ "${{ inputs.override }}" = "true" ]; then ARGS="$ARGS --override"; fi
+          eval "python3 send_emails.py $ARGS"
+
+      - name: Save updated queue and statuses
+        run: |
+          git config user.name "Lead Dashboard Bot"
+          git config user.email "hassan.zahid@developers-hub.co.uk"
+          git add send_queue.json statuses.json
+          if git diff --cached --quiet; then
+            echo "No changes to save."
+          else
+            git commit -m "Update outreach queue and statuses after send run"
+            git push
+          fi
