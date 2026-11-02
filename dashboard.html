@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Command Center · Hassan Zahid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a12; --bg2:#0b0f1a; --card:#101623; --card2:#131b2e; --line:#1e293d;
+  --txt:#e7ecf5; --mut:#8b98b0; --mut2:#5d6b85;
+  --ind:#6366f1; --vio:#a855f7; --emer:#10b981; --amber:#f59e0b; --sky:#38bdf8; --rose:#fb7185;
+  --grad:linear-gradient(120deg,#6366f1,#a855f7 55%,#ec4899);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1100px 550px at 85% -10%,rgba(168,85,247,.14),transparent 60%),radial-gradient(900px 500px at -10% 0%,rgba(99,102,241,.13),transparent 55%),var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;min-height:100vh}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:28px 22px 70px}
+header.top{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;padding:10px 0 22px}
+.brand h1{font-family:Sora,sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.5px;line-height:1.05}
+.brand h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand p{color:var(--mut);margin-top:8px;font-size:14.5px;max-width:560px;line-height:1.55}
+.livepill{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--mut)}
+.livepill .dot{width:9px;height:9px;border-radius:50%;background:var(--emer);box-shadow:0 0 0 0 rgba(16,185,129,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.45)}70%{box-shadow:0 0 0 9px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin:6px 0 24px}
+.stat{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:18px;padding:17px 18px;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad);opacity:.85}
+.stat b{display:block;font-family:Sora,sans-serif;font-size:31px;font-weight:800}
+.stat span{font-size:12.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.stat small{display:block;color:var(--mut2);font-size:12px;margin-top:3px;text-transform:none;letter-spacing:0}
+.tabs{display:flex;flex-wrap:wrap;gap:9px;margin:4px 0 18px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--mut);padding:10px 18px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;font-family:Inter,sans-serif}
+.tab:hover{color:var(--txt);border-color:#33436b;transform:translateY(-1px)}
+.tab.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 22px rgba(139,92,246,.35)}
+.tab .cnt{opacity:.75;font-weight:500;margin-left:5px}
+.controls{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:20px}
+.controls input,.controls select{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:13px;padding:12px 15px;font-size:14px;font-family:Inter,sans-serif;outline:none}
+.controls input{flex:1;min-width:220px}
+.controls input:focus,.controls select:focus{border-color:var(--ind)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:15px}
+.lead{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;padding:19px;cursor:pointer;transition:.22s;position:relative;overflow:hidden}
+.lead:hover{transform:translateY(-3px);border-color:#2f4066;box-shadow:0 16px 34px rgba(0,0,0,.45)}
+.lead .row1{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.lead h3{font-size:16.5px;font-weight:700;line-height:1.3}
+.lead .meta{color:var(--mut);font-size:13px;margin-top:3px}
+.badge{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.b-queued{background:rgba(245,158,11,.14);color:#fbbf24;border:1px solid rgba(245,158,11,.35)}
+.b-sent{background:rgba(16,185,129,.13);color:#34d399;border:1px solid rgba(16,185,129,.35)}
+.b-inprogress{background:rgba(56,189,248,.12);color:#7dd3fc;border:1px solid rgba(56,189,248,.35)}
+.b-mockup{background:rgba(168,85,247,.13);color:#d8b4fe;border:1px solid rgba(168,85,247,.4)}
+.b-dropped{background:rgba(251,113,133,.12);color:#fda4af;border:1px solid rgba(251,113,133,.35)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{font-size:11.5px;padding:4.5px 9px;border-radius:8px;background:#0b1120;border:1px solid var(--line);color:var(--mut)}
+.chip.web-no{color:#fda4af;border-color:rgba(251,113,133,.3)}
+.chip.web-lapsed{color:#fbbf24;border-color:rgba(245,158,11,.3)}
+.chip.web-yes{color:#34d399;border-color:rgba(16,185,129,.3)}
+.chip.rate{color:#fde68a;border-color:rgba(253,230,138,.25)}
+.lead .note{font-size:13px;color:var(--mut);line-height:1.55;margin-top:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lead .foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--mut2)}
+.lead .foot .nx{color:var(--mut)}
+.lead .foot .open{color:#c4b5fd;font-weight:600}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:50px 10px;border:1px dashed var(--line);border-radius:20px;font-size:14.5px}
+.modal{position:fixed;inset:0;background:rgba(3,5,10,.72);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:26px 14px;z-index:50}
+.modal.show{display:flex}
+.sheet{background:var(--bg2);border:1px solid var(--line);border-radius:24px;max-width:780px;width:100%;padding:28px;animation:up .25s ease}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sheet h2{font-family:Sora,sans-serif;font-size:24px;line-height:1.25;padding-right:40px}
+.sheet .sub{color:var(--mut);font-size:14px;margin-top:5px}
+.x{position:absolute;top:18px;right:20px;background:var(--card);border:1px solid var(--line);color:var(--txt);width:36px;height:36px;border-radius:50%;font-size:17px;cursor:pointer}
+.sheetwrap{position:relative}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:11px;margin:20px 0}
+.kv div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.kv span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut2);font-weight:700;margin-bottom:4px}
+.kv b,.kv a{font-size:14px;font-weight:600;word-break:break-word}
+.kv a{color:#a5b4fc;text-decoration:none}
+.kv a:hover{text-decoration:underline}
+.socs{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 6px}
+.soc{font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--mut);text-decoration:none}
+a.soc{color:#c4b5fd}
+a.soc:hover{border-color:var(--vio)}
+.emailbox{margin-top:20px;background:#0a0e18;border:1px solid #263354;border-radius:18px;overflow:hidden}
+.emailbox .eh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 17px;background:linear-gradient(120deg,rgba(99,102,241,.18),rgba(168,85,247,.14));border-bottom:1px solid #263354}
+.emailbox .eh b{font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.copybtn{background:var(--grad);border:none;color:#fff;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.emailbox .esub{padding:13px 17px 0;font-weight:700;font-size:15px}
+.emailbox .ebody{padding:8px 17px 17px;white-space:pre-wrap;font-size:13.5px;line-height:1.65;color:#c9d3e6;max-height:340px;overflow-y:auto}
+.emailbox .enone{padding:15px 17px;color:var(--mut);font-size:13.5px}
+.mockbtn{display:inline-block;margin-top:16px;background:var(--grad);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 20px;border-radius:13px;box-shadow:0 10px 24px rgba(139,92,246,.35)}
+.nextline{margin-top:16px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);color:#bae6fd;border-radius:13px;padding:12px 15px;font-size:13.5px;line-height:1.55}
+footer{margin-top:44px;text-align:center;color:var(--mut2);font-size:12.5px;line-height:1.7}
+@media(max-width:560px){.sheet{padding:21px}.kv{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>Lead <span class="g">Command Center</span></h1>
+      <p>Every Texas home services lead in one place: website status, socials, contact details, the exact email for each business, and live mockup links. Click any lead to open its full file.</p>
+    </div>
+    <div class="livepill"><span class="dot"></span><span id="todayLine">Outreach pipeline · updated Nov 3, 2026</span></div>
+  </header>
+
+  <section class="stats" id="stats"></section>
+
+  <nav class="tabs" id="tabs"></nav>
+
+  <div class="controls">
+    <input id="q" type="text" placeholder="Search by business, city, trade, email or phone...">
+    <select id="tradeSel"><option value="">All trades</option></select>
+    <select id="campSel"><option value="">All campaigns</option></select>
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>
+    Built for Hassan Zahid · Developers Hub · Data verified from each business's own listings and pages · Emails are only used where publicly listed for that business<br>
+    Daily outreach cap: 5 per day unless an exception is ordered · Signature and mockups are attached at send time in PurelyMail
+  </footer>
+</div>
+
+<div class="modal" id="modal"><div class="sheetwrap"><div class="sheet" id="sheet"></div></div></div>
+
+<script>
+const STATUS = {
+  queued:{label:"Coming Next", cls:"b-queued"},
+  inprogress:{label:"In Progress", cls:"b-inprogress"},
+  sent:{label:"Sent", cls:"b-sent"},
+  mockup:{label:"Mockup Ready", cls:"b-mockup"},
+  dropped:{label:"Dropped", cls:"b-dropped"}
+};
+const LEADS = [
+{n:"Rivera Heating Air Conditioning and Refrigeration LLC",t:"HVAC",c:"Spring, TX",ph:"(832) 452-5772",em:"Pjr228@gmail.com",ad:"21319 Bella Flora Ct, Spring, TX 77379",web:{s:"none"},r:"5.0 stars · 12 Google reviews",soc:[["Google listing",null],["Facebook",null],["Instagram",null]],st:"sent",camp:"No Website + Email",note:"Owner operator Pedro Rivera, licensed 12+ years (TDLR TACLB00065888C). Perfect Google score, only social profiles online.",subj:"❄️ Pedro, a perfect 5.0 rating and nowhere for it to live",next:"Sent Nov 3, 00:45. Watch inbox for reply or bounce. Bump in 3 to 4 days if silent.",src:"https://www.google.com/search?q=Rivera+Heating+Air+Conditioning+and+Refrigeration+Spring+TX",body:`Hi Pedro,
+
+Here is the honest problem. You hold a perfect 5.0 rating on Google, you have been licensed for over 12 years, and your customers name you personally when they praise the work. But when a homeowner in Spring searches for AC repair, your business has no website for them to land on. So the search ends at a bigger company with a call center and a worse rating, simply because they have a site and you do not.
+
+A proper website fixes exactly that. Your services on their own pages so Google can rank them, your license number up front where it builds trust, your reviews where a nervous homeowner with a dead AC at 9 PM will actually read them, and a call button that follows them down the page. That is the whole formula, and for an owner operator it works because the trust is already there. It just has no home right now.
+
+I build websites for home service companies. Two from your world: Parker and Sons, an HVAC company site built around getting the phone to ring, with services and booking laid out simply. And Emergency HVAC Squad, a fast, no nonsense site for an AC crew whose customers usually arrive in a panic and need a number in two seconds.
+
+If it helps, I will mock up your homepage first, free, so you can judge the work before spending a single dollar. Like it, we put it on your own domain. Not for you, no hard feelings and the design is yours to keep.
+
+Worth a look?
+
+Thanks for your time,
+Hassan`},
+{n:"Bierman Electrical Services",t:"Electrical",c:"Tomball, TX",ph:"(281) 757-3678",em:"biermanelectrical@gmail.com",ad:"24714 Stanolind Rd, Tomball, TX 77375",web:{s:"lapsed"},r:"Google reviews all 5 star (sampled)",soc:[["Google listing",null],["BBB profile",null]],st:"sent",camp:"No Website + Email",note:"Owner Kevin Bierman. Referral only business. His old domains biermanelectrical.com and a trustab.org page are dead.",subj:"⚡ Kevin, your website died and nobody told your customers",next:"Sent Nov 3, 00:45. Watch inbox. Bump in 3 to 4 days if silent.",body:`Hi Kevin,
+
+Your website died quietly, and I suspect nobody told you what that costs. Biermanelectrical.com no longer opens at all. For an electrician who runs on referrals, that is the worst place to lose people: someone hears your name from a neighbor, Googles you to check you are legit, hits a dead page, and calls the next electrician on the list instead. Your reviews are the frustrating part. People name you, say you were at their home within two hours, and then that trust runs into a wall online.
+
+The good news is you already own the hardest part, the name and the domain. A rebuild does not need to be fancy. Your services, your service area, your reviews, your license details and a big phone number, on a site that loads fast and works on a phone. Referral businesses convert brilliantly once the checking you out step stops failing.
+
+Electrical sites are familiar work for me. DP Electric has a clean site built so each service is easy to find and easier to call from. Electrician Squad is built the same way, service pages written for homeowners, not for other electricians.
+
+I can mock up the new homepage first so you can see it before deciding anything. If you like it, we relaunch on your own domain and your referrals start landing again.
+
+Fair enough?
+
+Thanks for reading,
+Hassan`},
+{n:"Leauvano Plumbing Inc",t:"Plumbing",c:"Houston, TX",ph:"(281) 773-7258",em:"Leauvanoplumbingco@sbcglobal.net",ad:"13870 Foxford Way, Houston, TX",web:{s:"none"},r:"BuildZoom 104 · top 9% of TX contractors",soc:[["Google listing",null],["BuildZoom",null]],st:"sent",camp:"No Website + Email",note:"Owner Richard Leauvano. Licensed, Houston permits current into March 2025, almost zero consumer web presence.",subj:"🔧 Richard, top 9 percent on paper, invisible on Google",next:"Sent Nov 3, 00:46. Watch inbox. Bump in 3 to 4 days if silent.",body:`Hi Richard,
+
+Here is a strange one. On BuildZoom you score in the top 9 percent of licensed contractors in Texas, and your Houston plumbing permits are current into 2025. By every professional measure, business is real and active. But when a homeowner searches your name, what they find is licensing records and permit data. There is no website that says who you are, what you do, and how to hire you. The paper trail of a serious plumber, with none of the storefront.
+
+A website closes that gap. A page that says Leauvano Plumbing, Houston, these are our services, this is our area, here is the number, with your license standing behind it. Homeowners check. The plumber whose name comes with a real website wins the call over the one who exists only in permit databases, even when the second plumber is better. Right now you are the better plumber losing that moment.
+
+Plumbing sites are a big part of my work. Total Plumbing has a straightforward site built around services and fast contact. Big Birge Plumbing is the same idea, a family plumbing company presented the way it deserves, so searches turn into calls.
+
+I will happily design your homepage first, free, so you can see exactly what customers would find. Like it and we launch it on your own domain.
+
+Worth seeing?
+
+Best,
+Hassan`},
+{n:"Jazzy Fresh Commercial Cleaning Services, LLC",t:"Cleaning",c:"Dallas, TX",ph:"(469) 765-6454",em:"jazzyfresh890@gmail.com",ad:"Service area: Dallas",web:{s:"none"},r:"Thumbtack 4.76 · 25 reviews · hired 21x",soc:[["Google listing",null],["Thumbtack",null]],st:"sent",camp:"No Website + Email",note:"Owner Kiara Woodson, in business since 2016, background checked on Thumbtack. Books through Thumbtack and phone only.",subj:"🧹 Kiara, Thumbtack owns your bookings, your own site would hand them back",next:"Sent Nov 3, 00:47. Watch inbox. Bump in 3 to 4 days if silent.",body:`Hi Kiara,
+
+Let me guess how most of your work arrives. A customer finds you on Thumbtack, where you have earned a 4.76 rating across 25 reviews, background checked, hired again and again since 2016. That platform earns its cut, it controls the conversation, and your next customer always belongs to Thumbtack first and you second. Meanwhile, someone in Dallas who searches for a cleaning company directly finds no website for Jazzy Fresh at all, so the direct booking, the one with no middleman, never happens.
+
+Your own website changes who owns the customer. Commercial janitorial and house cleaning on clear pages, your reviews where a property manager or a homeowner will read them before they ever open Thumbtack, and a simple request form that lands in your inbox, not an app that charges you to reply. Ten years of reputation deserves a front door of its own.
+
+Cleaning sites are right in my lane. LA Clean is a cleaning company site built around services and easy booking requests. House Clean Los Angeles is the same approach, reviews and services up front, nothing in the way of the enquiry.
+
+If you want, I will mock up your homepage first, free, using your real services and reviews, so you can see what direct bookings would look like before you decide anything.
+
+Sound good?
+
+Thanks for your time,
+Hassan`},
+{n:"Dallas Cleaning Crew",t:"Cleaning",c:"Dallas, TX",ph:"(972) 591-7841",em:"thecleaningcrew1985@gmail.com",ad:"9600 Forest Lane, Dallas, TX",web:{s:"none"},r:"Commercial accounts: schools, churches, clinics",soc:[["Google listing",null]],st:"sent",camp:"No Website + Email",note:"Residential and commercial cleaning. Two directories independently confirm name, phone and address. No website at all.",subj:"🏢 Your crews clean schools and clinics, but Google finds only directories",next:"Sent Nov 3, 00:48. Watch inbox. Bump in 3 to 4 days if silent.",body:`Hi Dallas Cleaning Crew team,
+
+You clean schools, churches and medical offices around Dallas. Those are trust based contracts, won by people who checked you out first. So here is the problem: when a facility manager or a pastor does that checking today, Google shows them directory listings and a Gmail address. Nothing that looks like the established commercial cleaning company you actually are. For residential work that might not matter. For commercial contracts, that first impression quietly costs you bids you never hear about.
+
+A proper website fixes the credibility gap in one move. Commercial and residential services laid out clearly, the kinds of facilities you already handle named on the page, a quote request form, and a Dallas address and phone number presented like a company, not a listing. It takes an afternoon of your time, mostly approving the design.
+
+This is exactly the kind of site I build. House Clean Los Angeles presents a cleaning company the way commercial clients want to see one, services clear and contact easy. LA Clean is built the same way, clean, fast and made to turn searches into enquiries.
+
+I will design your homepage first, free, so you can judge it with your own eyes before any commitment. If it looks like the company you run, we put it on your own domain.
+
+Worth a look?
+
+Best,
+Hassan`},
+{n:"Superior Paint Works Inc",t:"Painting",c:"Houston, TX",ph:"(713) 688-7328",em:"superiorpaintworksinc@gmail.com",ad:"5918 W 34th St # D, Houston, TX 77092",web:{s:"none"},r:"Angi 5.0 (4) · HomeAdvisor 4.9 (11)",soc:[["Google listing",null],["Angi",null],["HomeAdvisor",null]],st:"queued",camp:"No Website + Email",note:"Owner Wayne Miller, painting Houston since 1986, fully insured. Email verified on the business's own print ad.",subj:"🎨 Wayne, painting Houston since 1986 and Google cannot find you",next:"Queue position 1. Ready to send in the next batch.",body:`Hi Wayne,
+
+Thirty nine years of painting in Houston, fully insured, near perfect ratings on Angi and HomeAdvisor, and a homeowner searching for a painter tonight will never see your name. Not because of your work. Because Superior Paint Works has no website, and search results belong to whoever shows up online. The companies getting those calls are not better painters. They are just visible.
+
+A website puts your record where people actually look. Your services in plain words, your ratings up front where they calm a nervous homeowner down, your phone number one tap away, and a simple quote request that lands in your inbox. For a company with your history, the site does not need to sell hard. It just needs to exist and look like the business you have run since 1986.
+
+Painting sites are familiar work for me. Elkhorn Painting has a clean site built to turn searches into quote requests. I also built the home service sites like Total Plumbing, simple and fast, made for phones because that is where the searching happens.
+
+I will mock up your homepage first, free, with your real services and ratings on it, so you can judge the work before spending anything. Like it, we launch it on your own domain.
+
+Worth a look?
+
+Thanks for your time,
+Hassan`},
+{n:"DDD Construction",t:"Roofing",c:"Dallas, TX",ph:"(214) 278-4300",em:"armando.empire@gmail.com",ad:"325 North St. Paul Street Suite 3100, Dallas, TX 75201",web:{s:"none"},r:"5.0 stars · 4 Google reviews",soc:[["Google listing",null],["Facebook",null]],st:"queued",camp:"No Website + Email",note:"Family owned. Roofing, concrete and outdoor living. Their only web presence is a Facebook page.",subj:"🏠 Armando, your roofing work lives on Facebook and nowhere else",next:"Queue position 2. Ready to send in the next batch.",body:`Hi Armando,
+
+Here is the gap I keep seeing with good contractors. DDD does roofing, concrete and outdoor living, your Google rating is a perfect 5.0, and the only place any of it lives online is a Facebook page. After a Dallas storm, homeowners do not scroll Facebook looking for a roofer. They Google, they compare whoever has a website, and they call from that list. A family business doing your quality of work should be on that list every single time.
+
+A proper site fixes it in one move. Roofing front and center, your other services on their own pages, your reviews where a homeowner with a leaking ceiling will read them at midnight, and your number impossible to miss. Downtown Dallas address, family owned, five star record: that is a company a website makes money for.
+
+Roofing is a big part of my work. Leal Roofing has a clean site built around storm work and inspections. Severe Weather Roofing is built the same way, reviews first, phone number everywhere it should be.
+
+Happy to mock up your homepage first, free, so you can see it before deciding anything at all.
+
+Fair enough?
+
+Best,
+Hassan`},
+{n:"JS Home Repairs",t:"Painting / Handyman",c:"Houston, TX",ph:"(346) 546-2109",em:"homeservicecontractor2@gmail.com",ad:"17243 Desert Maize Ln, Houston, TX 77095",web:{s:"none"},r:"5.0 stars · 6 Google reviews",soc:[["Google listing",null]],st:"queued",camp:"No Website + Email",note:"Painting is one of several services (Google lists them mainly as handyman). Repeat customers in reviews.",subj:"🔨 Five stars, repeat customers, and no website to send them to",next:"Queue position 3. Ready to send in the next batch.",body:`Hi JS Home Repairs team,
+
+Your reviews tell the story: 5.0 stars, customers who come back and send their neighbors. What they cannot do is send those neighbors anywhere. There is no website for JS Home Repairs, so every referral has to dig up a phone number from a directory listing and hope it is current. Some do not bother, and that work quietly goes to a competitor with a worse record and a better web presence.
+
+A simple site closes that leak. Painting, repairs and your other services on clear pages, your reviews up front, and a number that is one tap on a phone. It does not need to be big. It needs to be the place your happy customers can point to.
+
+I build sites for home service companies. Total Plumbing is a straightforward one, services easy to find, contact even easier. Elkhorn Painting is the same idea for a painter, clean and built to bring in quote requests.
+
+I can design your homepage first, free, before you commit to anything. See it, judge it, then decide.
+
+Sound fair?
+
+Thanks for reading,
+Hassan`},
+{n:"A & V's Painting",t:"Painting",c:"Dallas, TX",ph:"(214) 445-7773",em:"abelspainting8@gmail.com",ad:"Service area: Dallas",web:{s:"none"},r:"Owner operated · advertises via classified ads",soc:[["Google listing",null]],st:"queued",camp:"No Website + Email",note:"Owner Vanessa Brady. Interior, exterior and drywall repair. Email username is Abel, likely a partner account. Softest verification of the queue.",subj:"🖌️ Vanessa, your painting ads work hard for a business with no home online",next:"Queue position 4. Ready to send in the next batch.",body:`Hi Vanessa,
+
+You are out there hustling for painting work, posting ads, answering calls, doing interiors, exteriors and drywall repair across Dallas. And when someone who saw your ad wants to check you out before calling, there is nothing to check. No website, no reviews page, no gallery. Just a phone number. Plenty of homeowners will not call a painter they cannot look at first, so the ads work harder than they should for the calls they bring.
+
+Your own homepage changes that math. Photos of your work, your services in plain words, and a simple way to request a quote. It makes every ad you post worth more, because the people who check first, and most do, find a real business waiting.
+
+Painting and home service sites are my specialty. Elkhorn Painting has a clean one that brings in quote requests. Texas Landscape is another of mine, built heavy on real job photos, which is exactly what sells painting work too.
+
+I will mock up your homepage first, free, so there is zero risk in looking. Like it, we put it on your own domain.
+
+Worth seeing?
+
+Best,
+Hassan`},
+{n:"HiDef Lawn Care and Power Washing",t:"Landscaping",c:"Austin, TX",ph:"(512) 730-1725",em:"hideflawns512@gmail.com",ad:"Service area: Austin",web:{s:"none"},r:"In business since 2022 · HomeGuide listed",soc:[["Google listing",null],["Facebook",null],["HomeGuide",null]],st:"queued",camp:"No Website + Email",note:"Facebook only business, actively posting for customers. Email confirmed in their own page post text with matching phone.",subj:"🌿 Your Austin lawn posts are great. They link to nothing",next:"Queue position 5. Ready to send in the next batch.",body:`Hi HiDef team,
+
+Your posts do everything right. Friendly, local, real services, free estimates, a phone number right there. Then a homeowner who likes what they see taps for more and lands on a Facebook page, because that is all there is. No website, no service pages for Google to rank, no gallery of the yards you have transformed. Austin homeowners search Google for lawn care every single day, and right now HiDef is invisible in the place that matters most.
+
+A website gives your hustle somewhere to land. Mowing, clean ups, tree trimming and power washing on their own pages, photos of your work, your service area, and a quote request that comes straight to you. You keep posting the way you already do, and the site catches the people the posts convince.
+
+Landscaping sites are right in my lane. Texas Landscape is built around big real photos and simple contact. New Hampshire Landscape Garden is the same approach, services clear and the phone never far away.
+
+I will build your homepage mockup first, free, with your own style all over it. Judge it with your eyes, then decide.
+
+Sound good?
+
+Thanks for your time,
+Hassan`},
+{n:"Ariel's Plumbing",t:"Plumbing",c:"Austin, TX",ph:"(512) 659-2751",em:"a59colmenas@yahoo.com",ad:"Service area: Austin (Wells Branch)",web:{s:"none"},r:"Neighborhood recommended vendor",soc:[["Wells Branch vendor list",null]],st:"queued",camp:"No Website + Email",note:"Sole operator Ariel. On the Wells Branch Neighborhood Association recommended vendor list. Single source verification, treat with care.",subj:"🔧 Ariel, Wells Branch trusts you. The rest of Austin cannot find you",next:"Queue position 6. Ready to send in the next batch.",body:`Hi Ariel,
+
+You are on the Wells Branch recommended vendor list, which says a lot, because neighbors only recommend a plumber who showed up, fixed it properly and charged fairly. That kind of trust is the hardest thing in this trade to earn. Here is the catch: it only exists inside that neighborhood list. A homeowner two suburbs over with water on the floor searches Google, and Ariel's Plumbing simply is not there. No website, no listing, nothing to call.
+
+A basic website would carry your reputation further than word of mouth can walk. Your services, your area, your number big and clear, and the recommendation you already earned sitting right on the page. Plumbers with half your neighborhood trust get found because they have that one page. You should too.
+
+Plumbing sites are a big part of my work. Total Plumbing has a clean, fast site built around getting the call. Big Birge Plumbing is a family plumbing company presented the same way, simple and trustworthy.
+
+I will mock up your homepage first, free, no pressure attached. If you like what Austin would see, we put it on your own domain.
+
+Worth a look?
+
+Best,
+Hassan`},
+{n:"Sparks Electricians",t:"Electrical",c:"Dallas, TX",ph:"(469) 914-9927",em:"No public email found",ad:"120 Turtle Creek Blvd, Dallas, TX 75207",web:{s:"none"},r:"4.8 stars · 19 Google reviews",soc:[["Google listing",null]],st:"mockup",camp:"Mockup Campaign",note:"Open 24 hours. Lighting, outlets, smoke detectors, smart home cameras and doorbells. No email published anywhere after two full hunts.",subj:"⚡ Sparks, I built the homepage you don't have yet",mock:"https://hassanzahhid00.github.io/business-mockups/sparks-electricians-dallas.html",next:"Mockup live. Parked Nov 3: no email exists. Route would be phone or a supplied address.",body:`Hi Sparks team,
+
+I was looking up electricians in Dallas and noticed something: you are open 24 hours, your Google reviews are genuinely great, and you have no website at all. When a Dallas homeowner's power dies at 2 AM, they Google, they find your reviews, and then they find nothing to click.
+
+So I went ahead and built you a homepage. It is live here: https://hassanzahhid00.github.io/business-mockups/sparks-electricians-dallas.html
+I have attached the file too. Your smart home camera work gets its own spotlight, and your real Google reviews are right there on the page.
+
+I build sites for home service companies. Two quick examples: a fast site for DP Electric (dp-electric.com) where the call button follows you down the page, and Electrician Squad (electriciansquad.com), built so every service has its own page that Google can rank.
+
+If you like how this looks, I can put it on your own domain and add online booking. If not, no hard feelings, keep the design either way.
+
+Thanks for reading,
+Hassan`},
+{n:"Balanced Roofing",t:"Roofing",c:"Fort Worth, TX",ph:"(817) 771-3094",em:"No public email found",ad:"777 Main St Ste 600, Fort Worth, TX 76102",web:{s:"lapsed"},r:"5.0 stars · 13 Google reviews",soc:[["Google listing",null],["Birdeye",null]],st:"mockup",camp:"Mockup Campaign",note:"Rep Michael (Mike) Jones. HD drone inspections, insurance claim help, lifetime labor warranty. balancedroofing.com no longer resolves.",subj:"🏠 Michael, your drone inspections deserve a homepage",mock:"https://hassanzahhid00.github.io/business-mockups/balanced-roofing-fort-worth.html",next:"Mockup live. Parked Nov 3: no email exists. Route would be phone or a supplied address.",body:`Hi Michael,
+
+Your customers say remarkable things about you. The drone photos for insurance claims, walking the roof with the inspector, the lifetime labor warranty. Then I went looking for your website and found balancedroofing.com does not open anymore. Right now, all that reputation lives only on review sites.
+
+I built Balanced Roofing a homepage that leads with exactly what your reviews praise: https://hassanzahhid00.github.io/business-mockups/balanced-roofing-fort-worth.html
+The file is attached as well. Your five star Google reviews are on it, with the claim process laid out step by step the way you actually run it.
+
+Roofing sites are a big part of my work. Leal Roofing (leal-roofing.com) got a clean site built around storm work, and Severe Weather Roofing (severeweatherroofing.com) is built the same way, reviews up front and the phone number impossible to miss.
+
+If you want this on your domain, I can have it live quickly, and we can fix the old address situation at the same time.
+
+Best,
+Hassan`},
+{n:"John's Garage Door Repair LLC",t:"Garage Doors",c:"San Antonio, TX",ph:"(210) 998-8008",em:"No public email found",ad:"210 E Sonterra Blvd Ste J3, San Antonio, TX 78258",web:{s:"none"},r:"5.0 stars · 48 Google reviews",soc:[["Google listing",null],["Yelp",null]],st:"mockup",camp:"Mockup Campaign",note:"Owner operator John. $95 tune up offer for 1 to 3 doors. Google shows open 24 hours. Mockup uses his real Yelp job photos.",subj:"🔧 John, your $95 tune up is famous, your website is missing",mock:"https://hassanzahhid00.github.io/business-mockups/johns-garage-door-san-antonio.html",next:"Mockup live. Parked Nov 3: no email exists. Route would be phone or a supplied address.",body:`Hi John,
+
+Your own line sold me: you describe yourself as a local small business focused on quality of repairs and customer service. Then your Google reviews back it up, 5.0 stars, people grateful for same day and even Sunday help. The only problem: there is no website for any of it to live on.
+
+So I built you one: https://hassanzahhid00.github.io/business-mockups/johns-garage-door-san-antonio.html
+It is attached too. It opens with a photo of you on the ladder fixing a spring, your $95 tune up gets its own section, and your Google reviews are on the page.
+
+I build websites for home service companies across Texas and beyond. Total Plumbing (totalplumbinginc.com) and Leal Roofing (leal-roofing.com) are two recent ones, both built so the phone rings instead of just looking pretty.
+
+If you like it, I will put it on your own domain and keep it updated. Worth a quick call?
+
+Thanks,
+Hassan`},
+{n:"Mowtown Landscape",t:"Landscaping",c:"San Antonio, TX",ph:"(210) 480-6724",em:"No public email found",ad:"538 W Olmos Dr, San Antonio, TX 78212",web:{s:"none"},r:"5.0 stars · 4 Google reviews",soc:[["Facebook","https://www.facebook.com/Mowtownlandscape5"],["Instagram",null],["Google listing",null]],st:"mockup",camp:"Mockup Campaign",note:"Their Facebook website link points to a different Mowtown in Arizona. Mockup uses their real logo and real Facebook job photos.",subj:"🌿 Mowtown, your Facebook link sends people to Arizona",mock:"https://hassanzahhid00.github.io/business-mockups/mowtown-landscape-san-antonio.html",next:"Mockup live. Parked Nov 3: no email exists. Facebook Messenger is a possible route for this one.",body:`Hi Mowtown team,
+
+Found something you will want to fix: your Facebook page's website link goes to mowtownlandscape.com, which is a landscaping company in Arizona. So your San Antonio customers click it and land on another business in another state.
+
+You do great work, your own photos prove it, so I built you a real homepage with those photos and your actual logo on it: https://hassanzahhid00.github.io/business-mockups/mowtown-landscape-san-antonio.html
+The file is attached. Your Google reviews are on there too, all five stars.
+
+Landscaping sites are familiar ground for me: Texas Landscape (texaslandscape.com) and New Hampshire Landscape (nhlandscapegarden.com) are two I have built, both heavy on real job photos just like yours.
+
+Happy to put this on your own domain so your page finally points at you. And I can fix that Facebook link in the same breath.
+
+Cheers,
+Hassan`},
+{n:"Skilled Painting Services",t:"Painting",c:"Dallas, TX",ph:"(214) 753-7847",em:"No public email found",ad:"Service area: Dallas (Chamber lists 2830 Wilton Ave)",web:{s:"none"},r:"4.7 stars · 14 Google reviews",soc:[["Google listing",null]],st:"mockup",camp:"Mockup Campaign",note:"Owner Luis E. Hernandez, painting since 2006. Full flyer service list: interiors, exteriors, cabinets, popcorn ceilings, wallpaper, textures, fences. Long term repeat customers.",subj:"🎨 Luis, 20 years of happy customers and still no website",mock:"https://hassanzahhid00.github.io/business-mockups/skilled-painting-dallas.html",next:"Mockup live. Parked Nov 3: no email exists. Route would be phone or a supplied address.",body:`Hi Luis,
+
+Your customers keep you for years, painting their homes inside and out, and even their rental properties. That is the kind of reputation money cannot buy. But when a new Dallas homeowner Googles you, there is no website, just a phone number on a listing.
+
+I built Skilled Painting Services the homepage that reputation deserves: https://hassanzahhid00.github.io/business-mockups/skilled-painting-dallas.html
+Attached as a file too. Your full service list is on it, cabinets, popcorn ceilings, wallpaper, textures, fences, and your Google reviews.
+
+Painting sites I have done include Elkhorn Painting (elkhornpainting.com), a clean one page site that brings in quote requests, and I build home service sites generally to do one job: turn searches into phone calls.
+
+Twenty years of word of mouth got you here. A website would let Dallas find you on purpose. Want me to put this on your own domain?
+
+Thanks,
+Hassan`},
+{n:"Professor Plumb",t:"Plumbing",c:"Mesquite, TX",ph:"+1 972-897-5033",em:"profplumbtx@gmail.com",ad:"15330 Lyndon B Johnson Fwy Ste 101, Mesquite, TX 75150",web:{s:"yes",u:"http://www.professorplumbtexas.com/"},r:"Has website (http, weak on phones)",soc:[["Website","http://www.professorplumbtexas.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28. Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Whitmans Contracting & Roofing",t:"Roofing",c:"Houston, TX",ph:"+1 713-300-9295",em:"info@wcr-texas.com",ad:"2429 Bissonnet St #568, Houston, TX 77005",web:{s:"yes",u:"http://www.whitmanscontractingandroofing.com/services/"},r:"Site failed to load in checks",soc:[["Website","http://www.whitmanscontractingandroofing.com/services/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28. Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Resilience Heating and Cooling",t:"HVAC",c:"Austin, TX",ph:"+1 512-994-9692",em:"resiliencehvac@gmail.com",ad:"9301 Old Bee Caves Rd, Austin, TX 78735",web:{s:"yes",u:"http://www.resiliencehvac.com/"},r:"Site failed to load, http only, family run",soc:[["Website","http://www.resiliencehvac.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28. Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Blue Moon Plumbing",t:"Plumbing",c:"Dallas, TX",ph:"+1 469-328-3243",em:"bluemoonplumbingdfw@gmail.com",ad:"18725 Dallas Pkwy, Dallas, TX 75287",web:{s:"yes",u:"https://www.bluemoonplumbingdfw.com/"},r:"Clean site but slow homepage (~14s)",soc:[["Website","https://www.bluemoonplumbingdfw.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28. Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"StazOn Roofing",t:"Roofing",c:"Dallas, TX",ph:"+1 214-357-0300",em:"info@stazonroof.com",ad:"2860 Lombardy Ln, Dallas, TX 75220",web:{s:"yes",u:"https://stazonroof.com/"},r:"Family business since 1980, slow site",soc:[["Website","https://stazonroof.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28. Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"ABA Heating and Cooling",t:"HVAC",c:"Austin, TX",ph:"+1 512-200-9332",em:"customerservice@abaaustin.com",ad:"2409 Richcreek Rd #2, Austin, TX 78757",web:{s:"yes",u:"https://www.abaaustin.com/"},r:"Very slow homepage (~16s)",soc:[["Website","https://www.abaaustin.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28 (Day 2). Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Public Service Plumbers",t:"Plumbing",c:"Dallas, TX",ph:"+1 214-831-1959",em:"service@publicserviceplumbers.com",ad:"5610 Dyer St, Dallas, TX 75206",web:{s:"yes",u:"https://publicserviceplumbers.com/"},r:"Site fetch failed in checks",soc:[["Website","https://publicserviceplumbers.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28 (Day 2). Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Coale Roofing",t:"Roofing",c:"Houston, TX",ph:"+1 713-524-3187",em:"coaleroofing@gmail.com",ad:"4229 Bellaire Blvd, Houston, TX 77025",web:{s:"yes",u:"https://coaleroofing.com/"},r:"Slow homepage (~6s)",soc:[["Website","https://coaleroofing.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28 (Day 2). Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Proficient Plumbing Solutions",t:"Plumbing",c:"Dripping Springs, TX",ph:"+1 512-269-0209",em:"info@proficientplumbingaustin.com",ad:"28496 RR 12 Ste 200, Dripping Springs, TX",web:{s:"yes",u:"https://proficientplumbingaustin.com/"},r:"Slow homepage (~7s)",soc:[["Website","https://proficientplumbingaustin.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28 (Day 2). Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Elevation Roofing & Restoration",t:"Roofing",c:"Houston, TX",ph:"+1 832-271-1726",em:"info@elevationrr.com",ad:"9039 Katy Fwy, Houston, TX 77024",web:{s:"yes",u:"https://elevationrr.com/"},r:"Slow homepage (~7s)",soc:[["Website","https://elevationrr.com/"]],st:"inprogress",camp:"Website Owners",note:"First touch sent Oct 28 (Day 2). Bump follow up sent Oct 31.",subj:"Follow up sent Oct 31",next:"Close the loop email due around Nov 7 if still silent."},
+{n:"Advent Air Conditioning",t:"HVAC",c:"Texas",ph:"",em:"info@adventair.com",ad:"",web:{s:"yes"},r:"Email found on their privacy policy page",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Brinkmann Quality Roofing",t:"Roofing",c:"Texas",ph:"",em:"info@brinkmannquality.com",ad:"",web:{s:"yes"},r:"Email from homepage footer",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"The Chill Brothers",t:"HVAC",c:"Texas",ph:"",em:"hello@thechillbrothers.com",ad:"",web:{s:"yes"},r:"Has website",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Built To Last Roofing",t:"Roofing",c:"Texas",ph:"",em:"info@btolroofing.com",ad:"",web:{s:"yes"},r:"Three different phone numbers on one homepage",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Roof Squad",t:"Roofing",c:"Texas",ph:"",em:"support@roofsquad.com",ad:"",web:{s:"yes"},r:"Has website",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"State Roofing Company",t:"Roofing",c:"Texas",ph:"",em:"josh@stateroofingtexas.com",ad:"",web:{s:"yes"},r:"Has website",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Keil Electric Austin",t:"Electrical",c:"Austin, TX",ph:"",em:"atx@keilelectric.com",ad:"",web:{s:"yes"},r:"Austin pages mention San Diego County",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Gartech Electrical LLC",t:"Electrical",c:"Texas",ph:"",em:"info@gartechelectrical.com",ad:"",web:{s:"yes"},r:"Testimonial heavy homepage, near duplicate reviews",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Safe Plug Electric",t:"Electrical",c:"Texas",ph:"",em:"safeplugelectric@gmail.com",ad:"",web:{s:"yes"},r:"Repeated FAQ and contact blocks on site",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 29 with signature.",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Keith Electric Company",t:"Electrical",c:"Floresville, TX",ph:"(830) 321-2282",em:"keithelectriccompany@gmail.com",ad:"",web:{s:"yes"},r:"Email shown on their own homepage",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"Sent Oct 29 as the replacement for EDP Roofing (bounced).",subj:"Sent Oct 29",next:"Bump follow up overdue (was due Nov 1 to 2). Send only on your order."},
+{n:"Maas Verde Landscape Restoration",t:"Landscaping",c:"Austin, TX",ph:"",em:"info@maasverde.com",ad:"",web:{s:"yes"},r:"Homepage repeats its opening pitch, phone only booking",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 31 with signature (icon subject batch).",subj:"Sent Oct 31",next:"Bump due around Nov 3 to 4."},
+{n:"Bee Maids",t:"Cleaning",c:"Houston / Katy, TX",ph:"",em:"info@beemaids.com",ad:"",web:{s:"yes"},r:"Contact form replies can take 2 business days",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 31 with signature. Backup address on their contact page: customerservice@beemaids.com.",subj:"Sent Oct 31",next:"Bump due around Nov 3 to 4."},
+{n:"Dallas Paints",t:"Painting",c:"Dallas, TX",ph:"",em:"info@dallaspaints.com",ad:"",web:{s:"yes"},r:"Leftover template email link on their About page",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 31 with signature.",subj:"Sent Oct 31",next:"Bump due around Nov 3 to 4."},
+{n:"Dang O Dang Garage Doors",t:"Garage Doors",c:"Wimberley, TX",ph:"",em:"office@dangodangdoors.com",ad:"",web:{s:"yes"},r:"Hours listed 9 to 5 while copy promises 24/7",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 31 with signature.",subj:"Sent Oct 31",next:"Bump due around Nov 3 to 4."},
+{n:"Preferred Pest Management",t:"Pest Control",c:"Sachse, TX",ph:"",em:"support@preferredpestmanagement.org",ad:"",web:{s:"yes"},r:"Price differs between contact and service pages",soc:[["Website",null]],st:"sent",camp:"Website Owners",note:"First touch sent Oct 31 with signature.",subj:"Sent Oct 31",next:"Bump due around Nov 3 to 4."},
+{n:"EDP Roofing",t:"Roofing",c:"Texas",ph:"",em:"office@edproofing.com",ad:"",web:{s:"yes"},r:"",soc:[],st:"dropped",camp:"Website Owners",note:"Email sent Oct 29 bounced: the mailbox does not exist. No other address exists on their own site. Replaced by Keith Electric.",subj:"Bounced Oct 29",next:"Closed. Do not email again."},
+{n:"PaintWorks",t:"Painting",c:"Houston, TX",ph:"(832) 243-7615",em:"info@workscompanies.com",ad:"1502 Beaconshire Rd, Houston, TX 77077",web:{s:"none"},r:"5.0 stars · 12 Google reviews",soc:[["Google listing",null],["Instagram",null]],st:"dropped",camp:"No Website + Email",note:"Real business, dead address: workscompanies.com does not exist in DNS (checked Nov 3), so the listed email cannot receive mail.",subj:"Not sendable",next:"Dropped Nov 3. Revisit only if a working address appears."},
+{n:"MS Painting and Repair Company Inc.",t:"Painting",c:"Dallas, TX",ph:"(214) 373-6484",em:"info@mspaintingrepair.com",ad:"11551 Forest Central Dr #108, Dallas, TX 75243",web:{s:"none"},r:"5.0 stars · 2 Google reviews · est. 1980",soc:[["Google listing",null]],st:"dropped",camp:"No Website + Email",note:"Real business, dead address: mspaintingrepair.com does not exist in DNS (checked Nov 3), so the listed email cannot receive mail.",subj:"Not sendable",next:"Dropped Nov 3. Revisit only if a working address appears."},
+{n:"Master Mechanical A/C & Heat",t:"HVAC",c:"Houston, TX",ph:"(713) 391-5038",em:"HoustonMasterHVAC@gmail.com",ad:"603 Hillock Bluff Cir, Houston, TX 77073",web:{s:"none"},r:"Mixed: Angi 4.4, BuildZoom 1.5 to 2 stars",soc:[["Google listing",null],["BBB profile",null]],st:"dropped",camp:"No Website + Email",note:"Passed both tests but excluded on quality: a 2021 Texas court case and regulator findings against the owner are public record.",subj:"Excluded on quality",next:"Closed. Not a safe business to pitch."},
+{n:"FunkyTown Contracting",t:"General Contracting",c:"Fort Worth, TX",ph:"(817) 917-5938",em:"No public email found",ad:"Fort Worth, TX",web:{s:"none"},r:"1.7 stars · 6 Google reviews",soc:[["Google listing",null]],st:"dropped",camp:"Mockup Campaign",note:"Was in the original mockup set. Removed at your instruction after the poor Google rating surfaced. Replaced by Skilled Painting.",subj:"Removed before outreach",next:"Closed."}
+];
+const grid=document.getElementById('grid'),tabsEl=document.getElementById('tabs'),statsEl=document.getElementById('stats');
+const q=document.getElementById('q'),tradeSel=document.getElementById('tradeSel'),campSel=document.getElementById('campSel');
+let curTab='all';
+const counts={all:LEADS.length};Object.keys(STATUS).forEach(k=>counts[k]=LEADS.filter(l=>l.st===k).length);
+const mockCount=LEADS.filter(l=>l.mock).length;
+statsEl.innerHTML=
+ '<div class="stat"><b>'+LEADS.length+'</b><span>Total leads tracked</span><small>Across all campaigns</small></div>'+
+ '<div class="stat"><b>'+counts.sent+'</b><span>Emails sent</span><small>Verified in Sent folder</small></div>'+
+ '<div class="stat"><b>'+counts.queued+'</b><span>Coming next</span><small>Emails written and ready</small></div>'+
+ '<div class="stat"><b>'+mockCount+'</b><span>Live mockups</span><small>On GitHub Pages</small></div>'+
+ '<div class="stat"><b>'+LEADS.filter(l=>l.web.s==='none'||l.web.s==='lapsed').length+'</b><span>Without a website</span><small>The core target group</small></div>'+
+ '<div class="stat"><b>'+counts.dropped+'</b><span>Dropped</span><small>Dead emails, bounces, quality</small></div>';
+const tabDefs=[['all','All Leads'],['queued','Coming Next'],['inprogress','In Progress'],['sent','Sent'],['mockup','Mockup Ready'],['dropped','Dropped']];
+tabsEl.innerHTML=tabDefs.map(d=>'<button class="tab'+(d[0]==='all'?' on':'')+'" data-tab="'+d[0]+'">'+d[1]+'<span class="cnt">'+counts[d[0]]+'</span></button>').join('');
+tabsEl.addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;curTab=b.dataset.tab;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t===b));render();});
+[...new Set(LEADS.map(l=>l.t))].sort().forEach(t=>tradeSel.insertAdjacentHTML('beforeend','<option>'+t+'</option>'));
+[...new Set(LEADS.map(l=>l.camp))].sort().forEach(t=>campSel.insertAdjacentHTML('beforeend','<option>'+t+'</option>'));
+[q,tradeSel,campSel].forEach(el=>el.addEventListener('input',render));
+function webChip(l){if(l.web.s==='none')return '<span class="chip web-no">✕ No website</span>';if(l.web.s==='lapsed')return '<span class="chip web-lapsed">⚠ Website lapsed</span>';return '<span class="chip web-yes">✓ Has website</span>';}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function render(){
+  const term=q.value.toLowerCase();
+  const list=LEADS.filter(l=>{
+    if(curTab!=='all'&&l.st!==curTab)return false;
+    if(tradeSel.value&&l.t!==tradeSel.value)return false;
+    if(campSel.value&&l.camp!==campSel.value)return false;
+    if(term){const hay=(l.n+' '+l.t+' '+l.c+' '+l.em+' '+l.ph+' '+l.camp).toLowerCase();if(!hay.includes(term))return false;}
+    return true;
+  });
+  if(!list.length){grid.innerHTML='<div class="empty">No leads match this view. Try another tab or clear the search.</div>';return;}
+  grid.innerHTML=list.map(l=>{const i=LEADS.indexOf(l);return '<article class="lead" data-i="'+i+'"><div class="row1"><div><h3>'+esc(l.n)+'</h3><div class="meta">'+esc(l.t)+' · '+esc(l.c)+'</div></div><span class="badge '+STATUS[l.st].cls+'">'+STATUS[l.st].label+'</span></div><div class="chips">'+webChip(l)+(l.r?'<span class="chip rate">★ '+esc(l.r)+'</span>':'')+(l.mock?'<span class="chip">🖥 Live mockup</span>':'')+'</div><p class="note">'+esc(l.note)+'</p><div class="foot"><span class="nx">'+esc(l.next||'')+'</span><span class="open">Open file →</span></div></article>';}).join('');
+}
+grid.addEventListener('click',e=>{const card=e.target.closest('.lead');if(card)openLead(+card.dataset.i);});
+const modal=document.getElementById('modal'),sheet=document.getElementById('sheet');
+function openLead(i){
+  const l=LEADS[i];
+  const socs=l.soc&&l.soc.length?l.soc.map(s=>s[1]?'<a class="soc" href="'+s[1]+'" target="_blank" rel="noopener">'+esc(s[0])+' ↗</a>':'<span class="soc">'+esc(s[0])+'</span>').join(''):'<span class="soc">None listed</span>';
+  const webVal=l.web.s==='none'?'No website':(l.web.s==='lapsed'?'Website lapsed (domain dead)':'Has website');
+  const webLink=l.web.u?' · <a href="'+l.web.u+'" target="_blank" rel="noopener">visit ↗</a>':'';
+  sheet.innerHTML='<button class="x" id="xBtn">✕</button>'+
+   '<span class="badge '+STATUS[l.st].cls+'">'+STATUS[l.st].label+'</span>'+
+   '<h2 style="margin-top:10px">'+esc(l.n)+'</h2><div class="sub">'+esc(l.t)+' · '+esc(l.c)+' · Campaign: '+esc(l.camp)+'</div>'+
+   '<div class="kv">'+
+   '<div><span>Email</span><b>'+esc(l.em)+'</b></div>'+
+   '<div><span>Phone</span><b>'+esc(l.ph||'Not captured')+'</b></div>'+
+   '<div><span>Address</span><b>'+esc(l.ad||'Not captured')+'</b></div>'+
+   '<div><span>Website status</span><b>'+webVal+'</b>'+webLink+'</div>'+
+   '<div><span>Reputation</span><b>'+esc(l.r||'Not captured')+'</b></div>'+
+   '<div><span>Status</span><b>'+STATUS[l.st].label+'</b></div></div>'+
+   '<div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut2);font-weight:700;margin-bottom:7px">Platforms and profiles</div><div class="socs">'+socs+'</div>'+
+   '<p style="font-size:14px;color:var(--mut);line-height:1.65;margin-top:12px">'+esc(l.note)+'</p>'+
+   (l.mock?'<a class="mockbtn" href="'+l.mock+'" target="_blank" rel="noopener">🖥 Open the live mockup</a>':'')+
+   (l.next?'<div class="nextline"><b>Next step:</b> '+esc(l.next)+'</div>':'')+
+   '<div class="emailbox"><div class="eh"><b>✉ Email for this lead</b>'+(l.body?'<button class="copybtn" id="cpBtn">Copy email</button>':'')+'</div>'+
+   (l.subj?'<div class="esub">'+esc(l.subj)+'</div>':'')+
+   (l.body?'<div class="ebody" id="ebody">'+esc(l.body)+'\n\n[Your HTML signature is inserted here at send time]'+'</div>':'<div class="enone">No full draft stored for this lead in the dashboard. Sent copy lives in the PurelyMail Sent folder and the campaign draft files.</div>')+
+   '</div>';
+  modal.classList.add('show');document.body.style.overflow='hidden';
+  document.getElementById('xBtn').onclick=closeModal;
+  const cp=document.getElementById('cpBtn');
+  if(cp)cp.onclick=()=>{navigator.clipboard.writeText((l.subj?l.subj+'\n\n':'')+(l.body||''));cp.textContent='Copied ✓';setTimeout(()=>cp.textContent='Copy email',1600);};
+}
+function closeModal(){modal.classList.remove('show');document.body.style.overflow='';}
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+render();
+</script>
+</body>
+</html>
