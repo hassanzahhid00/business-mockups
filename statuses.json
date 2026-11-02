@@ -1,1 +1,46 @@
-{"log":[{"date":"2026-11-03","name":"Rivera Heating Air Conditioning and Refrigeration LLC","to":"Pjr228@gmail.com","via":"webmail"},{"date":"2026-11-03","name":"Bierman Electrical Services","to":"biermanelectrical@gmail.com","via":"webmail"},{"date":"2026-11-03","name":"Leauvano Plumbing Inc","to":"Leauvanoplumbingco@sbcglobal.net","via":"webmail"},{"date":"2026-11-03","name":"Jazzy Fresh Commercial Cleaning Services, LLC","to":"jazzyfresh890@gmail.com","via":"webmail"},{"date":"2026-11-03","name":"Dallas Cleaning Crew","to":"thecleaningcrew1985@gmail.com","via":"webmail"}],"overrides":{},"sentCounts":{"2026-11-03":5}}
+{
+  "log": [
+    {
+      "date": "2026-11-03",
+      "name": "Rivera Heating Air Conditioning and Refrigeration LLC",
+      "to": "Pjr228@gmail.com",
+      "via": "webmail"
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Bierman Electrical Services",
+      "to": "biermanelectrical@gmail.com",
+      "via": "webmail"
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Leauvano Plumbing Inc",
+      "to": "Leauvanoplumbingco@sbcglobal.net",
+      "via": "webmail"
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Jazzy Fresh Commercial Cleaning Services, LLC",
+      "to": "jazzyfresh890@gmail.com",
+      "via": "webmail"
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Dallas Cleaning Crew",
+      "to": "thecleaningcrew1985@gmail.com",
+      "via": "webmail"
+    },
+    {
+      "name": "Superior Paint Works Inc",
+      "to": "superiorpaintworksinc@gmail.com",
+      "date": "2026-11-03",
+      "via": "github-actions"
+    }
+  ],
+  "overrides": {
+    "Superior Paint Works Inc": "sent"
+  },
+  "sentCounts": {
+    "2026-11-03": 6
+  }
+}
