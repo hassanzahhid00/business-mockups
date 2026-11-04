@@ -12,6 +12,11 @@ on:
         required: false
         type: boolean
         default: false
+      backfill:
+        description: "Only file queued Sent-folder copies (no new emails sent)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,13 +41,14 @@ jobs:
           ARGS=""
           if [ -n "${{ inputs.lead }}" ]; then ARGS="$ARGS --lead \"${{ inputs.lead }}\""; fi
           if [ "${{ inputs.override }}" = "true" ]; then ARGS="$ARGS --override"; fi
+          if [ "${{ inputs.backfill }}" = "true" ]; then ARGS="$ARGS --backfill"; fi
           eval "python3 send_emails.py $ARGS"
 
       - name: Save updated queue and statuses
         run: |
           git config user.name "Lead Dashboard Bot"
           git config user.email "hassan.zahid@developers-hub.co.uk"
-          git add send_queue.json statuses.json
+          git add send_queue.json statuses.json backfill_queue.json
           if git diff --cached --quiet; then
             echo "No changes to save."
           else

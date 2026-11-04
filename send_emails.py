@@ -15,20 +15,26 @@ Usage:
 """
 import argparse
 import html
+import imaplib
 import json
 import os
+import re
 import smtplib
 import ssl
 import sys
 from datetime import datetime, timedelta, timezone
 from email.message import EmailMessage
+from email.utils import format_datetime
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 QUEUE_FILE = HERE / "send_queue.json"
 STATUS_FILE = HERE / "statuses.json"
+BACKFILL_FILE = HERE / "backfill_queue.json"
 SMTP_HOST = "smtp.purelymail.com"
 SMTP_PORT = 465
+IMAP_HOST = "imap.purelymail.com"
+IMAP_PORT = 993
 DAILY_CAP = 5
 PKT = timezone(timedelta(hours=5))
 
@@ -105,13 +111,85 @@ def body_to_html(plain: str) -> str:
     return "".join(parts) + SIGNATURE_HTML
 
 
+def build_message(user: str, item: dict, when: datetime) -> EmailMessage:
+    msg = EmailMessage()
+    msg["From"] = f"Hassan Zahid <{user}>"
+    msg["To"] = item["to"]
+    msg["Subject"] = item["subject"]
+    msg["Date"] = format_datetime(when)
+    msg.set_content(item["body"])
+    msg.add_alternative(body_to_html(item["body"]), subtype="html")
+    return msg
+
+
+def find_sent_folder(imap: imaplib.IMAP4_SSL) -> str:
+    typ, folders = imap.list()
+    names = []
+    for raw in folders or []:
+        line = raw.decode("utf-8", "replace") if isinstance(raw, bytes) else str(raw)
+        m = re.search(r'"([^"]+)"\s*$', line)
+        if m:
+            names.append(m.group(1))
+    for cand in names:
+        if cand == "Sent":
+            return cand
+    for cand in names:
+        leaf = cand.replace("\\", "/").split("/")[-1].strip().lower()
+        if leaf in ("sent", "sent items", "sent mail"):
+            return cand
+    return "Sent"
+
+
+def append_to_sent(user: str, password: str, items: list) -> None:
+    """items: list of (raw_message_bytes, datetime_utc, label). Files copies in Sent."""
+    if not items:
+        return
+    imap = imaplib.IMAP4_SSL(IMAP_HOST, IMAP_PORT, ssl_context=ssl.create_default_context())
+    try:
+        imap.login(user, password)
+        folder = find_sent_folder(imap)
+        for raw, when, label in items:
+            typ, _ = imap.append(folder, "\\Seen", imaplib.Time2Internaldate(when), raw)
+            print(f"Sent copy filed ({folder}): {label} -> {typ}")
+    finally:
+        try:
+            imap.logout()
+        except Exception:
+            pass
+
+
+def run_backfill(user: str, password: str) -> int:
+    items = json.loads(BACKFILL_FILE.read_text(encoding="utf-8"))
+    if not items:
+        print("Backfill queue is empty. Nothing to file.")
+        return 0
+    prepared = []
+    for it in items:
+        when = datetime.fromisoformat(it["date"].replace("Z", "+00:00"))
+        msg = build_message(user, it, when)
+        prepared.append((msg.as_bytes(), when, f"{it['name']} <{it['to']}>"))
+    append_to_sent(user, password, prepared)
+    BACKFILL_FILE.write_text("[]\n", encoding="utf-8")
+    print(f"Backfill done: {len(prepared)} copies filed in Sent.")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--lead", default="", help="Send only this business name")
     ap.add_argument("--limit", type=int, default=DAILY_CAP)
     ap.add_argument("--override", action="store_true", help="Ignore the daily cap")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--backfill", action="store_true", help="Only file queued Sent copies via IMAP")
     args = ap.parse_args()
+
+    if args.backfill:
+        user = os.environ.get("PURELYMAIL_USER", "")
+        password = os.environ.get("PURELYMAIL_APP_PASSWORD", "")
+        if not user or not password:
+            print("Missing PURELYMAIL_USER or PURELYMAIL_APP_PASSWORD environment variables.", file=sys.stderr)
+            return 3
+        return run_backfill(user, password)
 
     queue = json.loads(QUEUE_FILE.read_text(encoding="utf-8"))
     status = json.loads(STATUS_FILE.read_text(encoding="utf-8"))
@@ -167,19 +245,23 @@ def main() -> int:
         return 3
 
     sent_names = []
+    sent_copies = []
     ctx = ssl.create_default_context()
     with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=ctx, timeout=60) as smtp:
         smtp.login(user, password)
         for t in targets:
-            msg = EmailMessage()
-            msg["From"] = f"Hassan Zahid <{user}>"
-            msg["To"] = t["to"]
-            msg["Subject"] = t["subject"]
-            msg.set_content(t["body"])
-            msg.add_alternative(body_to_html(t["body"]), subtype="html")
+            when = datetime.now(timezone.utc)
+            msg = build_message(user, t, when)
             smtp.send_message(msg)
             sent_names.append(t["name"])
+            sent_copies.append((msg.as_bytes(), when, f"{t['name']} <{t['to']}>"))
             print(f"Sent: {t['name']} <{t['to']}>")
+
+    if sent_copies:
+        try:
+            append_to_sent(user, password, sent_copies)
+        except Exception as exc:
+            print(f"WARNING: emails sent, but filing copies in Sent failed: {exc}")
 
     if sent_names:
         queue = [q for q in queue if q["name"] not in sent_names]
