@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-02T20:44:32Z",
-  "lastRunNote": "Test send with override: Superior Paint Works Inc",
+  "lastRunAt": "2026-11-04T21:06:35Z",
+  "lastRunNote": "Send run: lead=next batch, override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -37,12 +37,48 @@
       "to": "superiorpaintworksinc@gmail.com",
       "date": "2026-11-03",
       "via": "github-actions"
+    },
+    {
+      "name": "DDD Construction",
+      "to": "armando.empire@gmail.com",
+      "date": "2026-11-05",
+      "via": "github-actions"
+    },
+    {
+      "name": "JS Home Repairs",
+      "to": "homeservicecontractor2@gmail.com",
+      "date": "2026-11-05",
+      "via": "github-actions"
+    },
+    {
+      "name": "A & V's Painting",
+      "to": "abelspainting8@gmail.com",
+      "date": "2026-11-05",
+      "via": "github-actions"
+    },
+    {
+      "name": "HiDef Lawn Care and Power Washing",
+      "to": "hideflawns512@gmail.com",
+      "date": "2026-11-05",
+      "via": "github-actions"
+    },
+    {
+      "name": "Ariel's Plumbing",
+      "to": "a59colmenas@yahoo.com",
+      "date": "2026-11-05",
+      "via": "github-actions"
     }
   ],
   "overrides": {
-    "Superior Paint Works Inc": "sent"
+    "Superior Paint Works Inc": "sent",
+    "DDD Construction": "sent",
+    "JS Home Repairs": "sent",
+    "A & V's Painting": "sent",
+    "HiDef Lawn Care and Power Washing": "sent",
+    "Ariel's Plumbing": "sent"
   },
   "sentCounts": {
-    "2026-11-03": 6
+    "2026-11-03": 6,
+    "2026-11-05": 5
   }
 }
