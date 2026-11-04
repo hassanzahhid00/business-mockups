@@ -125,6 +125,8 @@ footer{margin-top:44px;text-align:center;color:var(--mut2);font-size:12.5px;line
     <input id="q" type="text" placeholder="Search by business, city, trade, email or phone...">
     <select id="tradeSel"><option value="">All trades</option></select>
     <select id="campSel"><option value="">All campaigns</option></select>
+    <select id="recSel"><option value="">All time</option><option value="1">Last 24 hours</option><option value="3">Last 3 days</option><option value="7">Last 7 days</option><option value="30">Last 30 days</option></select>
+    <select id="sortSel"><option value="recent">Sort: Most recent</option><option value="oldest">Sort: Oldest first</option><option value="name">Sort: Name A to Z</option><option value="rating">Sort: Top rated</option></select>
   </div>
 
   <main class="grid" id="grid"></main>
@@ -396,8 +398,28 @@ Hassan`},
 {n:"Master Mechanical A/C & Heat",t:"HVAC",c:"Houston, TX",ph:"(713) 391-5038",em:"HoustonMasterHVAC@gmail.com",ad:"603 Hillock Bluff Cir, Houston, TX 77073",web:{s:"none"},r:"Mixed: Angi 4.4, BuildZoom 1.5 to 2 stars",soc:[["Google listing",null],["BBB profile",null]],st:"dropped",camp:"No Website + Email",note:"Passed both tests but excluded on quality: a 2021 Texas court case and regulator findings against the owner are public record.",subj:"Excluded on quality",next:"Closed. Not a safe business to pitch."},
 {n:"FunkyTown Contracting",t:"General Contracting",c:"Fort Worth, TX",ph:"(817) 917-5938",em:"No public email found",ad:"Fort Worth, TX",web:{s:"none"},r:"1.7 stars · 6 Google reviews",soc:[["Google listing",null]],st:"dropped",camp:"Mockup Campaign",note:"Was in the original mockup set. Removed at your instruction after the poor Google rating surfaced. Replaced by Skilled Painting.",subj:"Removed before outreach",next:"Closed."}
 ];
+const DATES={
+"Rivera Heating Air Conditioning and Refrigeration LLC":"2026-11-03","Bierman Electrical Services":"2026-11-03","Leauvano Plumbing Inc":"2026-11-03","Jazzy Fresh Commercial Cleaning Services, LLC":"2026-11-03","Dallas Cleaning Crew":"2026-11-03","Superior Paint Works Inc":"2026-11-03",
+"DDD Construction":"2026-11-05","JS Home Repairs":"2026-11-05","A & V's Painting":"2026-11-05","HiDef Lawn Care and Power Washing":"2026-11-05","Ariel's Plumbing":"2026-11-05",
+"Sparks Electricians":"2026-11-02","Balanced Roofing":"2026-11-02","John's Garage Door Repair LLC":"2026-11-02","Mowtown Landscape":"2026-11-02","Skilled Painting Services":"2026-11-02","FunkyTown Contracting":"2026-11-02",
+"Professor Plumb":"2026-10-31","Whitmans Contracting & Roofing":"2026-10-31","Resilience Heating and Cooling":"2026-10-31","Blue Moon Plumbing":"2026-10-31","StazOn Roofing":"2026-10-31","ABA Heating and Cooling":"2026-10-31","Public Service Plumbers":"2026-10-31","Coale Roofing":"2026-10-31","Proficient Plumbing Solutions":"2026-10-31","Elevation Roofing & Restoration":"2026-10-31",
+"Maas Verde Landscape Restoration":"2026-10-31","Bee Maids":"2026-10-31","Dallas Paints":"2026-10-31","Dang O Dang Garage Doors":"2026-10-31","Preferred Pest Management":"2026-10-31",
+"Advent Air Conditioning":"2026-10-29","Brinkmann Quality Roofing":"2026-10-29","The Chill Brothers":"2026-10-29","Built To Last Roofing":"2026-10-29","Roof Squad":"2026-10-29","State Roofing Company":"2026-10-29","Keil Electric Austin":"2026-10-29","Gartech Electrical LLC":"2026-10-29","Safe Plug Electric":"2026-10-29","Keith Electric Company":"2026-10-29","EDP Roofing":"2026-10-29",
+"PaintWorks":"2026-11-03","MS Painting and Repair Company Inc.":"2026-11-03","Master Mechanical A/C & Heat":"2026-11-03"};
+LEADS.forEach(l=>{l.dt=DATES[l.n]||'';});
+function relLabel(dt){
+  if(!dt)return '';
+  const today=new Date();today.setHours(0,0,0,0);
+  const d=new Date(dt+'T00:00:00');const diff=Math.round((today-d)/86400000);
+  const nice=d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  if(diff===0)return 'Today · '+nice;
+  if(diff===1)return 'Yesterday · '+nice;
+  if(diff>1&&diff<30)return diff+' days ago · '+nice;
+  return nice+', '+d.getFullYear();
+}
+function ratingNum(l){const m=(l.r||'').match(/(\d+(?:\.\d+)?)/);return m?parseFloat(m[1]):-1;}
 const grid=document.getElementById('grid'),tabsEl=document.getElementById('tabs'),statsEl=document.getElementById('stats');
-const q=document.getElementById('q'),tradeSel=document.getElementById('tradeSel'),campSel=document.getElementById('campSel');
+const q=document.getElementById('q'),tradeSel=document.getElementById('tradeSel'),campSel=document.getElementById('campSel'),recSel=document.getElementById('recSel'),sortSel=document.getElementById('sortSel');
 let curTab='all';
 function buildChrome(){
 const counts={all:LEADS.length};Object.keys(STATUS).forEach(k=>counts[k]=LEADS.filter(l=>l.st===k).length);
@@ -415,7 +437,7 @@ tabsEl.innerHTML=tabDefs.map(d=>'<button class="tab'+(d[0]===curTab?' on':'')+'"
 tabsEl.addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;curTab=b.dataset.tab;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t===b));render();});
 [...new Set(LEADS.map(l=>l.t))].sort().forEach(t=>tradeSel.insertAdjacentHTML('beforeend','<option>'+t+'</option>'));
 [...new Set(LEADS.map(l=>l.camp))].sort().forEach(t=>campSel.insertAdjacentHTML('beforeend','<option>'+t+'</option>'));
-[q,tradeSel,campSel].forEach(el=>el.addEventListener('input',render));
+[q,tradeSel,campSel,recSel,sortSel].forEach(el=>el.addEventListener('input',render));
 function webChip(l){if(l.web.s==='none')return '<span class="chip web-no">✕ No website</span>';if(l.web.s==='lapsed')return '<span class="chip web-lapsed">⚠ Website lapsed</span>';return '<span class="chip web-yes">✓ Has website</span>';}
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function render(){
@@ -425,10 +447,18 @@ function render(){
     if(tradeSel.value&&l.t!==tradeSel.value)return false;
     if(campSel.value&&l.camp!==campSel.value)return false;
     if(term){const hay=(l.n+' '+l.t+' '+l.c+' '+l.em+' '+l.ph+' '+l.camp).toLowerCase();if(!hay.includes(term))return false;}
+    if(recSel.value){if(!l.dt)return false;const cutoff=Date.now()-(+recSel.value)*86400000;if(new Date(l.dt+'T00:00:00').getTime()<cutoff-86400000)return false;}
     return true;
   });
+  const sv=sortSel.value;
+  list.sort((a,b)=>{
+    if(sv==='name')return a.n.localeCompare(b.n);
+    if(sv==='oldest')return (a.dt||'9999')<(b.dt||'9999')?-1:1;
+    if(sv==='rating')return ratingNum(b)-ratingNum(a);
+    return (a.dt||'')<(b.dt||'')?1:-1;
+  });
   if(!list.length){grid.innerHTML='<div class="empty">No leads match this view. Try another tab or clear the search.</div>';return;}
-  grid.innerHTML=list.map(l=>{const i=LEADS.indexOf(l);return '<article class="lead" data-i="'+i+'"><div class="row1"><div><h3>'+esc(l.n)+'</h3><div class="meta">'+esc(l.t)+' · '+esc(l.c)+'</div></div><span class="badge '+STATUS[l.st].cls+'">'+STATUS[l.st].label+'</span></div><div class="chips">'+webChip(l)+(l.r?'<span class="chip rate">★ '+esc(l.r)+'</span>':'')+(l.mock?'<span class="chip">🖥 Live mockup</span>':'')+'</div><p class="note">'+esc(l.note)+'</p><div class="foot"><span class="nx">'+esc(l.next||'')+'</span><span class="open">Open file →</span></div></article>';}).join('');
+  grid.innerHTML=list.map(l=>{const i=LEADS.indexOf(l);return '<article class="lead" data-i="'+i+'"><div class="row1"><div><h3>'+esc(l.n)+'</h3><div class="meta">'+esc(l.t)+' · '+esc(l.c)+'</div></div><span class="badge '+STATUS[l.st].cls+'">'+STATUS[l.st].label+'</span></div><div class="chips">'+webChip(l)+(l.r?'<span class="chip rate">★ '+esc(l.r)+'</span>':'')+(l.mock?'<span class="chip">🖥 Live mockup</span>':'')+(l.dt?'<span class="chip">🕐 '+relLabel(l.dt)+'</span>':'')+'</div><p class="note">'+esc(l.note)+'</p><div class="foot"><span class="nx">'+esc(l.next||'')+'</span><span class="open">Open file →</span></div></article>';}).join('');
 }
 grid.addEventListener('click',e=>{const card=e.target.closest('.lead');if(card)openLead(+card.dataset.i);});
 const modal=document.getElementById('modal'),sheet=document.getElementById('sheet');
