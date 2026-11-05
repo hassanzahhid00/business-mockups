@@ -226,6 +226,32 @@ footer{position:relative;z-index:1;text-align:center;color:var(--mut2);font-size
   .grid{grid-template-columns:1fr}
   .clk .tm{font-size:14.5px}
 }
+/* ---------- custom dropdowns ---------- */
+.cdd{position:relative}
+.cdd>select{display:none!important}
+.cdd-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#141417;border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:13px 15px;font-size:14.5px;font-family:Inter,sans-serif;cursor:pointer;transition:.15s;text-align:left;white-space:nowrap}
+.cdd-btn:hover{border-color:rgba(209,33,39,.55)}
+.cdd.open .cdd-btn{border-color:var(--ind);box-shadow:0 0 0 3px rgba(209,33,39,.22)}
+.cdd-btn .car{flex:none;color:var(--mut);font-size:10px;transition:.18s}
+.cdd.open .cdd-btn .car{transform:rotate(180deg)}
+.cdd-panel{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:200;background:#1d1d23;border:1px solid rgba(209,33,39,.35);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.62);padding:6px;max-height:312px;overflow-y:auto;opacity:0;transform:translateY(-4px);pointer-events:none;transition:.15s}
+.cdd.open .cdd-panel{opacity:1;transform:none;pointer-events:auto}
+.cdd-panel::-webkit-scrollbar{width:8px}
+.cdd-panel::-webkit-scrollbar-thumb{background:#2e2e35;border-radius:99px}
+.cdd-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 13px;border-radius:9px;font-size:14px;color:var(--txt);cursor:pointer;white-space:nowrap}
+.cdd-opt:hover,.cdd-opt.hl{background:rgba(209,33,39,.13)}
+.cdd-opt.sel{color:#ff9a9d;font-weight:600}
+.cdd-opt .ck{opacity:0;color:#e62a31;font-size:13px;flex:none}
+.cdd-opt.sel .ck{opacity:1}
+.cdd-empty{padding:12px 13px;font-size:13px;color:var(--mut2)}
+.controls .cdd-btn{background:var(--card);border-radius:13px;padding:12px 15px;font-size:13.5px}
+.controls .cdd-panel{max-height:330px;min-width:210px;right:auto}
+.combo-wrap{position:relative}
+.combo-wrap input{padding-right:44px!important}
+.combo-chev{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:32px;height:32px;border:none;background:transparent;color:var(--mut);cursor:pointer;font-size:10px;border-radius:8px;z-index:5}
+.combo-chev:hover{background:rgba(209,33,39,.12);color:var(--txt)}
+.combo-wrap .cdd-panel{display:none}
+.combo-wrap.open .cdd-panel{display:block;opacity:1;transform:none;pointer-events:auto}
 </style>
 </head>
 <body>
@@ -709,6 +735,7 @@ function buildFilterOptions(){
   t.innerHTML='<option value="">All trades</option>'+trades.map(x=>'<option>'+esc(x)+'</option>').join('');
   c.innerHTML='<option value="">All campaigns</option>'+camps.map(x=>'<option>'+esc(x)+'</option>').join('');
   t.value=tv;c.value=cv;
+  if(window.refreshAllCdd)refreshAllCdd();
 }
 function filteredLeads(){
   const term=$('q').value.trim().toLowerCase();
@@ -980,6 +1007,7 @@ async function openForm(lead){
   const checked=lead&&vis==='specific'?await existingShares(lead.id):[];
   $('fvisPeople').innerHTML=peopleCheckboxes('fvisPeople',checked,S.profile.id);
   $('fvisPeopleWrap').hidden=vis!=='specific';
+  if(window.enhanceFormControls)enhanceFormControls();
   $('formOverlay').hidden=false;
 }
 async function replaceShares(leadId,visibility){
@@ -1117,6 +1145,117 @@ $('exportQueueBtn').addEventListener('click',()=>{
     if(event==='SIGNED_OUT'){S.user=null;S.profile=null;showOnly('loginView');}
   });
 })();
+</script>
+<script>
+/* ================= custom dropdowns ================= */
+function cddCloseAll(except){
+  document.querySelectorAll('.cdd.open,.combo-wrap.open').forEach(w=>{if(w!==except)w.classList.remove('open');});
+}
+document.addEventListener('mousedown',e=>{
+  if(!e.target.closest('.cdd,.combo-wrap'))cddCloseAll(null);
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')cddCloseAll(null);});
+function cddOptHTML(label,isSel){
+  return '<div class="cdd-opt'+(isSel?' sel':'')+'" data-lab="'+esc(label)+'"><span>'+esc(label)+'</span><span class="ck">✓</span></div>';
+}
+function enhanceSelect(sel){
+  if(!sel||sel.dataset.cdd)return;
+  sel.dataset.cdd='1';
+  const wrap=document.createElement('div');wrap.className='cdd';
+  sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);
+  const btn=document.createElement('button');btn.type='button';btn.className='cdd-btn';
+  btn.innerHTML='<span class="cdd-lab"></span><span class="car">▼</span>';
+  const panel=document.createElement('div');panel.className='cdd-panel';
+  wrap.appendChild(btn);wrap.appendChild(panel);
+  const sync=()=>{
+    const o=sel.options[sel.selectedIndex];
+    btn.querySelector('.cdd-lab').textContent=o?o.textContent:'';
+    panel.innerHTML=[...sel.options].map(op=>cddOptHTML(op.textContent,op.value===sel.value)).join('')||'<div class="cdd-empty">No options</div>';
+    panel.querySelectorAll('.cdd-opt').forEach((el,i)=>{
+      el.addEventListener('mousedown',ev=>{
+        ev.preventDefault();
+        sel.selectedIndex=i;
+        sync();
+        wrap.classList.remove('open');
+        sel.dispatchEvent(new Event('change',{bubbles:true}));
+        sel.dispatchEvent(new Event('input',{bubbles:true}));
+      });
+    });
+  };
+  sel._cddSync=sync;sync();
+  btn.addEventListener('click',()=>{
+    const willOpen=!wrap.classList.contains('open');
+    cddCloseAll(wrap);
+    if(willOpen)sync();
+    wrap.classList.toggle('open',willOpen);
+  });
+}
+window.refreshAllCdd=function(){
+  document.querySelectorAll('select[data-cdd]').forEach(s=>{if(s._cddSync)s._cddSync();});
+};
+function enhanceCombo(input){
+  if(!input||input.dataset.cdd)return;
+  const listId=input.getAttribute('list');
+  const dl=listId?document.getElementById(listId):null;
+  if(!dl)return;
+  const opts=[...dl.querySelectorAll('option')].map(o=>o.value).filter(Boolean);
+  input.dataset.cdd='1';
+  input.removeAttribute('list');dl.remove();
+  input.setAttribute('autocomplete','off');
+  const wrap=document.createElement('div');wrap.className='combo-wrap';
+  input.parentNode.insertBefore(wrap,input);wrap.appendChild(input);
+  const chev=document.createElement('button');chev.type='button';chev.className='combo-chev';chev.textContent='▼';chev.tabIndex=-1;
+  const panel=document.createElement('div');panel.className='cdd-panel';
+  wrap.appendChild(chev);wrap.appendChild(panel);
+  let hl=-1;
+  const render=()=>{
+    const v=input.value.trim().toLowerCase();
+    const exact=opts.some(o=>o.toLowerCase()===v);
+    const list=(!v||exact)?opts:opts.filter(o=>o.toLowerCase().includes(v));
+    hl=list.findIndex(o=>o.toLowerCase()===v);
+    panel.innerHTML=list.length?list.map((o,i)=>'<div class="cdd-opt'+(i===hl?' sel':'')+'" data-i="'+i+'"><span>'+esc(o)+'</span><span class="ck">✓</span></div>').join(''):'<div class="cdd-empty">No matches, your typed value will be used</div>';
+    panel.querySelectorAll('.cdd-opt').forEach(el=>{
+      el.addEventListener('mousedown',ev=>{
+        ev.preventDefault();
+        input.value=list[+el.getAttribute('data-i')];
+        wrap.classList.remove('open');
+        input.dispatchEvent(new Event('input',{bubbles:true}));
+        input.dispatchEvent(new Event('change',{bubbles:true}));
+      });
+    });
+    return list;
+  };
+  const open=()=>{render();wrap.classList.add('open');};
+  input.addEventListener('focus',open);
+  input.addEventListener('input',()=>{if(wrap.classList.contains('open'))render();});
+  input.addEventListener('blur',()=>{setTimeout(()=>wrap.classList.remove('open'),120);});
+  chev.addEventListener('mousedown',e=>{e.preventDefault();e.stopPropagation();});
+  chev.addEventListener('click',()=>{
+    if(wrap.classList.contains('open')){wrap.classList.remove('open');}
+    else{input.focus();open();}
+  });
+  input.addEventListener('keydown',e=>{
+    if(!wrap.classList.contains('open')){
+      if(e.key==='ArrowDown'){e.preventDefault();open();}
+      return;
+    }
+    const items=[...panel.querySelectorAll('.cdd-opt')];
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+      e.preventDefault();
+      hl=e.key==='ArrowDown'?Math.min(hl+1,items.length-1):Math.max(hl-1,0);
+      items.forEach((el,i)=>el.classList.toggle('hl',i===hl));
+      if(items[hl])items[hl].scrollIntoView({block:'nearest'});
+    }else if(e.key==='Enter'&&hl>=0&&items[hl]){
+      e.preventDefault();items[hl].dispatchEvent(new MouseEvent('mousedown',{bubbles:true}));input.blur();
+    }
+  });
+}
+window.enhanceFormControls=function(){
+  enhanceSelect(document.getElementById('f_status'));
+  enhanceCombo(document.getElementById('f_trade'));
+  enhanceCombo(document.getElementById('f_campaign'));
+};
+['tradeSel','campSel','recSel','sortSel'].forEach(id=>enhanceSelect(document.getElementById(id)));
 </script>
 </body>
 </html>
