@@ -984,12 +984,29 @@ loadStatuses().then(()=>{buildChrome();render();});
   }));
   bar.innerHTML=ZONES.map((Z,i)=>'<div class="clk'+(Z.home?' home':'')+'"><div class="ab" id="cab'+i+'">···</div><div class="tm2" id="ctm'+i+'">--:--:--</div><div class="cy">'+Z.city+' · <span id="cdt'+i+'"></span></div></div>').join('');
   function pad(n){return String(n).padStart(2,'0');}
+  const abbrCache={};
+  function tzAbbr(tz,now){
+    now=now||new Date();
+    const key=tz+'|'+now.getUTCDate()+'|'+now.getUTCHours();
+    if(abbrCache[key])return abbrCache[key];
+    let off='';
+    try{off=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'longOffset'}).formatToParts(now).find(p=>p.type==='timeZoneName').value.replace('GMT','');}catch(e){}
+    if(!off||off==='Z')off='+00:00';
+    const M={'Asia/Karachi':{_:'PKT'},'UTC':{_:'UTC'},'America/Phoenix':{_:'MST'},'Pacific/Honolulu':{_:'HST'},
+      'America/New_York':{'-04:00':'EDT',_:'EST'},'America/Chicago':{'-05:00':'CDT',_:'CST'},
+      'America/Denver':{'-06:00':'MDT',_:'MST'},'America/Los_Angeles':{'-07:00':'PDT',_:'PST'},
+      'America/Anchorage':{'-08:00':'AKDT',_:'AKST'}};
+    let a;
+    if(M[tz])a=M[tz][off]||M[tz]._;
+    else{const m=off.match(/^([+-])(\d{2}):(\d{2})$/);a=m?('GMT'+m[1]+(+m[2])):'GMT';}
+    abbrCache[key]=a;return a;
+  }
   function upd(){
     const now=new Date();
     ZONES.forEach((Z,i)=>{
       const parts={};fmts[i].t.formatToParts(now).forEach(p=>parts[p.type]=p.value);
       const hr=+parts.hour, hr12=hr%12===0?12:hr%12, ap=hr<12?'AM':'PM';
-      document.getElementById('cab'+i).textContent=parts.timeZoneName||Z.z;
+      document.getElementById('cab'+i).textContent=tzAbbr(Z.z,now);
       document.getElementById('ctm'+i).innerHTML=hr12+':'+pad(+parts.minute)+':'+pad(+parts.second)+' <small>'+ap+'</small>';
       document.getElementById('cdt'+i).textContent=fmts[i].d.format(now);
     });
@@ -998,8 +1015,8 @@ loadStatuses().then(()=>{buildChrome();render();});
   function updLocal(){
     document.querySelectorAll('.ltime').forEach(elm=>{
       const tz=elm.getAttribute('data-tz')||'America/Chicago';
-      if(!ltFmt[tz])ltFmt[tz]=new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true,timeZoneName:'short'});
-      const txt=ltFmt[tz].format(new Date());
+      if(!ltFmt[tz])ltFmt[tz]=new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});
+      const txt=ltFmt[tz].format(new Date())+' '+tzAbbr(tz);
       elm.textContent=(elm.tagName==='DIV'?'Local time: ':'')+txt;
     });
   }

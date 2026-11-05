@@ -634,21 +634,38 @@ const ZONES=[
  ['HST','Pacific/Honolulu','Honolulu',0]
 ];
 const zFmt={};
-ZONES.forEach(z=>{zFmt[z[1]]=new Intl.DateTimeFormat('en-US',{timeZone:z[1],hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true,timeZoneName:'short'});});
+ZONES.forEach(z=>{zFmt[z[1]]=new Intl.DateTimeFormat('en-US',{timeZone:z[1],hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});});
 const ltFmt={};
 function fmtLT(tz,now){
-  if(!ltFmt[tz])ltFmt[tz]=new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true,timeZoneName:'short'});
-  return ltFmt[tz].format(now);
+  if(!ltFmt[tz])ltFmt[tz]=new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});
+  return ltFmt[tz].format(now)+' '+tzAbbr(tz,now);
+}
+const abbrCache={};
+function tzAbbr(tz,now){
+  now=now||new Date();
+  const key=tz+'|'+now.getUTCDate()+'|'+now.getUTCHours();
+  if(abbrCache[key])return abbrCache[key];
+  let off='';
+  try{off=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'longOffset'}).formatToParts(now).find(p=>p.type==='timeZoneName').value.replace('GMT','');}catch(e){}
+  if(!off||off==='Z')off='+00:00';
+  const M={'Asia/Karachi':{_:'PKT'},'UTC':{_:'UTC'},'America/Phoenix':{_:'MST'},'Pacific/Honolulu':{_:'HST'},
+    'America/New_York':{'-04:00':'EDT',_:'EST'},'America/Chicago':{'-05:00':'CDT',_:'CST'},
+    'America/Denver':{'-06:00':'MDT',_:'MST'},'America/Los_Angeles':{'-07:00':'PDT',_:'PST'},
+    'America/Anchorage':{'-08:00':'AKDT',_:'AKST'}};
+  let a;
+  if(M[tz])a=M[tz][off]||M[tz]._;
+  else{const m=off.match(/^([+-])(\d{2}):(\d{2})$/);a=m?('GMT'+m[1]+(+m[2])):'GMT';}
+  abbrCache[key]=a;return a;
 }
 function startClocks(){
   const bar=$('clockbar');
   bar.innerHTML=ZONES.map(z=>{
-    let abbr=z[0];try{abbr=new Intl.DateTimeFormat('en-US',{timeZone:z[1],timeZoneName:'short'}).formatToParts(new Date()).find(p=>p.type==='timeZoneName').value;}catch(e){}
+    const abbr=tzAbbr(z[1]);
     return '<div class="clk'+(z[3]?' me':'')+'"><div class="tz">'+esc(abbr)+'</div><div class="tm" data-zone="'+z[1]+'">--</div><div class="cy">'+esc(z[2])+'</div></div>';
   }).join('');
   const tick=()=>{
     const now=new Date();
-    bar.querySelectorAll('.tm').forEach(el=>{el.textContent=zFmt[el.getAttribute('data-zone')].format(now).replace(/\s?[A-Z]{2,5}$/,'');});
+    bar.querySelectorAll('.tm').forEach(el=>{el.textContent=zFmt[el.getAttribute('data-zone')].format(now);});
     document.querySelectorAll('.ltime').forEach(el=>{
       const tz=el.getAttribute('data-tz')||'America/Chicago';
       el.textContent=(el.tagName==='DIV'?'Local time: ':'')+fmtLT(tz,now);
