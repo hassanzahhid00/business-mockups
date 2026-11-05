@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-04T21:06:35Z",
-  "lastRunNote": "Send run: lead=next batch, override=False",
+  "lastRunAt": "2026-11-05T17:45:16Z",
+  "lastRunNote": "Send run: lead=Comprehensive Insurance Services, override=True",
   "log": [
     {
       "date": "2026-11-03",
@@ -67,6 +67,12 @@
       "to": "a59colmenas@yahoo.com",
       "date": "2026-11-05",
       "via": "github-actions"
+    },
+    {
+      "name": "Comprehensive Insurance Services",
+      "to": "info@thecomprehensiveinsurance.com",
+      "date": "2026-11-05",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -75,10 +81,11 @@
     "JS Home Repairs": "sent",
     "A & V's Painting": "sent",
     "HiDef Lawn Care and Power Washing": "sent",
-    "Ariel's Plumbing": "sent"
+    "Ariel's Plumbing": "sent",
+    "Comprehensive Insurance Services": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
-    "2026-11-05": 5
+    "2026-11-05": 6
   }
 }
