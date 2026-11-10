@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-05T17:45:16Z",
-  "lastRunNote": "Send run: lead=Comprehensive Insurance Services, override=True",
+  "lastRunAt": "2026-11-10T18:58:07Z",
+  "lastRunNote": "Send run: lead=Litoz Landscaping LLC, override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -73,6 +73,12 @@
       "to": "info@thecomprehensiveinsurance.com",
       "date": "2026-11-05",
       "via": "github-actions"
+    },
+    {
+      "name": "Litoz Landscaping LLC",
+      "to": "litozlandscaping25@yahoo.com",
+      "date": "2026-11-10",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -82,10 +88,12 @@
     "A & V's Painting": "sent",
     "HiDef Lawn Care and Power Washing": "sent",
     "Ariel's Plumbing": "sent",
-    "Comprehensive Insurance Services": "sent"
+    "Comprehensive Insurance Services": "sent",
+    "Litoz Landscaping LLC": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
-    "2026-11-05": 6
+    "2026-11-05": 6,
+    "2026-11-10": 1
   }
 }
