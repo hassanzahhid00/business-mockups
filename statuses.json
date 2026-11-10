@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-10T18:58:40Z",
-  "lastRunNote": "Send run: lead=Alonso's Landscaping, override=False",
+  "lastRunAt": "2026-11-10T18:59:02Z",
+  "lastRunNote": "Send run: lead=G&A Plumbing LLC, override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -85,6 +85,12 @@
       "to": "alonso200226@icloud.com",
       "date": "2026-11-10",
       "via": "github-actions"
+    },
+    {
+      "name": "G&A Plumbing LLC",
+      "to": "sabino2633@icloud.com",
+      "date": "2026-11-10",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -96,11 +102,12 @@
     "Ariel's Plumbing": "sent",
     "Comprehensive Insurance Services": "sent",
     "Litoz Landscaping LLC": "sent",
-    "Alonso's Landscaping": "sent"
+    "Alonso's Landscaping": "sent",
+    "G&A Plumbing LLC": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
-    "2026-11-10": 2
+    "2026-11-10": 3
   }
 }
