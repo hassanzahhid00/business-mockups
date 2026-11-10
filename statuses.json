@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-10T18:58:07Z",
-  "lastRunNote": "Send run: lead=Litoz Landscaping LLC, override=False",
+  "lastRunAt": "2026-11-10T18:58:40Z",
+  "lastRunNote": "Send run: lead=Alonso's Landscaping, override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -79,6 +79,12 @@
       "to": "litozlandscaping25@yahoo.com",
       "date": "2026-11-10",
       "via": "github-actions"
+    },
+    {
+      "name": "Alonso's Landscaping",
+      "to": "alonso200226@icloud.com",
+      "date": "2026-11-10",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -89,11 +95,12 @@
     "HiDef Lawn Care and Power Washing": "sent",
     "Ariel's Plumbing": "sent",
     "Comprehensive Insurance Services": "sent",
-    "Litoz Landscaping LLC": "sent"
+    "Litoz Landscaping LLC": "sent",
+    "Alonso's Landscaping": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
-    "2026-11-10": 1
+    "2026-11-10": 2
   }
 }
