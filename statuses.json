@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-12T20:28:46Z",
-  "lastRunNote": "Send run: lead=Golden Garage Door Solutions LLC, override=False",
+  "lastRunAt": "2026-11-12T20:29:19Z",
+  "lastRunNote": "Send run: lead=Power Moves Electric, override=True",
   "log": [
     {
       "date": "2026-11-03",
@@ -121,6 +121,12 @@
       "to": "blake@goldendoorsfl.com",
       "date": "2026-11-13",
       "via": "github-actions"
+    },
+    {
+      "name": "Power Moves Electric",
+      "to": "Contact@powermoveselectric.biz",
+      "date": "2026-11-13",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -138,12 +144,13 @@
     "Stay Dry Roofing of Tampa Bay": "sent",
     "Sweeney Plumbing & Electric": "sent",
     "E.C. Waters Air Conditioning & Heat": "sent",
-    "Golden Garage Door Solutions LLC": "sent"
+    "Golden Garage Door Solutions LLC": "sent",
+    "Power Moves Electric": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
     "2026-11-10": 3,
-    "2026-11-13": 5
+    "2026-11-13": 6
   }
 }
