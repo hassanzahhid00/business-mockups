@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-12T20:27:04Z",
-  "lastRunNote": "Send run: lead=Pestgo Exterminators Inc., override=False",
+  "lastRunAt": "2026-11-12T20:27:29Z",
+  "lastRunNote": "Send run: lead=Stay Dry Roofing of Tampa Bay, override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -97,6 +97,12 @@
       "to": "info@pestgoexterminatorsinc.com",
       "date": "2026-11-13",
       "via": "github-actions"
+    },
+    {
+      "name": "Stay Dry Roofing of Tampa Bay",
+      "to": "office@staydryfl.com",
+      "date": "2026-11-13",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -110,12 +116,13 @@
     "Litoz Landscaping LLC": "sent",
     "Alonso's Landscaping": "sent",
     "G&A Plumbing LLC": "sent",
-    "Pestgo Exterminators Inc.": "sent"
+    "Pestgo Exterminators Inc.": "sent",
+    "Stay Dry Roofing of Tampa Bay": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
     "2026-11-10": 3,
-    "2026-11-13": 1
+    "2026-11-13": 2
   }
 }
