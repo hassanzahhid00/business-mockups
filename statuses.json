@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-12T20:30:18Z",
-  "lastRunNote": "Send run: lead=Eco Ranch Cleaning, override=True",
+  "lastRunAt": "2026-11-12T20:31:26Z",
+  "lastRunNote": "Send run: lead=Integrity Safer Lawns and Homes, override=True",
   "log": [
     {
       "date": "2026-11-03",
@@ -139,6 +139,12 @@
       "to": "Ecoranchcleaning@gmail.com",
       "date": "2026-11-13",
       "via": "github-actions"
+    },
+    {
+      "name": "Integrity Safer Lawns and Homes",
+      "to": "SafeLawnsAndHomes@Yahoo.com",
+      "date": "2026-11-13",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -159,12 +165,13 @@
     "Golden Garage Door Solutions LLC": "sent",
     "Power Moves Electric": "sent",
     "Mike Hoffmann Painting": "sent",
-    "Eco Ranch Cleaning": "sent"
+    "Eco Ranch Cleaning": "sent",
+    "Integrity Safer Lawns and Homes": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
     "2026-11-10": 3,
-    "2026-11-13": 8
+    "2026-11-13": 9
   }
 }
