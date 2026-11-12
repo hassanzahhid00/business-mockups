@@ -58,6 +58,10 @@ def main() -> int:
         for name, val in status.get("overrides", {}).items()
         if val == "sent"
     }
+    bounces = {
+        name.strip().lower(): info
+        for name, info in status.get("bounces", {}).items()
+    }
     queue_order = {q["name"].strip().lower(): i + 1 for i, q in enumerate(queue)}
 
     try:
@@ -70,13 +74,25 @@ def main() -> int:
         print(f"Portal sync failed reading leads: HTTP {e.code} {e.read().decode()[:200]}")
         return 1
 
-    flipped, renumbered, unmatched_sent = [], [], []
+    flipped, renumbered, unmatched_sent, bounced_applied = [], [], [], []
     seen_sent = set()
     for lead in leads:
         name_key = lead["business_name"].strip().lower()
+        if name_key in bounces:
+            info = bounces[name_key]
+            patch = {
+                "bounce_date": str(info.get("date", "")),
+                "bounce_reason": str(info.get("reason", "")),
+            }
+            if info.get("hard"):
+                patch["status"] = "dropped"
+                patch["queue_position"] = None
+            api("PATCH", f"/rest/v1/leads?id=eq.{lead['id']}", key, patch)
+            bounced_applied.append(lead["business_name"])
         if name_key in sent_names:
             seen_sent.add(name_key)
-            if lead["status"] != "sent":
+            hard_bounced = name_key in bounces and bounces[name_key].get("hard")
+            if lead["status"] != "sent" and not hard_bounced:
                 api(
                     "PATCH",
                     f"/rest/v1/leads?id=eq.{lead['id']}",
@@ -100,6 +116,7 @@ def main() -> int:
             unmatched_sent.append(name_key)
 
     print(f"Portal sync done. Leads read: {len(leads)}.")
+    print(f"Bounce records applied: {len(bounced_applied)} {bounced_applied if bounced_applied else ''}")
     print(f"Marked sent in portal: {len(flipped)} {flipped if flipped else ''}")
     print(f"Queue positions renumbered: {len(renumbered)} {renumbered if renumbered else ''}")
     if unmatched_sent:
