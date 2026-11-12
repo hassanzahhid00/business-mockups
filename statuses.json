@@ -159,7 +159,7 @@
     "JS Home Repairs": "sent",
     "A & V's Painting": "sent",
     "HiDef Lawn Care and Power Washing": "sent",
-    "Ariel's Plumbing": "sent",
+    "Ariel's Plumbing": "dropped",
     "Comprehensive Insurance Services": "sent",
     "Litoz Landscaping LLC": "sent",
     "Alonso's Landscaping": "sent",
@@ -180,5 +180,22 @@
     "2026-11-05": 6,
     "2026-11-10": 3,
     "2026-11-13": 10
+  },
+  "bounces": {
+    "Ariel's Plumbing": {
+      "date": "2026-11-05",
+      "reason": "Mailbox not found (Yahoo 552). Hard bounce; the mailbox does not exist. Found in the Nov 13 full mailbox audit; the Nov 5 audit missed this notice.",
+      "hard": true
+    },
+    "E.C. Waters Air Conditioning & Heat": {
+      "date": "2026-11-13",
+      "reason": "Delivery failed, not a bad address: their Microsoft mail server hit its connection limit (421, temporary) and PurelyMail closed it as failed. The mailbox exists. Needs a resend once sending resumes.",
+      "hard": false
+    },
+    "Golden Garage Door Solutions LLC": {
+      "date": "2026-11-13",
+      "reason": "Delivery failed, not a bad address: their Microsoft mail server hit its connection limit (421, temporary) and PurelyMail closed it as failed. The mailbox exists. Needs a resend once sending resumes.",
+      "hard": false
+    }
   }
 }
