@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-10T18:59:02Z",
-  "lastRunNote": "Send run: lead=G&A Plumbing LLC, override=False",
+  "lastRunAt": "2026-11-12T20:27:04Z",
+  "lastRunNote": "Send run: lead=Pestgo Exterminators Inc., override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -91,6 +91,12 @@
       "to": "sabino2633@icloud.com",
       "date": "2026-11-10",
       "via": "github-actions"
+    },
+    {
+      "name": "Pestgo Exterminators Inc.",
+      "to": "info@pestgoexterminatorsinc.com",
+      "date": "2026-11-13",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -103,11 +109,13 @@
     "Comprehensive Insurance Services": "sent",
     "Litoz Landscaping LLC": "sent",
     "Alonso's Landscaping": "sent",
-    "G&A Plumbing LLC": "sent"
+    "G&A Plumbing LLC": "sent",
+    "Pestgo Exterminators Inc.": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
-    "2026-11-10": 3
+    "2026-11-10": 3,
+    "2026-11-13": 1
   }
 }
