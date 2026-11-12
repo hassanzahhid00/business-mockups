@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-12T20:28:20Z",
-  "lastRunNote": "Send run: lead=E.C. Waters Air Conditioning & Heat, override=False",
+  "lastRunAt": "2026-11-12T20:28:46Z",
+  "lastRunNote": "Send run: lead=Golden Garage Door Solutions LLC, override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -115,6 +115,12 @@
       "to": "steve@ecwaters.com",
       "date": "2026-11-13",
       "via": "github-actions"
+    },
+    {
+      "name": "Golden Garage Door Solutions LLC",
+      "to": "blake@goldendoorsfl.com",
+      "date": "2026-11-13",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -131,12 +137,13 @@
     "Pestgo Exterminators Inc.": "sent",
     "Stay Dry Roofing of Tampa Bay": "sent",
     "Sweeney Plumbing & Electric": "sent",
-    "E.C. Waters Air Conditioning & Heat": "sent"
+    "E.C. Waters Air Conditioning & Heat": "sent",
+    "Golden Garage Door Solutions LLC": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
     "2026-11-10": 3,
-    "2026-11-13": 4
+    "2026-11-13": 5
   }
 }
