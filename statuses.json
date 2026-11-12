@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-12T20:31:26Z",
-  "lastRunNote": "Send run: lead=Integrity Safer Lawns and Homes, override=True",
+  "lastRunAt": "2026-11-12T20:31:49Z",
+  "lastRunNote": "Send run: lead=Felix Plumbing & Rooter LLC, override=True",
   "log": [
     {
       "date": "2026-11-03",
@@ -145,6 +145,12 @@
       "to": "SafeLawnsAndHomes@Yahoo.com",
       "date": "2026-11-13",
       "via": "github-actions"
+    },
+    {
+      "name": "Felix Plumbing & Rooter LLC",
+      "to": "felixplumbing@hotmail.com",
+      "date": "2026-11-13",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -166,12 +172,13 @@
     "Power Moves Electric": "sent",
     "Mike Hoffmann Painting": "sent",
     "Eco Ranch Cleaning": "sent",
-    "Integrity Safer Lawns and Homes": "sent"
+    "Integrity Safer Lawns and Homes": "sent",
+    "Felix Plumbing & Rooter LLC": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
     "2026-11-10": 3,
-    "2026-11-13": 9
+    "2026-11-13": 10
   }
 }

@@ -1,11 +1,5 @@
 [
   {
-    "name": "Felix Plumbing & Rooter LLC",
-    "to": "felixplumbing@hotmail.com",
-    "subject": "🔧 Your homepage still says [Your Address]",
-    "body": "Hi Jesus,\n\nI was looking at the Felix Plumbing site and found something you will want to fix fast. Your contact page still shows the template placeholder text, it literally reads 'Felix Plumbing is located at [Your Address], Gilbert, AZ [ZIP]'. The click to call number on the site is off too, it shows 602-535-61712, an extra digit at the end, so anyone tapping it on their phone cannot get through to you.\n\nThat is a shame, because the business behind the site looks solid. The site itself just never got finished, and the whole thing still runs on plain http.\n\nI build websites for home service companies. I did Total Plumbing in Dallas (totalplumbing.net), a clean, fast site built around people searching on their phone. Big Birge Plumbing (bigbirgeplumbing.com) is another of mine, same idea: services up front and one tap to call.\n\nHappy to mock up a finished Felix Plumbing homepage for free, real address, working number, the lot. You see it first, and only then decide if it is worth anything.\n\nNo pressure either way, a reply is enough.\n\nThanks for your time,\nHassan"
-  },
-  {
     "name": "Grizzly Air LLC",
     "to": "service@grizzlyairllc.com",
     "subject": "❄️ Your Learn More links all lead back home",
