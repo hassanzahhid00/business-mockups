@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-12T20:29:48Z",
-  "lastRunNote": "Send run: lead=Mike Hoffmann Painting, override=True",
+  "lastRunAt": "2026-11-12T20:30:18Z",
+  "lastRunNote": "Send run: lead=Eco Ranch Cleaning, override=True",
   "log": [
     {
       "date": "2026-11-03",
@@ -133,6 +133,12 @@
       "to": "office@mikehoffmannpainting.com",
       "date": "2026-11-13",
       "via": "github-actions"
+    },
+    {
+      "name": "Eco Ranch Cleaning",
+      "to": "Ecoranchcleaning@gmail.com",
+      "date": "2026-11-13",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -152,12 +158,13 @@
     "E.C. Waters Air Conditioning & Heat": "sent",
     "Golden Garage Door Solutions LLC": "sent",
     "Power Moves Electric": "sent",
-    "Mike Hoffmann Painting": "sent"
+    "Mike Hoffmann Painting": "sent",
+    "Eco Ranch Cleaning": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
     "2026-11-05": 6,
     "2026-11-10": 3,
-    "2026-11-13": 7
+    "2026-11-13": 8
   }
 }
