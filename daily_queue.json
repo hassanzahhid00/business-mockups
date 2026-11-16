@@ -1,1 +1,190 @@
-[]
+[
+  {
+    "name": "DC Roofing LLC",
+    "to": "dcroofing97@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi Shawn,\n\nQuick correction to the email I sent earlier today. The three PDFs I attached did not render properly, so most of the designs appeared blank. That was a fault on my end, sorry about that.\n\nI have attached them again, fixed this time, so you can see each page in full.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/dc-roofing-homepage.pdf",
+        "name": "D.C. Roofing - New Homepage.pdf"
+      },
+      {
+        "file": "pdfs/dc-roofing-request-a-quote.pdf",
+        "name": "D.C. Roofing - Request a Quote Page.pdf"
+      },
+      {
+        "file": "pdfs/dc-roofing-brand-guideline.pdf",
+        "name": "D.C. Roofing - Brand Guidelines.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Tyler Roof Repair",
+    "to": "sales@roofrepairtyler.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi Justin,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/tyler-roof-repair.pdf",
+        "name": "Tyler Roof Repair - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Churchwell Plumbing",
+    "to": "Churchwellplum3@aol.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/churchwell-plumbing.pdf",
+        "name": "Churchwell Plumbing - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Berryhill Sewer Service Inc.",
+    "to": "berryhillsewer@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/berryhill-sewer-service.pdf",
+        "name": "Berryhill Sewer Service Inc. - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "A & H Overhead Door",
+    "to": "gary@odcamarillo.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/ah-overhead-door.pdf",
+        "name": "A & H Overhead Door - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "GLOW UP CLEAN",
+    "to": "glowupcleanco26@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/glow-up-clean.pdf",
+        "name": "GLOW UP CLEAN - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Graham Pest Management",
+    "to": "graham@grahampest.net",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi Dan,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/graham-pest-management.pdf",
+        "name": "Graham Pest Management - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Tri-County Landscape Services Inc",
+    "to": "chris@mytricountylandscape.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi Chris,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/tri-county-landscape.pdf",
+        "name": "Tri-County Landscape Services Inc - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Rene's Painting",
+    "to": "renespaintingmultiservices@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi Rene,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/renes-painting.pdf",
+        "name": "Rene's Painting - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Killen It Electric LLC",
+    "to": "killenelectric18@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi Dustin,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/killen-it-electric.pdf",
+        "name": "Killen It Electric LLC - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Vision Landscape & Design LLC",
+    "to": "vision.landscape.design@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/vision-landscape-design.pdf",
+        "name": "Vision Landscape & Design LLC - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Lizard Lick Pest Control",
+    "to": "info@lizardlickpestcontrol.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/lizard-lick-pest-control.pdf",
+        "name": "Lizard Lick Pest Control - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Gonzales Cleaning LLC",
+    "to": "eunicecancino79@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/gonzales-cleaning.pdf",
+        "name": "Gonzales Cleaning LLC - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "Matter-of-Fact Roofing, LLC",
+    "to": "Office@matteroffactroofing.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi there,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/matter-of-fact-roofing.pdf",
+        "name": "Matter-of-Fact Roofing LLC - Redesigned Homepage.pdf"
+      }
+    ]
+  },
+  {
+    "name": "A & A Painting and Remodeling, LLC",
+    "to": "Amarquez0808@gmail.com",
+    "subject": "📎 Quick correction: the homepage design from earlier, fixed",
+    "body": "Hi Armando,\n\nQuick correction to the email I sent earlier today. The PDF I attached did not render properly, so most of the homepage design appeared blank. That was a fault on my end, sorry about that.\n\nI have attached the same design again, fixed this time, so you can see the full page properly.\n\nBest,\nHassan",
+    "attachments": [
+      {
+        "file": "pdfs/aa-painting-remodeling.pdf",
+        "name": "A & A Painting and Remodeling LLC - Redesigned Homepage.pdf"
+      }
+    ]
+  }
+]
