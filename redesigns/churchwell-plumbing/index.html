@@ -4,175 +4,241 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Churchwell Plumbing | Plumber in Lubbock, TX Since 1989</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI', Arial, sans-serif; color:#22303c; background:#f7fafc; line-height:1.6; }
-  a { text-decoration:none; }
-  .topbar { background:#0b3c5d; color:#dcecf5; font-size:14px; padding:8px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
-  .topbar a { color:#7fd1f0; font-weight:700; }
-  header.main { background:#fff; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; position:sticky; top:0; z-index:10; box-shadow:0 2px 10px rgba(11,60,93,.12); border-bottom:3px solid #1d8ac2; }
-  .logo { font-size:26px; font-weight:800; color:#0b3c5d; }
-  .logo span { color:#1d8ac2; }
-  .logo small { display:block; font-size:12px; font-weight:600; color:#6b7d8c; letter-spacing:1px; text-transform:uppercase; }
-  .nav { display:flex; gap:22px; flex-wrap:wrap; }
-  .nav a { color:#22303c; font-size:15px; font-weight:600; }
-  .nav a:hover { color:#1d8ac2; }
-  .btn { display:inline-block; padding:13px 26px; border-radius:6px; font-weight:700; font-size:16px; }
-  .btn-call { background:#e07b24; color:#fff; }
-  .btn-call:hover { background:#c6681a; }
-  .btn-ghost { background:transparent; color:#fff; border:2px solid #fff; }
-  .hero { background:linear-gradient(120deg,#0b3c5d 0%,#10608f 100%); color:#fff; padding:70px 20px 60px; }
-  .hero-inner { max-width:1080px; margin:0 auto; }
-  .hero .kicker { letter-spacing:2px; text-transform:uppercase; font-size:13px; color:#7fd1f0; font-weight:700; margin-bottom:14px; }
-  .hero h1 { font-size:42px; line-height:1.15; max-width:700px; margin-bottom:18px; }
-  .hero p { font-size:19px; max-width:620px; color:#e3f0f7; margin-bottom:28px; }
-  .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
-  .chips { display:flex; gap:10px; flex-wrap:wrap; }
-  .chip { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); padding:7px 14px; border-radius:20px; font-size:14px; font-weight:600; }
-  section { padding:64px 20px; }
-  .wrap { max-width:1080px; margin:0 auto; }
-  .sec-head { text-align:center; margin-bottom:40px; }
-  .sec-head .kicker { letter-spacing:2px; text-transform:uppercase; font-size:13px; color:#1d8ac2; font-weight:700; }
-  .sec-head h2 { font-size:34px; margin-top:8px; color:#0b3c5d; }
-  .sec-head p { max-width:640px; margin:10px auto 0; color:#5a6b78; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-  .card { background:#fff; border:1px solid #dde7ee; border-radius:8px; padding:24px; box-shadow:0 2px 6px rgba(11,60,93,.05); }
-  .card h3 { font-size:19px; margin-bottom:9px; color:#0b3c5d; }
-  .card p { color:#5a6b78; font-size:15.5px; }
-  .values { background:#eef5fa; }
-  .rev-card { background:#fff; border-left:4px solid #e07b24; border-radius:6px; padding:24px; box-shadow:0 2px 6px rgba(11,60,93,.06); }
-  .rev-card p { font-size:16px; color:#33424f; }
-  .rev-card .who { font-size:14px; color:#1d8ac2; font-weight:700; margin-top:12px; }
-  .stars { color:#e07b24; letter-spacing:2px; }
-  .area-list { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
-  .area-list span { background:#fff; border:1px solid #c9dae6; padding:9px 18px; border-radius:20px; font-size:15px; font-weight:600; color:#0b3c5d; }
-  .cta { background:#0b3c5d; color:#fff; text-align:center; }
-  .cta h2 { font-size:36px; margin-bottom:14px; }
-  .cta p { max-width:600px; margin:0 auto 26px; color:#cfe3ef; font-size:18px; }
-  .cta .phone-big { font-size:32px; font-weight:800; color:#fff; display:block; margin-bottom:20px; }
-  footer { background:#072a42; color:#9db8c9; padding:36px 20px; font-size:15px; }
-  .foot-wrap { max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
-  footer a { color:#7fd1f0; }
-  .concept { text-align:center; margin-top:24px; font-size:13px; color:#6e8a9c; border-top:1px solid #0f4a73; padding-top:18px; }
-  @media (max-width:760px){ .hero h1{ font-size:33px; } }
+  :root{
+    --paper:#FAF8F3;
+    --ink:#12141A;
+    --accent:#1D4FD7;
+    --mut:#5B5E66;
+    --line:#DCD6C9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;}
+  .disp{font-family:'Space Grotesk',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px;}
+  .brand{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:700;letter-spacing:-.01em;}
+  .brand span{color:var(--accent);}
+  .hphone{font-weight:600;font-size:16px;border-bottom:2px solid var(--accent);padding-bottom:2px;transition:color .25s ease;}
+  .hphone:hover{color:var(--accent);}
+
+  /* hero */
+  .hero{padding:120px 0 110px;}
+  .kick{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;}
+  .kick b{color:var(--ink);font-weight:600;}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,6.8vw,4.75rem);line-height:1.02;letter-spacing:-.02em;font-weight:700;max-width:900px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p{font-size:20px;line-height:1.6;color:var(--mut);max-width:620px;margin:34px 0 44px;}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-weight:600;font-size:17px;padding:18px 34px;transition:background .25s ease,transform .25s ease;}
+  .btn:hover{background:var(--accent);}
+  .btn:active{transform:scale(.98);}
+  .hero-meta{margin-top:64px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px 44px;font-size:15px;color:var(--mut);}
+  .hero-meta strong{color:var(--ink);font-weight:600;}
+
+  /* images: flush, editorial, no borders or shadows */
+  figure{margin:0;}
+  .hero-fig{margin-top:72px;}
+  .hero-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+  .img-caption{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-top:14px;}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .duo img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;}
+  @media (max-width:820px){.duo{grid-template-columns:1fr;}}
+
+  /* sections */
+  section{padding:110px 0;}
+  .sec-head{margin-bottom:56px;max-width:760px;}
+  .sec-head h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.1rem,4vw,3rem);line-height:1.08;letter-spacing:-.02em;font-weight:700;margin-top:18px;}
+  .sec-head p{color:var(--mut);font-size:18px;margin-top:16px;}
+
+  /* services: editorial numbered rows */
+  .svc{border-top:1px solid var(--line);}
+  .svc-row{display:grid;grid-template-columns:80px 1fr 1.2fr;gap:28px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:padding-left .25s ease;}
+  .svc-row:hover{padding-left:10px;}
+  .svc-num{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--accent);}
+  .svc-row h3{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-.01em;line-height:1.2;}
+  .svc-row p{color:var(--mut);font-size:16.5px;}
+
+  /* why: numbered statements */
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 72px;}
+  .why-item{padding:34px 0;border-top:1px solid var(--line);}
+  .why-item .n{font-family:'Space Grotesk',sans-serif;color:var(--accent);font-size:15px;font-weight:600;display:block;margin-bottom:12px;}
+  .why-item h3{font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:600;margin-bottom:10px;letter-spacing:-.01em;}
+  .why-item p{color:var(--mut);font-size:16.5px;}
+
+  /* reviews: large quotes, rules only */
+  .rev{border-top:1px solid var(--line);padding:44px 0;}
+  .rev:last-child{border-bottom:1px solid var(--line);}
+  .rev .stars{color:var(--accent);letter-spacing:4px;font-size:15px;margin-bottom:18px;}
+  .rev blockquote{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.45rem,2.6vw,1.9rem);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:880px;}
+  .rev .who{margin-top:18px;font-size:15px;color:var(--mut);font-weight:600;}
+
+  /* area */
+  .area-line{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:600;line-height:1.4;letter-spacing:-.01em;max-width:900px;}
+  .area-line span{color:var(--accent);}
+
+  /* cta */
+  .cta{padding:120px 0;}
+  .cta h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.05;letter-spacing:-.02em;font-weight:700;max-width:820px;}
+  .cta p{color:var(--mut);font-size:19px;max-width:560px;margin:24px 0 40px;}
+  .cta .big-phone{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:700;letter-spacing:-.02em;display:inline-block;border-bottom:4px solid var(--accent);line-height:1.15;transition:color .25s ease;}
+  .cta .big-phone:hover{color:var(--accent);}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--paper);padding:96px 0 44px;}
+  .foot-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,9vw,6.8rem);font-weight:700;line-height:.98;letter-spacing:-.03em;}
+  .foot-name span{color:var(--accent);}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:20px 72px;margin-top:56px;padding-top:36px;border-top:1px solid #2B2E36;font-size:16px;color:#B9BCC4;}
+  .foot-grid strong{color:var(--paper);font-weight:600;display:block;margin-bottom:6px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;}
+  .foot-grid a{border-bottom:1px solid var(--accent);}
+  .concept{margin-top:64px;padding-top:24px;border-top:1px solid #2B2E36;font-size:13.5px;color:#7E828D;text-align:center;}
+
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+  @media (max-width:820px){
+    .svc-row{grid-template-columns:44px 1fr;}
+    .svc-row p{grid-column:2;}
+    .why-grid{grid-template-columns:1fr;}
+    section{padding:76px 0;}
+    .hero{padding:80px 0 72px;}
+    .wrap{padding:0 22px;}
+  }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div>Serving Lubbock &amp; the South Plains since 1989</div>
-  <div>Need a plumber? Call <a href="tel:+18067444939">(806) 744-4939</a></div>
-</div>
-
-<header class="main">
-  <div class="logo">Churchwell <span>Plumbing</span><small>The name to know when it don't flow</small></div>
-  <nav class="nav">
-    <a href="#services">Services</a>
-    <a href="#why">Why Us</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#area">Service Area</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="btn btn-call" href="tel:+18067444939">Call (806) 744-4939</a>
+<header>
+  <div class="wrap">
+    <div class="brand">Churchwell <span>Plumbing</span></div>
+    <a class="hphone" href="tel:+18067444939">(806) 744-4939</a>
+  </div>
 </header>
 
 <div class="hero">
-  <div class="hero-inner">
-    <div class="kicker">Lubbock's full-service plumbers</div>
-    <h1>Every Service We Offer, Right Where You Can See It</h1>
-    <p>From a slow drain to a full trenchless sewer replacement, Churchwell Plumbing has served Lubbock and the South Plains since 1989, with honest work and a crew that treats your home like their own.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-call" href="tel:+18067444939">Call (806) 744-4939</a>
-      <a class="btn btn-ghost" href="#services">See Our Services</a>
+  <div class="wrap">
+    <div class="kick rv">Churchwell Plumbing &nbsp;·&nbsp; Lubbock, Texas &nbsp;·&nbsp; Since 1989</div>
+    <h1 class="rv">The name to know when it <em>don't flow.</em></h1>
+    <p class="rv">Full-service plumbing for Lubbock and the South Plains since 1989. Drains, sewers, slab leaks, water heaters: every service in plain sight, and one call puts a real Churchwell plumber on it.</p>
+    <a class="btn rv" href="tel:+18067444939">Call (806) 744-4939</a>
+    <div class="hero-meta rv">
+      <div><strong>Since 1989</strong> &nbsp;35+ years on the South Plains</div>
+      <div><strong>BBB Accredited</strong></div>
+      <div><strong>Residential &amp; Commercial</strong></div>
     </div>
-    <div class="chips">
-      <span class="chip">Since 1989</span>
-      <span class="chip">BBB Accredited</span>
-      <span class="chip">Residential &amp; Commercial</span>
-      <span class="chip">Trenchless sewer specialists</span>
-    </div>
+    <figure class="hero-fig rv">
+      <img class="hero-img" src="https://static.wixstatic.com/media/1c4cd8_38f992c118ee4621adb9e8eb2cbe12cf~mv2.png/v1/crop/x_162,y_113,w_780,h_550/fill/w_1560,h_1100,al_c,q_85,enc_avif,quality_auto/BB%20job%20for%20website.png" alt="Churchwell Plumbing trenchless sewer truck and equipment trailer parked at a commercial job site">
+      <figcaption class="img-caption">The trenchless crew on a commercial sewer job</figcaption>
+    </figure>
   </div>
 </div>
 
 <section id="services">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Plumbing services</div>
-      <h2>What We Can Fix, Clean, or Replace</h2>
-      <p>All of it in plain text, on one page, so you know in seconds whether we are the right call.</p>
+    <div class="sec-head rv">
+      <div class="kick"><b>01</b> &nbsp;Services</div>
+      <h2>Every service we offer, right where you can see it.</h2>
+      <p>No digging through image banners. If it flows, drains, heats or leaks, it is on this list.</p>
     </div>
-    <div class="grid">
-      <div class="card"><h3>Drain Cleaning</h3><p>Slow or backed up drain? We clear drains and sewer lines and get things flowing again.</p></div>
-      <div class="card"><h3>Trenchless Sewer Replacement</h3><p>Replace a failing sewer line without tearing up your whole yard, using modern trenchless methods.</p></div>
-      <div class="card"><h3>Slab Leak Detection &amp; Repair</h3><p>We locate slab leaks accurately and repair them before they damage your foundation and floors.</p></div>
-      <div class="card"><h3>Water Heaters</h3><p>Repair and replacement of water heaters, including modern high-efficiency options for your home.</p></div>
-      <div class="card"><h3>Water &amp; Gas Lines</h3><p>Repair and replacement of water and gas lines, done safely and up to code by licensed plumbers.</p></div>
-      <div class="card"><h3>Video Diagnostics</h3><p>Camera inspections that show us exactly what is happening inside your lines, so we fix the real problem.</p></div>
-      <div class="card"><h3>Sewer Cleaning</h3><p>Thorough sewer cleaning, hydro jetting, and line location for homes and businesses.</p></div>
-      <div class="card"><h3>Water Softeners</h3><p>Licensed dealer for Pelican Water Softeners, plus RO systems that give your family cleaner water.</p></div>
+    <div class="svc rv">
+      <div class="svc-row"><div class="svc-num">/ 01</div><h3>Drain Cleaning</h3><p>Slow or backed up drain? We clear drains and sewer lines and get things flowing again.</p></div>
+      <div class="svc-row"><div class="svc-num">/ 02</div><h3>Trenchless Sewer Replacement</h3><p>A failing sewer line replaced without tearing up your whole yard, using modern trenchless methods.</p></div>
+      <div class="svc-row"><div class="svc-num">/ 03</div><h3>Slab Leak Detection &amp; Repair</h3><p>Slab leaks located accurately and repaired before they damage your foundation and floors.</p></div>
+      <div class="svc-row"><div class="svc-num">/ 04</div><h3>Water Heaters</h3><p>Repair and replacement of water heaters, including modern high-efficiency options for your home.</p></div>
+      <div class="svc-row"><div class="svc-num">/ 05</div><h3>Water &amp; Gas Lines</h3><p>Repair and replacement of water and gas lines, done safely and up to code by licensed plumbers.</p></div>
+      <div class="svc-row"><div class="svc-num">/ 06</div><h3>Video Diagnostics</h3><p>Camera inspections that show exactly what is happening inside your lines, so we fix the real problem.</p></div>
+      <div class="svc-row"><div class="svc-num">/ 07</div><h3>Sewer Cleaning</h3><p>Thorough sewer cleaning, hydro jetting, and line location for homes and businesses.</p></div>
+      <div class="svc-row"><div class="svc-num">/ 08</div><h3>Water Softeners</h3><p>Licensed dealer for Pelican Water Softeners, plus RO systems that give your family cleaner water.</p></div>
     </div>
   </div>
 </section>
 
-<section class="values" id="why">
+<section id="why" style="padding-top:20px;">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Why Churchwell</div>
-      <h2>A Team That Feels Like Family</h2>
+    <div class="sec-head rv">
+      <div class="kick"><b>02</b> &nbsp;Why Churchwell</div>
+      <h2>A team that feels like family.</h2>
       <p>For over three decades, Lubbock families have called us because we work the way we believe: with integrity, honest work, and servant leadership.</p>
     </div>
-    <div class="grid">
-      <div class="card"><h3>Serving since 1989</h3><p>Churchwell Plumbing has served Lubbock and the South Plains for more than 35 years, and our customers keep our number saved.</p></div>
-      <div class="card"><h3>Every home treated like our own</h3><p>That is the standard on every job, from a dripping faucet to a commercial sewer line.</p></div>
-      <div class="card"><h3>Licensed, experienced plumbers</h3><p>Journeyman and master plumbers on the team, with the diagnostic tools to find problems fast.</p></div>
-      <div class="card"><h3>Homes and businesses</h3><p>Full residential and commercial plumbing services across Lubbock, Brownfield, and the surrounding West Texas area.</p></div>
+    <div class="why-grid rv">
+      <div class="why-item"><span class="n">/ 01</span><h3>Serving since 1989</h3><p>Churchwell Plumbing has served Lubbock and the South Plains for more than 35 years, and our customers keep our number saved.</p></div>
+      <div class="why-item"><span class="n">/ 02</span><h3>Every home treated like our own</h3><p>That is the standard on every job, from a dripping faucet to a commercial sewer line.</p></div>
+      <div class="why-item"><span class="n">/ 03</span><h3>Licensed, experienced plumbers</h3><p>Journeyman and master plumbers on the team, with the diagnostic tools to find problems fast.</p></div>
+      <div class="why-item"><span class="n">/ 04</span><h3>Homes and businesses</h3><p>Full residential and commercial plumbing across Lubbock, Brownfield, and the surrounding West Texas area.</p></div>
     </div>
   </div>
 </section>
 
-<section id="reviews">
+<div class="wrap" style="padding-bottom:100px;">
+  <div class="duo rv">
+    <figure>
+      <img src="https://static.wixstatic.com/media/be6bc5_f05704d117b34dfe81df03d3252b8fff~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_85,enc_avif,quality_auto/Tankless-Water-Heater-Installation.jpg" alt="A tankless water heater installed by Churchwell, with copper piping on a cinder block wall">
+      <figcaption class="img-caption">Tankless water heater installation</figcaption>
+    </figure>
+    <figure>
+      <img src="https://static.wixstatic.com/media/1c4cd8_e7deac1a800c47a88422ce7d5de33a3c~mv2.png/v1/crop/x_162,y_113,w_780,h_550/fill/w_1200,h_846,al_c,q_85,enc_avif,quality_auto/Tools%20for%20web.png" alt="Pipe wrenches tightening a threaded pipe fitting, with a pipe cutter alongside">
+      <figcaption class="img-caption">Pipe repair, up close</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="reviews" style="padding-top:20px;">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Happy customers</div>
-      <h2>What Lubbock Says About Us</h2>
+    <div class="sec-head rv">
+      <div class="kick"><b>03</b> &nbsp;Reviews</div>
+      <h2>What Lubbock says about us.</h2>
     </div>
-    <div class="grid">
-      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"The young men who did the job were so nice and polite. Very good service."</p><div class="who">Terry Wilson</div></div>
-      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"We have needed them a few times and they always provide great service and are reasonable."</p><div class="who">Traci Dillard</div></div>
-      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Churchwell did a great job installing my RO system! Super helpful and professional."</p><div class="who">DeWayne Loudermilk</div></div>
+    <div class="rv">
+      <div class="rev"><div class="stars">★★★★★</div><blockquote>&ldquo;The young men who did the job were so nice and polite. Very good service.&rdquo;</blockquote><div class="who">Terry Wilson</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><blockquote>&ldquo;We have needed them a few times and they always provide great service and are reasonable.&rdquo;</blockquote><div class="who">Traci Dillard</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><blockquote>&ldquo;Churchwell did a great job installing my RO system! Super helpful and professional.&rdquo;</blockquote><div class="who">DeWayne Loudermilk</div></div>
     </div>
   </div>
 </section>
 
-<section id="area" style="padding-top:0;">
+<section id="area" style="padding-top:20px;">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Service area</div>
-      <h2>Proudly Serving the South Plains</h2>
-    </div>
-    <div class="area-list">
-      <span>Lubbock</span><span>Brownfield</span><span>The South Plains</span><span>Surrounding West Texas</span>
-    </div>
+    <div class="kick rv"><b>04</b> &nbsp;Service Area</div>
+    <p class="area-line rv">Proudly serving <span>Lubbock</span>, <span>Brownfield</span>, the <span>South Plains</span> and surrounding <span>West Texas</span>.</p>
   </div>
 </section>
 
 <section class="cta" id="contact">
   <div class="wrap">
-    <h2>Have a Plumbing Problem? Call the Name You Know.</h2>
-    <p>One call and a real Churchwell plumber is on it. Reach us any time at the number below, or stop by the shop on Urbana Avenue.</p>
-    <a class="phone-big" href="tel:+18067444939">(806) 744-4939</a>
-    <a class="btn btn-call" href="tel:+18067444939">Tap to Call Now</a>
-    <p style="margin-top:22px;font-size:15px;">Churchwell Plumbing, Inc. · 8807 Urbana Ave, Lubbock, TX 79424</p>
+    <div class="kick rv"><b>05</b> &nbsp;Contact</div>
+    <h2 class="rv">Have a plumbing problem? Call the name you know.</h2>
+    <p class="rv">One call and a real Churchwell plumber is on it. Reach us any time at the number below, or stop by the shop on Urbana Avenue.</p>
+    <a class="big-phone rv" href="tel:+18067444939">(806) 744-4939</a>
   </div>
 </section>
 
 <footer>
-  <div class="foot-wrap">
-    <div><strong style="color:#fff;">Churchwell Plumbing, Inc.</strong><br>Full-service plumbing for Lubbock and the South Plains since 1989.</div>
-    <div>Call: <a href="tel:+18067444939">(806) 744-4939</a><br>8807 Urbana Avenue<br>Lubbock, TX 79424</div>
+  <div class="wrap">
+    <div class="foot-name">Churchwell<br><span>Plumbing</span></div>
+    <div class="foot-grid">
+      <div><strong>Call</strong><a href="tel:+18067444939">(806) 744-4939</a></div>
+      <div><strong>Visit</strong>Churchwell Plumbing, Inc.<br>8807 Urbana Avenue<br>Lubbock, TX 79424</div>
+      <div><strong>Serving</strong>Lubbock &amp; the South Plains<br>since 1989</div>
+    </div>
+    <div class="concept">Concept homepage design prepared for Churchwell Plumbing</div>
   </div>
-  <div class="concept">Concept homepage design prepared for Churchwell Plumbing</div>
 </footer>
+
+<script>
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
 
 </body>
 </html>

@@ -4,171 +4,256 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Killen It Electric LLC | Electrician in Lake Havasu City, AZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI', Arial, sans-serif; color:#1d2733; background:#f4f6f9; line-height:1.6; }
-  a { text-decoration:none; }
-  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  :root{
+    --paper:#FAF7F1;
+    --ink:#14161A;
+    --amber:#D98E00;
+    --amber-bright:#F5B301;
+    --muted:#5D5A54;
+    --muted-dark:#A3A099;
+    --rule:#E3DDD2;
+    --rule-dark:#2B2D33;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  .disp{font-family:'Space Grotesk',sans-serif;}
 
-  header { background:#0d2137; color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 2px 10px rgba(0,0,0,.3); }
-  .header-in { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; max-width:1080px; margin:0 auto; flex-wrap:wrap; gap:10px; }
-  .brand { display:flex; align-items:center; gap:12px; }
-  .bolt { background:#f5b301; color:#0d2137; width:48px; height:48px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; font-weight:900; }
-  .brand .name { font-weight:800; font-size:1.3rem; letter-spacing:.4px; }
-  .brand .name span { color:#f5b301; }
-  .brand .tag { font-size:.78rem; color:#a9bfd4; }
-  .call-btn { background:#f5b301; color:#0d2137; font-weight:800; padding:12px 24px; border-radius:8px; font-size:1.05rem; }
-  .call-btn:hover { background:#ffc61a; }
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);}
+  .header-in{max-width:1200px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.12rem;letter-spacing:.01em;}
+  .wordmark span{color:var(--amber);}
+  .header-phone{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;border-bottom:2px solid var(--amber-bright);padding-bottom:2px;transition:color .25s ease;}
+  .header-phone:hover{color:var(--amber);}
 
-  .hero { background:linear-gradient(120deg,#0d2137 0%,#14324f 60%,#1b4066 100%); color:#fff; padding:70px 0 60px; }
-  .hero h1 { font-size:2.6rem; line-height:1.14; max-width:660px; margin-bottom:16px; }
-  .hero h1 span { color:#f5b301; }
-  .hero p { font-size:1.13rem; max-width:600px; color:#cfdce9; margin-bottom:28px; }
-  .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; }
-  .btn-primary { background:#f5b301; color:#0d2137; font-weight:800; padding:15px 30px; border-radius:8px; font-size:1.05rem; }
-  .btn-ghost { border:2px solid #cfdce9; color:#fff; font-weight:600; padding:13px 28px; border-radius:8px; }
-  .hero-badges { margin-top:32px; display:flex; gap:28px; flex-wrap:wrap; font-size:.92rem; color:#a9bfd4; }
-  .hero-badges strong { color:#fff; display:block; font-size:1.25rem; }
+  /* ---------- hero ---------- */
+  .hero{padding:118px 0 100px;}
+  .kicker{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:28px;}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(3rem,7.4vw,4.9rem);line-height:1.0;letter-spacing:-.02em;max-width:13ch;margin-bottom:30px;}
+  .hero h1 em{font-style:normal;color:var(--amber);}
+  .hero p{font-size:1.18rem;line-height:1.65;color:var(--muted);max-width:570px;margin-bottom:42px;}
+  .btn{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;background:var(--ink);color:var(--paper);padding:19px 38px;transition:background .25s ease,transform .25s ease;}
+  .btn:hover{background:var(--amber);color:var(--ink);transform:translateY(-2px);}
+  .hero-facts{margin-top:58px;padding-top:26px;border-top:1px solid var(--rule);font-size:.95rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px 34px;}
+  .hero-facts strong{color:var(--ink);font-weight:600;}
 
-  section { padding:56px 0; }
-  .kicker { text-transform:uppercase; letter-spacing:2px; font-size:.78rem; color:#c07f00; font-weight:700; margin-bottom:8px; }
-  h2 { font-size:2rem; margin-bottom:14px; color:#0d2137; }
-  .lead { max-width:700px; color:#4a5a6a; margin-bottom:30px; }
+  /* ---------- photos ---------- */
+  figure{margin:0;}
+  .hero-fig{margin-top:60px;}
+  .hero-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+  .img-caption{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:14px;}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:54px;}
+  .duo img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;}
+  @media (max-width:700px){ .duo{grid-template-columns:1fr;} }
 
-  .services { background:#fff; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-  .card { background:#f4f6f9; border:1px solid #dde4ec; border-top:4px solid #f5b301; border-radius:10px; padding:24px; }
-  .card h3 { font-size:1.13rem; margin-bottom:8px; color:#0d2137; }
-  .card p { font-size:.96rem; color:#4a5a6a; }
-  .card .icon { font-size:1.6rem; margin-bottom:10px; }
+  /* ---------- sections ---------- */
+  section{padding:110px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:22px;margin-bottom:18px;}
+  .sec-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem;color:var(--amber);}
+  .sec-kicker{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);}
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.05;letter-spacing:-.015em;max-width:22ch;margin-bottom:22px;}
+  .lead{color:var(--muted);max-width:640px;font-size:1.08rem;margin-bottom:56px;}
 
-  .about { background:#e9eef4; }
-  .about p { max-width:740px; color:#3c4c5c; margin-bottom:14px; }
-  .trust-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:18px; margin-top:24px; }
-  .trust-item { background:#fff; border-radius:10px; padding:20px; text-align:center; box-shadow:0 2px 8px rgba(13,33,55,.08); }
-  .trust-item .big { font-size:1.6rem; font-weight:800; color:#0d2137; }
-  .trust-item p { font-size:.9rem; color:#4a5a6a; margin:0; }
+  /* services: asymmetric editorial grid */
+  .svc-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0 40px;}
+  .svc{border-top:1px solid var(--rule);padding:30px 0 8px;}
+  .svc .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem;color:var(--amber);display:block;margin-bottom:12px;}
+  .svc h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.45rem;line-height:1.18;letter-spacing:-.01em;margin-bottom:10px;}
+  .svc p{color:var(--muted);font-size:.99rem;max-width:42ch;}
+  .svc.wide{grid-column:1 / 8;}
+  .svc.side{grid-column:9 / 13;}
+  .svc.third{grid-column:span 4;}
 
-  .reviews .grid { grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
-  .review { background:#fff; border:1px solid #dde4ec; border-radius:10px; padding:24px; }
-  .review .stars { color:#f5b301; font-size:1.1rem; letter-spacing:2px; margin-bottom:10px; }
-  .review p { font-size:.97rem; color:#33424f; font-style:italic; }
-  .review .who { margin-top:12px; font-style:normal; font-size:.86rem; color:#71808f; font-weight:600; }
+  /* about */
+  .about{background:var(--ink);color:var(--paper);}
+  .about .sec-kicker{color:var(--muted-dark);}
+  .about-cols{display:grid;grid-template-columns:1.35fr 1fr;gap:70px;margin-top:16px;}
+  .about-cols p{color:#D9D5CC;font-size:1.08rem;margin-bottom:20px;max-width:56ch;}
+  .fact{padding:20px 0;border-top:1px solid var(--rule-dark);}
+  .fact:first-child{padding-top:4px;}
+  .fact .big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.7rem;line-height:1.1;margin-bottom:4px;}
+  .fact .big span{color:var(--amber-bright);}
+  .fact p{color:var(--muted-dark);font-size:.95rem;margin:0;}
 
-  .areas { background:#0d2137; color:#e6edf4; }
-  .areas h2 { color:#fff; }
-  .areas .lead { color:#a9bfd4; }
-  .area-list { display:flex; flex-wrap:wrap; gap:10px; }
-  .area-list span { background:#14324f; border:1px solid #26507c; padding:9px 18px; border-radius:20px; font-size:.95rem; }
+  /* reviews: large editorial quotes */
+  .review{padding:44px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start;}
+  .review:last-child{border-bottom:1px solid var(--rule);}
+  .review .stars{color:var(--amber);font-size:1.05rem;letter-spacing:4px;padding-top:10px;}
+  .review blockquote{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(1.35rem,2.6vw,1.8rem);line-height:1.35;letter-spacing:-.01em;max-width:26em;}
+  .review .who{margin-top:16px;font-family:'Inter',sans-serif;font-size:.9rem;color:var(--muted);font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
 
-  .cta { background:#f5b301; text-align:center; padding:56px 20px; }
-  .cta h2 { color:#0d2137; }
-  .cta p { color:#5c4300; max-width:540px; margin:0 auto 24px; }
-  .cta .call-btn { background:#0d2137; color:#fff; font-size:1.2rem; padding:16px 36px; display:inline-block; border-radius:8px; font-weight:800; }
+  /* area + cta */
+  .area-cta{background:#F1EADB;}
+  .area-line{font-size:1.1rem;color:var(--muted);max-width:600px;margin-bottom:64px;}
+  .area-line strong{color:var(--ink);}
+  .big-call{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.05;letter-spacing:-.02em;display:inline-block;border-bottom:4px solid var(--amber-bright);padding-bottom:8px;transition:color .25s ease;}
+  .big-call:hover{color:var(--amber);}
 
-  footer { background:#081826; color:#7e93a8; padding:28px 20px; text-align:center; font-size:.9rem; }
-  footer .fname { color:#fff; font-weight:800; font-size:1.05rem; }
-  footer p { margin:4px 0; }
+  /* footer */
+  footer{background:var(--ink);color:var(--paper);padding:90px 0 44px;}
+  .foot-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,8.6vw,7.4rem);line-height:.96;letter-spacing:-.02em;margin-bottom:14px;}
+  .foot-name span{color:var(--amber-bright);}
+  .foot-tag{font-size:1.05rem;color:var(--muted-dark);margin-bottom:44px;}
+  .foot-row{display:flex;flex-wrap:wrap;gap:14px 60px;padding-top:28px;border-top:1px solid var(--rule-dark);color:var(--muted-dark);font-size:.97rem;}
+  .foot-row strong{color:var(--paper);font-weight:600;}
+  .concept{margin-top:34px;font-size:.85rem;color:#6E6C66;}
+
+  /* reveal motion */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.on{opacity:1;transform:none;}
+
+  @media (max-width:900px){
+    .svc.wide,.svc.side,.svc.third{grid-column:1 / 13;}
+    .about-cols{grid-template-columns:1fr;gap:44px;}
+    .review{grid-template-columns:1fr;gap:10px;}
+    section{padding:76px 0;}
+    .hero{padding:84px 0 72px;}
+  }
+  @media (max-width:540px){
+    .wrap{padding:0 22px;}
+    .header-in{padding:0 22px;}
+  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="header-in">
-    <div class="brand">
-      <div class="bolt">&#9889;</div>
-      <div>
-        <div class="name">KILLEN IT <span>ELECTRIC</span> LLC</div>
-        <div class="tag">Your Friendly Neighborhood Electrician</div>
-      </div>
-    </div>
-    <a class="call-btn" href="tel:+19288891769">&#128222; (928) 889-1769</a>
+    <div class="wordmark">Killen It <span>Electric</span> LLC</div>
+    <a class="header-phone" href="tel:+19288891769">(928) 889-1769</a>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <h1>Lake Havasu&rsquo;s Electrician Who <span>Actually Shows Up</span></h1>
-    <p>Killen It Electric is a family owned residential electrical company in Lake Havasu City. Rain or shine, emergency or planned project, Dustin and his crew answer the call and show up on time.</p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="tel:+19288891769">Call (928) 889-1769</a>
-      <a class="btn-ghost" href="#services">See Our Services</a>
+    <div class="kicker rv">Lake Havasu City, AZ &middot; Residential Electrician</div>
+    <h1 class="rv">The electrician who <em>actually shows up.</em></h1>
+    <p class="rv">Killen It Electric is a family owned residential electrical company in Lake Havasu City. Rain or shine, emergency or planned project, Dustin and his crew answer the call and show up on time.</p>
+    <a class="btn rv" href="tel:+19288891769">Call (928) 889-1769</a>
+    <div class="hero-facts rv">
+      <div><strong>5.0 stars</strong> across 13 Google reviews</div>
+      <div><strong>A+</strong> BBB rating</div>
+      <div><strong>ROC 334959</strong> licensed Arizona contractor</div>
+      <div><strong>Family owned</strong> and operated</div>
     </div>
-    <div class="hero-badges">
-      <div><strong>5.0 &#9733;</strong> 13 Google Reviews</div>
-      <div><strong>A+</strong> BBB Rating</div>
-      <div><strong>ROC 334959</strong> Licensed Arizona Contractor</div>
-      <div><strong>Family</strong> Owned &amp; Operated</div>
-    </div>
+    <figure class="hero-fig rv">
+      <img class="hero-img" src="https://s10.localdatacdn.com/az/lake-havasu-city/7396939/original/uZFyUFgGpL.jpg" alt="A new electrical meter and panel installed by Killen It Electric in the framed wall of a home under construction">
+      <figcaption class="img-caption">New panel &amp; meter install · Lake Havasu City</figcaption>
+    </figure>
   </div>
 </div>
 
-<section class="services" id="services">
+<section id="services">
   <div class="wrap">
-    <div class="kicker">What We Do</div>
-    <h2>Residential Electrical Services</h2>
-    <p class="lead">From a dead outlet to a full 220v circuit for your new mini split, one licensed local crew handles it, with fair pricing and no upfront money required on big projects.</p>
-    <div class="grid">
-      <div class="card"><div class="icon">&#128268;</div><h3>Troubleshooting &amp; Repairs</h3><p>Dead circuits, tripping breakers and mystery electrical problems found and fixed fast, even on late-day emergency calls.</p></div>
-      <div class="card"><div class="icon">&#9889;</div><h3>220v Lines &amp; New Circuits</h3><p>New 220v lines for mini splits, appliances and shop equipment, run cleanly even through tight crawl spaces others will not touch.</p></div>
-      <div class="card"><div class="icon">&#128165;</div><h3>Spa &amp; Hot Tub Hookups</h3><p>Spa and hot tub electrical hookups, disconnects and reconnects when you move, done safely and to code.</p></div>
-      <div class="card"><div class="icon">&#128161;</div><h3>Ceiling Fans, Lighting &amp; Outlets</h3><p>Ceiling fan installation, lighting, and outlet and switch installation that make the whole house work the way it should.</p></div>
-      <div class="card"><div class="icon">&#127968;</div><h3>Wiring Installation</h3><p>New wiring for remodels, additions and appliances, installed neatly and inspected to Arizona standards.</p></div>
-      <div class="card"><div class="icon">&#128222;</div><h3>Emergency Service</h3><p>No power, no hot water, no problem. We make ourselves as available as possible, because electrical problems do not keep office hours.</p></div>
+    <div class="sec-head rv"><span class="sec-num">01</span><span class="sec-kicker">What We Do</span></div>
+    <h2 class="rv">Residential electrical services.</h2>
+    <p class="lead rv">From a dead outlet to a full 220v circuit for your new mini split, one licensed local crew handles it, with fair pricing and no upfront money required on big projects.</p>
+
+    <div class="svc-grid">
+      <div class="svc wide rv"><span class="num">/ 01</span><h3>Troubleshooting &amp; Repairs</h3><p>Dead circuits, tripping breakers and mystery electrical problems found and fixed fast, even on late-day emergency calls.</p></div>
+      <div class="svc side rv"><span class="num">/ 02</span><h3>Emergency Service</h3><p>No power, no hot water, no problem. We make ourselves as available as possible, because electrical problems do not keep office hours.</p></div>
+      <div class="svc third rv"><span class="num">/ 03</span><h3>220v Lines &amp; New Circuits</h3><p>New 220v lines for mini splits, appliances and shop equipment, run cleanly even through tight crawl spaces others will not touch.</p></div>
+      <div class="svc third rv"><span class="num">/ 04</span><h3>Spa &amp; Hot Tub Hookups</h3><p>Spa and hot tub electrical hookups, disconnects and reconnects when you move, done safely and to code.</p></div>
+      <div class="svc third rv"><span class="num">/ 05</span><h3>Ceiling Fans, Lighting &amp; Outlets</h3><p>Ceiling fan installation, lighting, and outlet and switch installation that make the whole house work the way it should.</p></div>
+      <div class="svc wide rv"><span class="num">/ 06</span><h3>Wiring Installation</h3><p>New wiring for remodels, additions and appliances, installed neatly and inspected to Arizona standards.</p></div>
     </div>
   </div>
 </section>
 
 <section class="about">
   <div class="wrap">
-    <div class="kicker">About Us</div>
-    <h2>Family Owned, Havasu Proud</h2>
-    <p>Killen It Electric LLC is owned by Dustin Killen and has served Lake Havasu City since 2021. We are a family owned and operated residential service company, which means the person who answers your call is the person who stands behind the work.</p>
-    <p>In a town used to no-shows, our reputation is simple: we arrive when promised, price the job fairly, and leave it cleaner than we found it. That is why every one of our 13 Google reviews is five stars, and why the BBB rates us A+ with no complaints in the last three years.</p>
-    <div class="trust-row">
-      <div class="trust-item"><div class="big">5.0 &#9733;</div><p>Perfect rating across 13 Google reviews</p></div>
-      <div class="trust-item"><div class="big">ROC 334959</div><p>Active Arizona Specialty Residential license</p></div>
-      <div class="trust-item"><div class="big">A+</div><p>BBB rating, zero complaints in three years</p></div>
-      <div class="trust-item"><div class="big">Top 22%</div><p>BuildZoom score of 95 among Arizona contractors</p></div>
+    <div class="sec-head rv"><span class="sec-num">02</span><span class="sec-kicker">About Us</span></div>
+    <h2 class="rv">Family owned, Havasu proud.</h2>
+    <div class="about-cols">
+      <div class="rv">
+        <p>Killen It Electric LLC is owned by Dustin Killen and has served Lake Havasu City since 2021. We are a family owned and operated residential service company, which means the person who answers your call is the person who stands behind the work.</p>
+        <p>In a town used to no-shows, our reputation is simple: we arrive when promised, price the job fairly, and leave it cleaner than we found it. That is why every one of our 13 Google reviews is five stars, and why the BBB rates us A+ with no complaints in the last three years.</p>
+      </div>
+      <div class="rv">
+        <div class="fact"><div class="big">5.0 <span>&#9733;</span></div><p>Perfect rating across 13 Google reviews</p></div>
+        <div class="fact"><div class="big">ROC 334959</div><p>Active Arizona Specialty Residential license</p></div>
+        <div class="fact"><div class="big">A+</div><p>BBB rating, zero complaints in three years</p></div>
+        <div class="fact"><div class="big">Top 22%</div><p>BuildZoom score of 95 among Arizona contractors</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="reviews">
+<section>
   <div class="wrap">
-    <div class="kicker">Reviews</div>
-    <h2>What Your Neighbors Say</h2>
-    <div class="grid">
-      <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Shows up when promised and did above and beyond what I had expected. Very clean job of adding two 220v lines for my splits.&rdquo;</p><div class="who">Google review, 220v line installation</div></div>
-      <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Dustin answered our late in the day call when our water heater was not working. He came and he fixed the problem quickly!&rdquo;</p><div class="who">Google review, emergency repair</div></div>
-      <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Can&rsquo;t say enough good things about Dustin and his crew. They are fairly priced and very friendly. I highly recommend them.&rdquo;</p><div class="who">Google review, spa hookup</div></div>
+    <div class="sec-head rv"><span class="sec-num">03</span><span class="sec-kicker">Reviews</span></div>
+    <h2 class="rv">What your neighbors say.</h2>
+
+    <div class="duo rv">
+      <figure><img src="https://s10.localdatacdn.com/az/lake-havasu-city/7396939/original/8XaEM90FhU.jpg" alt="A kitchen with new pendant lights, recessed lighting and outlets installed by Killen It Electric"></figure>
+      <figure><img src="https://s10.localdatacdn.com/az/lake-havasu-city/7396939/original/xVMTQtPTOA.jpg" alt="A ceiling fan with a light kit installed in a Lake Havasu City home"></figure>
+    </div>
+
+    <div class="review rv">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div>
+        <blockquote>&ldquo;Shows up when promised and did above and beyond what I had expected. Very clean job of adding two 220v lines for my splits.&rdquo;</blockquote>
+        <div class="who">Google review &middot; 220v line installation</div>
+      </div>
+    </div>
+    <div class="review rv">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div>
+        <blockquote>&ldquo;Dustin answered our late in the day call when our water heater was not working. He came and he fixed the problem quickly!&rdquo;</blockquote>
+        <div class="who">Google review &middot; Emergency repair</div>
+      </div>
+    </div>
+    <div class="review rv">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div>
+        <blockquote>&ldquo;Can&rsquo;t say enough good things about Dustin and his crew. They are fairly priced and very friendly. I highly recommend them.&rdquo;</blockquote>
+        <div class="who">Google review &middot; Spa hookup</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="areas">
+<section class="area-cta">
   <div class="wrap">
-    <div class="kicker">Where We Work</div>
-    <h2>Serving Lake Havasu City</h2>
-    <p class="lead">Based at 3277 Sand Piper Dr, we serve homes across Lake Havasu City and the surrounding Mohave County area.</p>
-    <div class="area-list">
-      <span>Lake Havasu City</span><span>Mohave County</span>
-    </div>
+    <div class="sec-head rv"><span class="sec-num">04</span><span class="sec-kicker">Where We Work</span></div>
+    <h2 class="rv">Serving Lake Havasu City.</h2>
+    <p class="area-line rv">Based at <strong>3277 Sand Piper Dr</strong>, we serve homes across <strong>Lake Havasu City</strong> and the surrounding <strong>Mohave County</strong> area. Your friendly neighborhood electrician, one call away.</p>
+    <div class="sec-head rv"><span class="sec-num">05</span><span class="sec-kicker">Get In Touch</span></div>
+    <h2 class="rv">Need an electrician today?</h2>
+    <p class="lead rv" style="margin-bottom:34px;">Call Dustin directly. Fair prices, on-time arrival, and work done right the first time.</p>
+    <a class="big-call rv" href="tel:+19288891769">(928) 889-1769</a>
   </div>
 </section>
-
-<div class="cta">
-  <h2>Need an Electrician Today?</h2>
-  <p>Call Dustin directly. Fair prices, on-time arrival, and work done right the first time.</p>
-  <a class="call-btn" href="tel:+19288891769">&#128222; Call (928) 889-1769</a>
-  <p style="margin-top:18px; font-size:.9rem;">killenelectric18@gmail.com &middot; AZ ROC 334959</p>
-</div>
 
 <footer>
-  <p class="fname">Killen It Electric LLC</p>
-  <p>Residential electrician in Lake Havasu City, AZ &middot; (928) 889-1769 &middot; 3277 Sand Piper Dr, Lake Havasu City, AZ 86406</p>
-  <p>Concept homepage design prepared for Killen It Electric LLC</p>
+  <div class="wrap">
+    <div class="foot-name">Killen It<br><span>Electric</span> LLC</div>
+    <div class="foot-tag">Your Friendly Neighborhood Electrician</div>
+    <div class="foot-row">
+      <div><strong>(928) 889-1769</strong></div>
+      <div>killenelectric18@gmail.com</div>
+      <div>3277 Sand Piper Dr, Lake Havasu City, AZ 86406</div>
+      <div>AZ ROC 334959</div>
+    </div>
+    <div class="concept">Concept homepage design prepared for Killen It Electric LLC</div>
+  </div>
 </footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
 
 </body>
 </html>

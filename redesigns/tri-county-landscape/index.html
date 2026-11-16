@@ -4,72 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tri-County Landscape Services | Landscaping & Tree Removal in Cape Coral, FL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root{
+    --ink:#16150e;
+    --paper:#f7f3ea;
+    --accent:#c77400;
+    --accent-dark:#9e5c00;
+    --muted:#5d5a4b;
+    --rule:rgba(22,21,14,.16);
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: Georgia, 'Times New Roman', serif; color:#22301f; background:#f7f5ee; line-height:1.6; }
-  h1,h2,h3,.sans { font-family: 'Segoe UI', Arial, sans-serif; }
-  a { text-decoration:none; }
-  .wrap { max-width:1100px; margin:0 auto; padding:0 20px; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter', Arial, sans-serif; color:var(--ink); background:var(--paper); line-height:1.65; font-size:16.5px; }
+  h1,h2,h3,.disp { font-family:'Space Grotesk', sans-serif; }
+  a { text-decoration:none; color:inherit; }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 28px; }
 
-  header { background:#1e3d1a; color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 2px 10px rgba(0,0,0,.25); }
-  .header-in { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; max-width:1100px; margin:0 auto; flex-wrap:wrap; gap:10px; }
-  .brand { display:flex; align-items:center; gap:12px; }
-  .brand img { width:52px; height:52px; border-radius:50%; background:#fff; }
-  .brand .name { font-family:'Segoe UI', Arial, sans-serif; font-weight:700; font-size:1.25rem; letter-spacing:.5px; }
-  .brand .tag { font-size:.8rem; color:#bcd6a8; }
-  .call-btn { background:#e8a020; color:#1e3d1a; font-family:'Segoe UI', Arial, sans-serif; font-weight:700; padding:12px 22px; border-radius:30px; font-size:1.05rem; }
-  .call-btn:hover { background:#f5b83d; }
+  .rv { opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.2,.6,.2,1), transform .8s cubic-bezier(.2,.6,.2,1); }
+  .rv.in { opacity:1; transform:none; }
 
-  .hero { background:linear-gradient(135deg,#1e3d1a 0%,#2f5c26 55%,#4a7d3a 100%); color:#fff; padding:70px 0 60px; }
-  .hero h1 { font-size:2.6rem; line-height:1.15; margin-bottom:16px; }
-  .hero h1 span { color:#f2c14e; }
-  .hero p { font-size:1.15rem; max-width:640px; color:#e6efdd; margin-bottom:28px; }
-  .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; }
-  .btn-primary { background:#e8a020; color:#1e3d1a; font-family:'Segoe UI', Arial, sans-serif; font-weight:700; padding:15px 30px; border-radius:30px; font-size:1.05rem; }
-  .btn-ghost { border:2px solid #fff; color:#fff; font-family:'Segoe UI', Arial, sans-serif; font-weight:600; padding:13px 28px; border-radius:30px; }
-  .hero-badges { margin-top:34px; display:flex; gap:26px; flex-wrap:wrap; font-family:'Segoe UI', Arial, sans-serif; font-size:.92rem; color:#d9e8cc; }
-  .hero-badges strong { color:#fff; display:block; font-size:1.3rem; }
+  header { position:sticky; top:0; z-index:10; background:var(--paper); border-bottom:1px solid var(--rule); }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .brand img { height:46px; width:auto; display:block; }
+  .brand .name { font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:18.5px; letter-spacing:.02em; line-height:1.1; }
+  .brand .tag { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-top:3px; }
+  .head-phone { font-weight:600; font-size:15.5px; border-bottom:2px solid var(--accent); padding-bottom:2px; transition:color .25s ease; white-space:nowrap; }
+  .head-phone:hover { color:var(--accent); }
 
-  section { padding:56px 0; }
-  .kicker { font-family:'Segoe UI', Arial, sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:.78rem; color:#7a9a3f; font-weight:700; margin-bottom:8px; }
-  h2 { font-size:2rem; margin-bottom:14px; color:#1e3d1a; }
-  .lead { max-width:720px; color:#45543f; margin-bottom:30px; }
+  .hero { padding:104px 0 96px; border-bottom:1px solid var(--rule); }
+  .kicker { font-size:12.5px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin-bottom:28px; }
+  .hero h1 { font-size:clamp(3rem, 7.4vw, 5.4rem); line-height:.99; letter-spacing:-.03em; font-weight:700; text-transform:uppercase; }
+  .hero h1 em { font-style:normal; color:var(--accent); }
+  .hero .sub { margin-top:32px; font-size:19px; color:var(--muted); max-width:60ch; }
+  .hero .cta-row { margin-top:44px; display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:14px; letter-spacing:.1em; text-transform:uppercase; padding:19px 34px; transition:background .25s ease; }
+  .btn:hover { background:var(--accent-dark); }
+  .hero .offer { font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15.5px; }
+  .hero .offer b { color:var(--accent); }
+  .hero-facts { margin-top:72px; border-top:1px solid var(--rule); padding-top:22px; display:flex; gap:14px 44px; flex-wrap:wrap; font-size:14.5px; color:var(--muted); }
+  .hero-facts b { color:var(--ink); font-weight:600; }
 
-  .services { background:#fff; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-  .card { background:#f7f5ee; border:1px solid #e2ddc9; border-top:4px solid #7a9a3f; border-radius:10px; padding:24px; }
-  .card h3 { font-size:1.15rem; margin-bottom:8px; color:#1e3d1a; }
-  .card p { font-size:.96rem; color:#4c5a47; }
-  .card .icon { font-size:1.7rem; margin-bottom:10px; }
+  section { padding:110px 0; }
+  .sec-head { display:flex; align-items:baseline; gap:26px; border-top:2px solid var(--ink); padding-top:26px; margin-bottom:56px; }
+  .sec-num { font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:15px; color:var(--accent); letter-spacing:.08em; }
+  .sec-head h2 { font-size:clamp(1.9rem, 3.6vw, 2.7rem); line-height:1.08; letter-spacing:-.02em; font-weight:700; }
+  .sec-head .sec-kick { margin-left:auto; font-size:12.5px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+  .lead { font-size:18px; color:var(--muted); max-width:62ch; margin-bottom:52px; }
 
-  .trust { background:#eef3e4; }
-  .trust-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-top:10px; }
-  .trust-item { background:#fff; border-radius:10px; padding:22px; text-align:center; box-shadow:0 2px 8px rgba(30,61,26,.08); }
-  .trust-item .big { font-family:'Segoe UI', Arial, sans-serif; font-size:1.9rem; font-weight:800; color:#2f5c26; }
-  .trust-item p { font-size:.92rem; color:#55644e; }
+  .svc-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:70px; }
+  .svc-item { padding:32px 0; border-top:1px solid var(--rule); }
+  .svc-item .n { font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:14px; color:var(--accent); letter-spacing:.1em; }
+  .svc-item h3 { font-size:clamp(1.35rem, 2.2vw, 1.7rem); font-weight:700; letter-spacing:-.015em; line-height:1.15; margin:10px 0 10px; }
+  .svc-item p { color:var(--muted); font-size:16px; }
 
-  .about p { max-width:760px; color:#45543f; margin-bottom:14px; }
+  .about-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:70px; align-items:start; }
+  .about-grid .statement { font-family:'Space Grotesk', sans-serif; font-size:clamp(1.7rem, 3vw, 2.3rem); font-weight:700; letter-spacing:-.02em; line-height:1.15; margin-bottom:24px; }
+  .about-grid .txt { color:var(--muted); font-size:17px; margin-bottom:16px; }
+  .fact-row { display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:19px 0; border-top:1px solid var(--rule); }
+  .fact-row:last-child { border-bottom:1px solid var(--rule); }
+  .fact-row .big { font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:24px; white-space:nowrap; }
+  .fact-row .lbl { color:var(--muted); font-size:15.5px; text-align:right; }
 
-  .areas { background:#1e3d1a; color:#eef3e4; }
-  .areas h2 { color:#fff; }
-  .areas .lead { color:#c8dcb8; }
-  .area-list { display:flex; flex-wrap:wrap; gap:10px; }
-  .area-list span { background:#2f5c26; border:1px solid #4a7d3a; padding:9px 18px; border-radius:20px; font-family:'Segoe UI', Arial, sans-serif; font-size:.95rem; }
+  figure { margin:0; }
+  figure img { display:block; width:100%; object-fit:cover; }
+  .hero-img { padding:72px 0 0; }
+  .hero-img img { aspect-ratio:16/9; }
+  .img-caption { margin-top:14px; font-size:12.5px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+  .duo { display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:110px; }
+  .duo img { aspect-ratio:3/2; }
 
-  .cta { background:#e8a020; text-align:center; padding:56px 20px; }
-  .cta h2 { color:#1e3d1a; }
-  .cta p { color:#4a3a10; max-width:560px; margin:0 auto 24px; }
-  .cta .call-btn { background:#1e3d1a; color:#fff; font-size:1.2rem; padding:16px 36px; display:inline-block; }
+  .area-names { display:grid; grid-template-columns:repeat(2,1fr); column-gap:70px; }
+  .area-names div { font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:clamp(1.5rem, 3vw, 2.2rem); letter-spacing:-.015em; padding:20px 0; border-top:1px solid var(--rule); }
+  .area-names div span { color:var(--accent); font-size:.55em; vertical-align:super; margin-right:10px; }
 
-  footer { background:#14280f; color:#9db98d; padding:28px 20px; text-align:center; font-size:.9rem; }
-  footer .fname { color:#fff; font-family:'Segoe UI', Arial, sans-serif; font-weight:700; font-size:1.05rem; }
-  footer p { margin:4px 0; }
+  .cta { background:var(--ink); color:var(--paper); padding:120px 0; }
+  .cta h2 { font-size:clamp(2.6rem, 6vw, 4.4rem); font-weight:700; letter-spacing:-.03em; line-height:1.02; max-width:15ch; }
+  .cta p { margin-top:24px; color:rgba(247,243,234,.65); font-size:18px; max-width:52ch; }
+  .cta .btn { margin-top:42px; }
+  .cta .addr { margin-top:30px; font-size:14.5px; color:rgba(247,243,234,.5); }
+
+  footer { background:var(--ink); color:var(--paper); border-top:1px solid rgba(247,243,234,.16); padding:80px 0 44px; }
+  .foot-name { font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:clamp(2.2rem, 6.8vw, 5.6rem); letter-spacing:-.025em; line-height:1.0; text-transform:uppercase; }
+  .foot-name span { color:var(--accent); }
+  .foot-grid { margin-top:52px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px 60px; font-size:15.5px; color:rgba(247,243,234,.72); }
+  .foot-grid b { color:var(--paper); font-weight:600; }
+  .concept { margin-top:56px; padding-top:22px; border-top:1px solid rgba(247,243,234,.16); font-size:13px; color:rgba(247,243,234,.45); text-align:center; }
+
+  @media (max-width: 860px) {
+    .hero { padding:72px 0 64px; }
+    section { padding:72px 0; }
+    .svc-grid, .about-grid, .area-names { grid-template-columns:1fr; }
+    .sec-head { flex-wrap:wrap; }
+    .sec-head .sec-kick { margin-left:0; }
+    .brand .tag { display:none; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-in">
+  <div class="wrap">
     <div class="brand">
       <img src="https://mytricountylandscape.com/wp-content/uploads/2020/08/tri-county-landscape-600x600.png" alt="Tri-County Landscape logo">
       <div>
@@ -77,89 +115,167 @@
         <div class="tag">Cape Coral &middot; Captiva &middot; Sanibel</div>
       </div>
     </div>
-    <a class="call-btn" href="tel:+12392058044">&#128222; 239-205-8044</a>
+    <a class="head-phone" href="tel:+12392058044">239-205-8044</a>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <h1>Landscaping &amp; Tree Removal in <span>Cape Coral</span>, Done Right</h1>
-    <p>For over 20 years, Tri-County Landscape has designed, built and maintained outdoor spaces across Lee, Collier and Monroe County, and our crews answer 24/7 when a storm brings a tree down.</p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="tel:+12392058044">Call for a Free Estimate</a>
-      <a class="btn-ghost" href="#services">See Our Services</a>
+    <div class="kicker rv">Landscaping &amp; tree removal — Cape Coral, FL</div>
+    <h1 class="rv">Landscaping &amp; tree removal, <em>done right.</em></h1>
+    <p class="sub rv">For over 20 years, Tri-County Landscape has designed, built and maintained outdoor spaces across Lee, Collier and Monroe County, and our crews answer 24/7 when a storm brings a tree down.</p>
+    <div class="cta-row rv">
+      <a class="btn" href="tel:+12392058044">Call for a Free Estimate</a>
+      <div class="offer">First order? <b>20% off.</b></div>
     </div>
-    <div class="hero-badges">
-      <div><strong>20+</strong> Years in Business</div>
-      <div><strong>3x</strong> Best of Houzz Winner</div>
-      <div><strong>Licensed</strong> &amp; Fully Insured</div>
-      <div><strong>20% Off</strong> Your First Order</div>
+    <div class="hero-facts rv">
+      <div><b>20+</b> years in business</div>
+      <div><b>3x</b> Best of Houzz winner</div>
+      <div><b>Licensed</b> &amp; fully insured</div>
+      <div><b>24/7</b> emergency tree work</div>
     </div>
   </div>
 </div>
 
-<section class="services" id="services">
+<div class="hero-img">
   <div class="wrap">
-    <div class="kicker">What We Do</div>
-    <h2>Services for Homes, Businesses &amp; Communities</h2>
-    <p class="lead">One crew for the whole property, from the first design sketch to monthly upkeep and emergency cleanup after a storm.</p>
-    <div class="grid">
-      <div class="card"><div class="icon">&#127795;</div><h3>Landscape Design &amp; Remodeling</h3><p>Full landscape design and remodels for residential and commercial properties, built around Florida-friendly planting and outdoor living areas.</p></div>
-      <div class="card"><div class="icon">&#127794;</div><h3>Tree Removal &amp; Tree Care</h3><p>Safe tree removal, shaping and care from trained crews, available around the clock when a tree becomes an emergency.</p></div>
-      <div class="card"><div class="icon">&#127793;</div><h3>Lawn Care &amp; Maintenance</h3><p>Residential, commercial and community lawn maintenance on one-time or recurring plans, with our own professional tools and equipment on every job.</p></div>
-      <div class="card"><div class="icon">&#127754;</div><h3>Sod Installation</h3><p>Fresh sod installation for tired or patchy lawns, prepped and laid so it takes root fast in the Southwest Florida climate.</p></div>
-      <div class="card"><div class="icon">&#128295;</div><h3>Stump Removal</h3><p>Stump removal and grinding that leaves the yard clean, level and ready to plant or sod over.</p></div>
-      <div class="card"><div class="icon">&#127782;</div><h3>24/7 Disaster &amp; Debris Cleanup</h3><p>When disaster strikes, our teams come out day or night for storm debris cleanup and emergency tree work at homes and commercial sites.</p></div>
+    <figure class="rv">
+      <img src="https://mytricountylandscape.com/wp-content/uploads/2023/07/cape-coral-landscaping-1024x576.jpg" alt="Landscaped pool deck with palm trees, planted beds and lawn at a Cape Coral home">
+      <figcaption class="img-caption">Poolside palms and planting, Cape Coral</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">01</div>
+      <h2>Services for homes, businesses &amp; communities</h2>
+      <div class="sec-kick">What we do</div>
+    </div>
+    <p class="lead rv">One crew for the whole property, from the first design sketch to monthly upkeep and emergency cleanup after a storm.</p>
+    <div class="svc-grid">
+      <div class="svc-item rv">
+        <div class="n">/ 01</div>
+        <h3>Landscape Design &amp; Remodeling</h3>
+        <p>Full landscape design and remodels for residential and commercial properties, built around Florida-friendly planting and outdoor living areas.</p>
+      </div>
+      <div class="svc-item rv">
+        <div class="n">/ 02</div>
+        <h3>Tree Removal &amp; Tree Care</h3>
+        <p>Safe tree removal, shaping and care from trained crews, available around the clock when a tree becomes an emergency.</p>
+      </div>
+      <div class="svc-item rv">
+        <div class="n">/ 03</div>
+        <h3>Lawn Care &amp; Maintenance</h3>
+        <p>Residential, commercial and community lawn maintenance on one-time or recurring plans, with our own professional tools and equipment on every job.</p>
+      </div>
+      <div class="svc-item rv">
+        <div class="n">/ 04</div>
+        <h3>Sod Installation</h3>
+        <p>Fresh sod installation for tired or patchy lawns, prepped and laid so it takes root fast in the Southwest Florida climate.</p>
+      </div>
+      <div class="svc-item rv">
+        <div class="n">/ 05</div>
+        <h3>Stump Removal</h3>
+        <p>Stump removal and grinding that leaves the yard clean, level and ready to plant or sod over.</p>
+      </div>
+      <div class="svc-item rv">
+        <div class="n">/ 06</div>
+        <h3>24/7 Disaster &amp; Debris Cleanup</h3>
+        <p>When disaster strikes, our teams come out day or night for storm debris cleanup and emergency tree work at homes and commercial sites.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="trust">
+<section style="padding-top:0;">
   <div class="wrap">
-    <div class="kicker">Why Tri-County</div>
-    <h2>A Reputation Built Over 20 Years</h2>
-    <div class="trust-grid">
-      <div class="trust-item"><div class="big">20+</div><p>Years serving the West Coast of Florida</p></div>
-      <div class="trust-item"><div class="big">3x</div><p>Best of Houzz winner for exceptional service</p></div>
-      <div class="trust-item"><div class="big">Licensed</div><p>Fully licensed and insured crews on every job</p></div>
-      <div class="trust-item"><div class="big">24/7</div><p>Around-the-clock tree removal and cleanup</p></div>
+    <div class="sec-head rv">
+      <div class="sec-num">02</div>
+      <h2>A reputation built over 20 years</h2>
+      <div class="sec-kick">About us</div>
+    </div>
+    <div class="about-grid">
+      <div class="rv">
+        <div class="statement">Local crews, natural methods.</div>
+        <p class="txt">Tri-County Landscape is a Cape Coral company that has spent more than two decades looking after properties from Captiva Island to Naples. Our trained teams handle everything from a single tree to full community maintenance contracts.</p>
+        <p class="txt">We work with natural materials and methods wherever we can, avoiding harsh chemicals and invasive species around Florida homes, so your yard stays safe for kids, pets and the local ecosystem. You do not even need to be home while we work, we handle the job and leave the property clean.</p>
+        <p class="txt">Getting started is simple: request a free estimate, we inspect the property in person, agree the work, and our crew completes it. One-time payments and recurring plans are both available.</p>
+      </div>
+      <div class="rv">
+        <div class="fact-row"><div class="big">20+</div><div class="lbl">Years serving the West Coast of Florida</div></div>
+        <div class="fact-row"><div class="big">3x</div><div class="lbl">Best of Houzz winner for exceptional service</div></div>
+        <div class="fact-row"><div class="big">Licensed</div><div class="lbl">Fully licensed and insured crews on every job</div></div>
+        <div class="fact-row"><div class="big">24/7</div><div class="lbl">Around-the-clock tree removal and cleanup</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="about">
+<section style="padding-top:0;">
   <div class="wrap">
-    <div class="kicker">About Us</div>
-    <h2>Local Crews, Natural Methods</h2>
-    <p>Tri-County Landscape is a Cape Coral company that has spent more than two decades looking after properties from Captiva Island to Naples. Our trained teams handle everything from a single tree to full community maintenance contracts.</p>
-    <p>We work with natural materials and methods wherever we can, avoiding harsh chemicals and invasive species around Florida homes, so your yard stays safe for kids, pets and the local ecosystem. You do not even need to be home while we work, we handle the job and leave the property clean.</p>
-    <p>Getting started is simple: request a free estimate, we inspect the property in person, agree the work, and our crew completes it. One-time payments and recurring plans are both available.</p>
-  </div>
-</section>
-
-<section class="areas">
-  <div class="wrap">
-    <div class="kicker">Where We Work</div>
-    <h2>Service Areas</h2>
-    <p class="lead">Based in Cape Coral, serving Lee County, Collier County and Monroe County.</p>
-    <div class="area-list">
-      <span>Cape Coral</span><span>Captiva Island</span><span>Sanibel Island</span><span>Fort Myers</span><span>Matlacha</span><span>North Fort Myers</span><span>Bonita Springs</span><span>Naples</span>
+    <div class="sec-head rv">
+      <div class="sec-num">03</div>
+      <h2>Service areas</h2>
+      <div class="sec-kick">Where we work</div>
+    </div>
+    <p class="lead rv">Based in Cape Coral, serving Lee County, Collier County and Monroe County.</p>
+    <div class="area-names rv">
+      <div><span>01</span>Cape Coral</div>
+      <div><span>02</span>Captiva Island</div>
+      <div><span>03</span>Sanibel Island</div>
+      <div><span>04</span>Fort Myers</div>
+      <div><span>05</span>Matlacha</div>
+      <div><span>06</span>North Fort Myers</div>
+      <div><span>07</span>Bonita Springs</div>
+      <div><span>08</span>Naples</div>
     </div>
   </div>
 </section>
+
+<div class="wrap">
+  <div class="duo">
+    <figure class="rv">
+      <img src="https://mytricountylandscape.com/wp-content/uploads/2022/01/tree-removal-commercial-cape-coral.jpg" alt="Tree worker in an aerial lift trimming a large tree">
+      <figcaption class="img-caption">Tree removal and trimming</figcaption>
+    </figure>
+    <figure class="rv">
+      <img src="https://mytricountylandscape.com/wp-content/uploads/2022/11/commercial-landscaping-1024x683.jpg" alt="Landscaped trees and planting beds in front of a commercial building">
+      <figcaption class="img-caption">Commercial grounds and planting</figcaption>
+    </figure>
+  </div>
+</div>
 
 <div class="cta">
-  <h2>Get Your Free Estimate Today</h2>
-  <p>First orders get 20% off. Call now and talk to a local crew, not a call center.</p>
-  <a class="call-btn" href="tel:+12392058044">&#128222; Call 239-205-8044</a>
-  <p style="margin-top:18px; font-size:.9rem;">1010 NE 8th St Unit 8, Cape Coral, FL 33909 &middot; Open 24/7 for emergencies</p>
+  <div class="wrap">
+    <h2 class="rv">Get your free estimate today.</h2>
+    <p class="rv">First orders get 20% off. Call now and talk to a local crew, not a call center.</p>
+    <a class="btn rv" href="tel:+12392058044">Call 239-205-8044</a>
+    <div class="addr rv">1010 NE 8th St Unit 8, Cape Coral, FL 33909 &middot; Open 24/7 for emergencies</div>
+  </div>
 </div>
 
 <footer>
-  <p class="fname">Tri-County Landscape Services Inc</p>
-  <p>Landscaping, tree removal and lawn care in Cape Coral, FL &middot; 239-205-8044 &middot; chris@mytricountylandscape.com</p>
-  <p>Concept homepage design prepared for Tri-County Landscape Services Inc</p>
+  <div class="wrap">
+    <div class="foot-name">Tri-County <span>Landscape</span></div>
+    <div class="foot-grid">
+      <div><b>Tri-County Landscape Services Inc</b><br>Landscaping, tree removal and lawn care in Cape Coral, FL</div>
+      <div>239-205-8044<br>chris@mytricountylandscape.com</div>
+      <div>1010 NE 8th St Unit 8<br>Cape Coral, FL 33909</div>
+    </div>
+    <div class="concept">Concept homepage design prepared for Tri-County Landscape Services Inc</div>
+  </div>
 </footer>
+
+<script>
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .12 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
 
 </body>
 </html>
