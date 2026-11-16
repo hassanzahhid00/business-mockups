@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rene's Painting Multi Services | Interior & Exterior Painters in Naples, FL</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI', Arial, sans-serif; color:#23262b; background:#faf8f6; line-height:1.6; }
+  a { text-decoration:none; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+
+  header { background:#141518; color:#fff; position:sticky; top:0; z-index:10; }
+  .header-in { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; max-width:1080px; margin:0 auto; flex-wrap:wrap; gap:10px; }
+  .brand .name { font-size:1.5rem; font-weight:800; letter-spacing:1px; }
+  .brand .name span { color:#d92b2b; }
+  .brand .tag { font-size:.78rem; letter-spacing:3px; color:#b9bcc2; text-transform:uppercase; }
+  .call-btn { background:#d92b2b; color:#fff; font-weight:700; padding:12px 24px; border-radius:6px; font-size:1.02rem; }
+  .call-btn:hover { background:#b81f1f; }
+
+  .hero { background:#141518; color:#fff; padding:72px 0 64px; position:relative; overflow:hidden; }
+  .hero::after { content:""; position:absolute; right:-60px; top:0; width:340px; height:100%; background:linear-gradient(105deg, transparent 30%, rgba(217,43,43,.28) 30%, rgba(217,43,43,.28) 62%, transparent 62%); }
+  .hero h1 { font-size:2.7rem; line-height:1.12; max-width:640px; margin-bottom:16px; position:relative; z-index:1; }
+  .hero h1 span { color:#ff5a4e; }
+  .hero p { font-size:1.13rem; max-width:580px; color:#cfd2d8; margin-bottom:28px; position:relative; z-index:1; }
+  .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; position:relative; z-index:1; }
+  .btn-primary { background:#d92b2b; color:#fff; font-weight:700; padding:15px 30px; border-radius:6px; font-size:1.05rem; }
+  .btn-ghost { border:2px solid #cfd2d8; color:#fff; font-weight:600; padding:13px 28px; border-radius:6px; }
+  .hero-badges { margin-top:32px; display:flex; gap:28px; flex-wrap:wrap; font-size:.92rem; color:#b9bcc2; position:relative; z-index:1; }
+  .hero-badges strong { color:#fff; display:block; font-size:1.25rem; }
+
+  section { padding:56px 0; }
+  .kicker { text-transform:uppercase; letter-spacing:2px; font-size:.78rem; color:#d92b2b; font-weight:700; margin-bottom:8px; }
+  h2 { font-size:2rem; margin-bottom:14px; color:#141518; }
+  .lead { max-width:700px; color:#555a63; margin-bottom:30px; }
+
+  .services { background:#fff; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+  .card { background:#faf8f6; border:1px solid #e7e1dc; border-left:5px solid #d92b2b; border-radius:8px; padding:24px; }
+  .card h3 { font-size:1.13rem; margin-bottom:8px; }
+  .card p { font-size:.96rem; color:#555a63; }
+  .card .icon { font-size:1.6rem; margin-bottom:10px; }
+
+  .about { background:#f1ede8; }
+  .about p { max-width:740px; color:#494e57; margin-bottom:14px; }
+  .trust-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:18px; margin-top:24px; }
+  .trust-item { background:#fff; border-radius:8px; padding:20px; text-align:center; box-shadow:0 2px 8px rgba(20,21,24,.07); }
+  .trust-item .big { font-size:1.7rem; font-weight:800; color:#d92b2b; }
+  .trust-item p { font-size:.9rem; color:#555a63; margin:0; }
+
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:8px; }
+  .step { background:#fff; border:1px solid #e7e1dc; border-radius:8px; padding:22px; }
+  .step .num { font-size:1.5rem; font-weight:800; color:#d92b2b; }
+  .step h3 { font-size:1.05rem; margin:6px 0; }
+  .step p { font-size:.93rem; color:#555a63; }
+
+  .areas { background:#141518; color:#e8e9ec; }
+  .areas h2 { color:#fff; }
+  .areas .lead { color:#b9bcc2; }
+  .area-list { display:flex; flex-wrap:wrap; gap:10px; }
+  .area-list span { background:#232529; border:1px solid #3a3d44; padding:9px 18px; border-radius:20px; font-size:.95rem; }
+
+  .cta { background:#d92b2b; text-align:center; padding:56px 20px; color:#fff; }
+  .cta h2 { color:#fff; }
+  .cta p { max-width:540px; margin:0 auto 24px; color:#ffd9d6; }
+  .cta .call-btn { background:#141518; color:#fff; font-size:1.2rem; padding:16px 36px; display:inline-block; border-radius:6px; font-weight:700; }
+
+  footer { background:#0c0d0f; color:#8f939c; padding:28px 20px; text-align:center; font-size:.9rem; }
+  footer .fname { color:#fff; font-weight:800; letter-spacing:1px; font-size:1.05rem; }
+  footer p { margin:4px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="brand">
+      <div class="name">RENE&rsquo;S <span>PAINTING</span></div>
+      <div class="tag">Multi Services &middot; Naples, FL</div>
+    </div>
+    <a class="call-btn" href="tel:+12392896868">&#128222; (239) 289-6868</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Naples Painters Who Treat Your Home Like <span>Their Own</span></h1>
+    <p>Rene&rsquo;s Painting Multi Services handles interior and exterior painting for homes and businesses across Naples, plus the drywall repair and pressure washing that make a paint job last.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="tel:+12392896868">Call for a Free Quote</a>
+      <a class="btn-ghost" href="#services">See Our Services</a>
+    </div>
+    <div class="hero-badges">
+      <div><strong>4.7 &#9733;</strong> From 24 Google Reviews</div>
+      <div><strong>Local</strong> Naples Owned &amp; Operated</div>
+      <div><strong>Homes &amp; Business</strong> Residential and Commercial</div>
+    </div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="kicker">What We Do</div>
+    <h2>Painting &amp; More, All From One Crew</h2>
+    <p class="lead">One call covers the whole job, from repairing the wall to the final coat and the cleanup outside.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">&#127968;</div><h3>Interior Painting</h3><p>Walls, ceilings and trim painted cleanly and carefully, with your furniture and floors protected from start to finish.</p></div>
+      <div class="card"><div class="icon">&#127774;</div><h3>Exterior Painting</h3><p>Full exterior repaints that stand up to the Naples sun and humidity, with proper prep so the finish lasts for years.</p></div>
+      <div class="card"><div class="icon">&#128295;</div><h3>Drywall Repair</h3><p>Cracks, holes and water-damaged drywall repaired and textured to match, so the paint goes on smooth and even.</p></div>
+      <div class="card"><div class="icon">&#128167;</div><h3>Pressure Washing</h3><p>Driveways, siding, patios and pool decks washed clean, on its own or as the first step before a fresh coat of paint.</p></div>
+      <div class="card"><div class="icon">&#127970;</div><h3>Commercial Painting</h3><p>Offices, storefronts and rentals painted on a schedule that keeps your business running with minimal disruption.</p></div>
+      <div class="card"><div class="icon">&#128736;</div><h3>Multi Services &amp; Handyman Work</h3><p>The small jobs around the house handled by the same trusted crew, so one visit can cross several things off your list.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="kicker">About Us</div>
+    <h2>A Naples Painting Company, Run by Rene Himself</h2>
+    <p>Rene&rsquo;s Painting Multi Services is a locally owned Naples company run by owner Rene Chavez. When you call, you talk to the person who stands behind the work, not a call center or a sales rep.</p>
+    <p>Customers across Naples rate the company 4.7 stars on Google, and most of our work comes from neighbors telling neighbors. We show up when we say we will, keep the work area tidy, and do not leave until the finish looks right.</p>
+    <div class="trust-row">
+      <div class="trust-item"><div class="big">4.7 &#9733;</div><p>Average rating from 24 Google reviews</p></div>
+      <div class="trust-item"><div class="big">Naples</div><p>Locally owned and based right here in Naples, FL</p></div>
+      <div class="trust-item"><div class="big">1 Number</div><p>One phone number that reaches the owner directly</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">How It Works</div>
+    <h2>From First Call to Final Coat</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Call or Message</h3><p>Tell us what you want painted and we arrange a time to see it in person.</p></div>
+      <div class="step"><div class="num">2</div><h3>Free Quote</h3><p>You get a clear price for the whole job, including any drywall repair or washing it needs.</p></div>
+      <div class="step"><div class="num">3</div><h3>Prep &amp; Paint</h3><p>We protect your space, repair and prep the surfaces, then paint with care.</p></div>
+      <div class="step"><div class="num">4</div><h3>Walkthrough</h3><p>We walk the job with you and touch up anything until you are happy with it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="wrap">
+    <div class="kicker">Where We Work</div>
+    <h2>Serving Naples &amp; Collier County</h2>
+    <p class="lead">Based in Naples, we paint homes and businesses throughout the surrounding Collier County communities.</p>
+    <div class="area-list">
+      <span>Naples</span><span>Pelican Bay</span><span>North Naples</span><span>East Naples</span><span>Golden Gate</span><span>Marco Island</span><span>Bonita Springs</span><span>Collier County</span>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Ready for a Fresh Coat?</h2>
+  <p>Call Rene today for a free quote on your painting project. One number, straight to the owner.</p>
+  <a class="call-btn" href="tel:+12392896868">&#128222; Call (239) 289-6868</a>
+  <p style="margin-top:18px; font-size:.9rem;">renespaintingmultiservices@gmail.com &middot; Naples, FL</p>
+</div>
+
+<footer>
+  <p class="fname">RENE&rsquo;S PAINTING MULTI SERVICES</p>
+  <p>Interior &amp; exterior painting, drywall repair and pressure washing in Naples, FL &middot; (239) 289-6868</p>
+  <p>Concept homepage design prepared for Rene's Painting</p>
+</footer>
+
+</body>
+</html>

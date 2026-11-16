@@ -19,6 +19,11 @@ on:
         required: false
         type: boolean
         default: false
+      daily:
+        description: "Send the automated daily queue (daily_queue.json, limit 15)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -52,6 +57,7 @@ jobs:
           if [ -n "${{ inputs.lead }}" ]; then ARGS="$ARGS --lead \"${{ inputs.lead }}\""; fi
           if [ "${{ inputs.override }}" = "true" ]; then ARGS="$ARGS --override"; fi
           if [ "${{ inputs.backfill }}" = "true" ]; then ARGS="$ARGS --backfill"; fi
+          if [ "${{ inputs.daily }}" = "true" ]; then ARGS="$ARGS --daily"; fi
           eval "python3 send_emails.py $ARGS"
 
       - name: Save updated queue and statuses

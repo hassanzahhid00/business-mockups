@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyler Roof Repair | Honest Roof Repair in Tyler, TX</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; color:#26303b; background:#faf8f4; line-height:1.6; }
+  h1,h2,h3,.btn,.nav a,.chip,.stat-num { font-family: 'Segoe UI', Arial, sans-serif; }
+  a { text-decoration:none; }
+  .topbar { background:#26303b; color:#f3ede2; font-family:'Segoe UI',Arial,sans-serif; font-size:14px; padding:8px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+  .topbar a { color:#e8a33d; font-weight:700; }
+  header.main { background:#fff; border-bottom:3px solid #b4552d; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; position:sticky; top:0; z-index:10; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+  .logo { font-family:'Segoe UI',Arial,sans-serif; font-size:26px; font-weight:800; color:#26303b; }
+  .logo span { color:#b4552d; }
+  .nav { display:flex; gap:22px; flex-wrap:wrap; }
+  .nav a { color:#26303b; font-size:15px; font-weight:600; }
+  .nav a:hover { color:#b4552d; }
+  .btn { display:inline-block; padding:13px 26px; border-radius:6px; font-weight:700; font-size:16px; }
+  .btn-call { background:#b4552d; color:#fff; }
+  .btn-call:hover { background:#9a4523; }
+  .btn-ghost { background:transparent; color:#26303b; border:2px solid #26303b; }
+  .hero { background:linear-gradient(135deg,#33475c 0%,#26303b 70%); color:#fff; padding:70px 20px 60px; }
+  .hero-inner { max-width:1080px; margin:0 auto; }
+  .hero .kicker { font-family:'Segoe UI',Arial,sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:13px; color:#e8a33d; font-weight:700; margin-bottom:14px; }
+  .hero h1 { font-size:44px; line-height:1.15; max-width:720px; margin-bottom:18px; }
+  .hero p { font-size:19px; max-width:640px; color:#e9e4da; margin-bottom:28px; }
+  .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
+  .hero .btn-ghost { color:#fff; border-color:#fff; }
+  .chips { display:flex; gap:10px; flex-wrap:wrap; }
+  .chip { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); color:#fff; padding:7px 14px; border-radius:20px; font-size:14px; font-weight:600; }
+  section { padding:64px 20px; }
+  .wrap { max-width:1080px; margin:0 auto; }
+  .sec-head { text-align:center; margin-bottom:40px; }
+  .sec-head .kicker { font-family:'Segoe UI',Arial,sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:13px; color:#b4552d; font-weight:700; }
+  .sec-head h2 { font-size:34px; margin-top:8px; color:#26303b; }
+  .sec-head p { max-width:640px; margin:10px auto 0; color:#5a6672; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px; }
+  .card { background:#fff; border:1px solid #e5ded2; border-top:4px solid #b4552d; border-radius:8px; padding:26px; }
+  .card h3 { font-size:20px; margin-bottom:10px; color:#26303b; }
+  .card p { color:#5a6672; font-size:16px; }
+  .why { background:#f1ebdf; }
+  .why .card { border-top-color:#33475c; }
+  .founder { display:grid; grid-template-columns:300px 1fr; gap:36px; align-items:center; }
+  .founder img { width:100%; border-radius:10px; border:4px solid #fff; box-shadow:0 6px 20px rgba(0,0,0,.15); }
+  .founder h2 { font-size:32px; margin-bottom:14px; color:#26303b; }
+  .founder p { color:#45525f; margin-bottom:14px; font-size:17px; }
+  .founder .sig { font-family:'Segoe UI',Arial,sans-serif; font-weight:700; color:#b4552d; }
+  @media (max-width:760px){ .founder{ grid-template-columns:1fr; } .hero h1{ font-size:34px; } }
+  .reviews { background:#26303b; color:#fff; }
+  .reviews .sec-head h2 { color:#fff; }
+  .reviews .sec-head p { color:#cfd6dd; }
+  .stars { color:#e8a33d; font-size:22px; letter-spacing:3px; }
+  .rev-card { background:#33475c; border-radius:8px; padding:26px; }
+  .rev-card p { color:#eef1f4; font-size:16px; margin-top:10px; }
+  .rev-card .who { font-family:'Segoe UI',Arial,sans-serif; font-size:14px; color:#e8a33d; font-weight:700; margin-top:14px; }
+  .area-list { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .area-list span { background:#fff; border:1px solid #ddd3c0; padding:9px 18px; border-radius:20px; font-family:'Segoe UI',Arial,sans-serif; font-size:15px; font-weight:600; }
+  .cta { background:#b4552d; color:#fff; text-align:center; }
+  .cta h2 { color:#fff; font-size:36px; margin-bottom:14px; }
+  .cta p { max-width:600px; margin:0 auto 28px; color:#fbe9dd; font-size:18px; }
+  .cta .btn-call { background:#26303b; }
+  .cta .phone-big { font-family:'Segoe UI',Arial,sans-serif; font-size:30px; font-weight:800; color:#fff; display:block; margin-bottom:20px; }
+  footer { background:#1c242e; color:#aeb8c2; padding:36px 20px; font-size:15px; }
+  .foot-wrap { max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  footer a { color:#e8a33d; }
+  .concept { text-align:center; margin-top:24px; font-size:13px; color:#7d8894; border-top:1px solid #33475c; padding-top:18px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>Serving Tyler &amp; Smith County, East Texas</div>
+  <div>Free estimates, no pressure: <a href="tel:+19034261151">(903) 426-1151</a></div>
+</div>
+
+<header class="main">
+  <div class="logo">Tyler <span>Roof Repair</span></div>
+  <nav class="nav">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-call" href="tel:+19034261151">Call (903) 426-1151</a>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Repair first. Replacement only when you truly need it.</div>
+    <h1>Honest Roof Repair in Tyler, TX</h1>
+    <p>We fix the roof you have and help it last years longer. You get a straight assessment, durable work built for East Texas heat, hail, and storms, and no upsell into a replacement your roof does not need.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-call" href="tel:+19034261151">Call (903) 426-1151</a>
+      <a class="btn btn-ghost" href="#contact">Get My Free Estimate</a>
+    </div>
+    <div class="chips">
+      <span class="chip">BBB Accredited</span>
+      <span class="chip">Bonded &amp; Insured</span>
+      <span class="chip">5.0 stars from 27 Google reviews</span>
+      <span class="chip">20+ years on East Texas roofs</span>
+      <span class="chip">Replies within 1 hour in business hours</span>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">What we do</div>
+      <h2>Roofing Services for Tyler Homes and Businesses</h2>
+      <p>One clear list, right up top, so you can find your problem and call the right crew for it.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Residential Roof Repair</h3><p>Leaks, loose or missing shingles, flashing problems, and storm wear. We find the real cause and fix that, not just the symptom.</p></div>
+      <div class="card"><h3>Commercial Roof Repair</h3><p>Repair and maintenance for commercial roofs across Smith County, done with the same repair-first honesty.</p></div>
+      <div class="card"><h3>Roof Replacement</h3><p>When a roof is genuinely at the end of its life, we replace it properly. We only recommend this when repair is no longer the smart answer.</p></div>
+      <div class="card"><h3>Roof Inspections &amp; Assessments</h3><p>A no-pressure look at your roof. We show you what we find, explain what truly needs work, and skip the upsells.</p></div>
+      <div class="card"><h3>Storm Damage Repair</h3><p>Fast response to active leaks and storm damage, with thorough documentation and support while you deal with your insurance claim.</p></div>
+      <div class="card"><h3>Flat Roofing &amp; Maintenance</h3><p>Flat roof solutions and ongoing maintenance that catches small issues early, before they turn into expensive repairs.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Why Tyler Roof Repair</div>
+      <h2>Straight Talk. Honest Work.</h2>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Repair-first, always</h3><p>Targeted work on flashing, seams, fasteners, and damaged areas often adds years of life to a roof, at a fraction of replacement cost.</p></div>
+      <div class="card"><h3>Real savings for homeowners</h3><p>Because we are not trying to sell you a new roof, you only pay for the work your roof actually needs.</p></div>
+      <div class="card"><h3>Insurance claim support</h3><p>We document damage thoroughly and work alongside your adjuster, so the claims process is smoother and less stressful.</p></div>
+      <div class="card"><h3>Built for Texas weather</h3><p>Manufacturer-rated materials and proven techniques, chosen for long summer heat, heavy spring rain, hail, and wind.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap founder">
+    <img src="https://www.roofrepairtyler.com/uploads/2026/05/family-photo-768x1243.webp" alt="Justin Deason, owner of Tyler Roof Repair, with his family">
+    <div>
+      <h2>A Message From Our Founder</h2>
+      <p>Justin Deason started Tyler Roof Repair because he was tired of watching homeowners get pushed into full replacements they did not need. In this trade the easy money is in new roofs, but that is not how he does business.</p>
+      <p>Every inspection is a straight-up assessment. His crew shows you exactly what they find, explains what actually needs work, and gives you the honest answer even when it costs them a sale. With over 20 years working East Texas roofs, Justin knows the heat, the hail, and the materials that hold up to both.</p>
+      <p class="sig">Justin Deason, Owner &amp; Founder, Tyler, TX</p>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <h2>Rated 5.0 From 27 Google Reviews</h2>
+      <p>Real words from Tyler homeowners who called us for help.</p>
+    </div>
+    <div class="grid">
+      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Justin came out the same day, fixed our loose shingles quickly, and explained everything thoroughly. Honest, professional, and now saved in my phone for any future roofing need.</p><div class="who">Google review</div></div>
+      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Two other companies quoted over $2,500 for a problem they could not even pin down. Tyler Roof Repair found the real issue and fixed it for less than a fifth of that.</p><div class="who">Google review</div></div>
+      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Outstanding work from a family owned business with a transparent process. They honor their word. Stay away from the big box companies and go with Tyler Roof Repair.</p><div class="who">Google review</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="area" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Service area</div>
+      <h2>Proudly Serving Tyler &amp; East Texas</h2>
+      <p>We cover Tyler and the communities around it in Smith County. Do not see your town? Call <a href="tel:+19034261151" style="color:#b4552d;font-weight:700;">(903) 426-1151</a>, we likely serve you too.</p>
+    </div>
+    <div class="area-list">
+      <span>Tyler</span><span>Smith County</span><span>East Texas</span><span>Surrounding communities</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Get a Straight Answer on Your Roof</h2>
+    <p>Free estimate, no pressure, no unnecessary upsells. Just an honest look at your roof from a Tyler crew that specializes in repair. We respond within 1 hour during business hours.</p>
+    <a class="phone-big" href="tel:+19034261151">(903) 426-1151</a>
+    <a class="btn btn-call" href="tel:+19034261151">Call Now for Your Free Estimate</a>
+    <p style="margin-top:22px;font-size:15px;">3310 S Broadway Ave, Suite 203, Tyler, TX 75701</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div><strong style="color:#fff;">Tyler Roof Repair</strong><br>Trusted roof repair and replacement in Tyler, TX and surrounding East Texas communities.</div>
+    <div>Call: <a href="tel:+19034261151">(903) 426-1151</a><br>3310 S Broadway Ave, Suite 203<br>Tyler, TX 75701</div>
+  </div>
+  <div class="concept">Concept homepage design prepared for Tyler Roof Repair</div>
+</footer>
+
+</body>
+</html>

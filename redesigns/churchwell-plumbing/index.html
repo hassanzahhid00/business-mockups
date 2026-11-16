@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churchwell Plumbing | Plumber in Lubbock, TX Since 1989</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI', Arial, sans-serif; color:#22303c; background:#f7fafc; line-height:1.6; }
+  a { text-decoration:none; }
+  .topbar { background:#0b3c5d; color:#dcecf5; font-size:14px; padding:8px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+  .topbar a { color:#7fd1f0; font-weight:700; }
+  header.main { background:#fff; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; position:sticky; top:0; z-index:10; box-shadow:0 2px 10px rgba(11,60,93,.12); border-bottom:3px solid #1d8ac2; }
+  .logo { font-size:26px; font-weight:800; color:#0b3c5d; }
+  .logo span { color:#1d8ac2; }
+  .logo small { display:block; font-size:12px; font-weight:600; color:#6b7d8c; letter-spacing:1px; text-transform:uppercase; }
+  .nav { display:flex; gap:22px; flex-wrap:wrap; }
+  .nav a { color:#22303c; font-size:15px; font-weight:600; }
+  .nav a:hover { color:#1d8ac2; }
+  .btn { display:inline-block; padding:13px 26px; border-radius:6px; font-weight:700; font-size:16px; }
+  .btn-call { background:#e07b24; color:#fff; }
+  .btn-call:hover { background:#c6681a; }
+  .btn-ghost { background:transparent; color:#fff; border:2px solid #fff; }
+  .hero { background:linear-gradient(120deg,#0b3c5d 0%,#10608f 100%); color:#fff; padding:70px 20px 60px; }
+  .hero-inner { max-width:1080px; margin:0 auto; }
+  .hero .kicker { letter-spacing:2px; text-transform:uppercase; font-size:13px; color:#7fd1f0; font-weight:700; margin-bottom:14px; }
+  .hero h1 { font-size:42px; line-height:1.15; max-width:700px; margin-bottom:18px; }
+  .hero p { font-size:19px; max-width:620px; color:#e3f0f7; margin-bottom:28px; }
+  .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
+  .chips { display:flex; gap:10px; flex-wrap:wrap; }
+  .chip { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); padding:7px 14px; border-radius:20px; font-size:14px; font-weight:600; }
+  section { padding:64px 20px; }
+  .wrap { max-width:1080px; margin:0 auto; }
+  .sec-head { text-align:center; margin-bottom:40px; }
+  .sec-head .kicker { letter-spacing:2px; text-transform:uppercase; font-size:13px; color:#1d8ac2; font-weight:700; }
+  .sec-head h2 { font-size:34px; margin-top:8px; color:#0b3c5d; }
+  .sec-head p { max-width:640px; margin:10px auto 0; color:#5a6b78; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+  .card { background:#fff; border:1px solid #dde7ee; border-radius:8px; padding:24px; box-shadow:0 2px 6px rgba(11,60,93,.05); }
+  .card h3 { font-size:19px; margin-bottom:9px; color:#0b3c5d; }
+  .card p { color:#5a6b78; font-size:15.5px; }
+  .values { background:#eef5fa; }
+  .rev-card { background:#fff; border-left:4px solid #e07b24; border-radius:6px; padding:24px; box-shadow:0 2px 6px rgba(11,60,93,.06); }
+  .rev-card p { font-size:16px; color:#33424f; }
+  .rev-card .who { font-size:14px; color:#1d8ac2; font-weight:700; margin-top:12px; }
+  .stars { color:#e07b24; letter-spacing:2px; }
+  .area-list { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .area-list span { background:#fff; border:1px solid #c9dae6; padding:9px 18px; border-radius:20px; font-size:15px; font-weight:600; color:#0b3c5d; }
+  .cta { background:#0b3c5d; color:#fff; text-align:center; }
+  .cta h2 { font-size:36px; margin-bottom:14px; }
+  .cta p { max-width:600px; margin:0 auto 26px; color:#cfe3ef; font-size:18px; }
+  .cta .phone-big { font-size:32px; font-weight:800; color:#fff; display:block; margin-bottom:20px; }
+  footer { background:#072a42; color:#9db8c9; padding:36px 20px; font-size:15px; }
+  .foot-wrap { max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  footer a { color:#7fd1f0; }
+  .concept { text-align:center; margin-top:24px; font-size:13px; color:#6e8a9c; border-top:1px solid #0f4a73; padding-top:18px; }
+  @media (max-width:760px){ .hero h1{ font-size:33px; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>Serving Lubbock &amp; the South Plains since 1989</div>
+  <div>Need a plumber? Call <a href="tel:+18067444939">(806) 744-4939</a></div>
+</div>
+
+<header class="main">
+  <div class="logo">Churchwell <span>Plumbing</span><small>The name to know when it don't flow</small></div>
+  <nav class="nav">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-call" href="tel:+18067444939">Call (806) 744-4939</a>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Lubbock's full-service plumbers</div>
+    <h1>Every Service We Offer, Right Where You Can See It</h1>
+    <p>From a slow drain to a full trenchless sewer replacement, Churchwell Plumbing has served Lubbock and the South Plains since 1989, with honest work and a crew that treats your home like their own.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-call" href="tel:+18067444939">Call (806) 744-4939</a>
+      <a class="btn btn-ghost" href="#services">See Our Services</a>
+    </div>
+    <div class="chips">
+      <span class="chip">Since 1989</span>
+      <span class="chip">BBB Accredited</span>
+      <span class="chip">Residential &amp; Commercial</span>
+      <span class="chip">Trenchless sewer specialists</span>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Plumbing services</div>
+      <h2>What We Can Fix, Clean, or Replace</h2>
+      <p>All of it in plain text, on one page, so you know in seconds whether we are the right call.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Drain Cleaning</h3><p>Slow or backed up drain? We clear drains and sewer lines and get things flowing again.</p></div>
+      <div class="card"><h3>Trenchless Sewer Replacement</h3><p>Replace a failing sewer line without tearing up your whole yard, using modern trenchless methods.</p></div>
+      <div class="card"><h3>Slab Leak Detection &amp; Repair</h3><p>We locate slab leaks accurately and repair them before they damage your foundation and floors.</p></div>
+      <div class="card"><h3>Water Heaters</h3><p>Repair and replacement of water heaters, including modern high-efficiency options for your home.</p></div>
+      <div class="card"><h3>Water &amp; Gas Lines</h3><p>Repair and replacement of water and gas lines, done safely and up to code by licensed plumbers.</p></div>
+      <div class="card"><h3>Video Diagnostics</h3><p>Camera inspections that show us exactly what is happening inside your lines, so we fix the real problem.</p></div>
+      <div class="card"><h3>Sewer Cleaning</h3><p>Thorough sewer cleaning, hydro jetting, and line location for homes and businesses.</p></div>
+      <div class="card"><h3>Water Softeners</h3><p>Licensed dealer for Pelican Water Softeners, plus RO systems that give your family cleaner water.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="values" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Why Churchwell</div>
+      <h2>A Team That Feels Like Family</h2>
+      <p>For over three decades, Lubbock families have called us because we work the way we believe: with integrity, honest work, and servant leadership.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Serving since 1989</h3><p>Churchwell Plumbing has served Lubbock and the South Plains for more than 35 years, and our customers keep our number saved.</p></div>
+      <div class="card"><h3>Every home treated like our own</h3><p>That is the standard on every job, from a dripping faucet to a commercial sewer line.</p></div>
+      <div class="card"><h3>Licensed, experienced plumbers</h3><p>Journeyman and master plumbers on the team, with the diagnostic tools to find problems fast.</p></div>
+      <div class="card"><h3>Homes and businesses</h3><p>Full residential and commercial plumbing services across Lubbock, Brownfield, and the surrounding West Texas area.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Happy customers</div>
+      <h2>What Lubbock Says About Us</h2>
+    </div>
+    <div class="grid">
+      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"The young men who did the job were so nice and polite. Very good service."</p><div class="who">Terry Wilson</div></div>
+      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"We have needed them a few times and they always provide great service and are reasonable."</p><div class="who">Traci Dillard</div></div>
+      <div class="rev-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Churchwell did a great job installing my RO system! Super helpful and professional."</p><div class="who">DeWayne Loudermilk</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="area" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Service area</div>
+      <h2>Proudly Serving the South Plains</h2>
+    </div>
+    <div class="area-list">
+      <span>Lubbock</span><span>Brownfield</span><span>The South Plains</span><span>Surrounding West Texas</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Have a Plumbing Problem? Call the Name You Know.</h2>
+    <p>One call and a real Churchwell plumber is on it. Reach us any time at the number below, or stop by the shop on Urbana Avenue.</p>
+    <a class="phone-big" href="tel:+18067444939">(806) 744-4939</a>
+    <a class="btn btn-call" href="tel:+18067444939">Tap to Call Now</a>
+    <p style="margin-top:22px;font-size:15px;">Churchwell Plumbing, Inc. · 8807 Urbana Ave, Lubbock, TX 79424</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div><strong style="color:#fff;">Churchwell Plumbing, Inc.</strong><br>Full-service plumbing for Lubbock and the South Plains since 1989.</div>
+    <div>Call: <a href="tel:+18067444939">(806) 744-4939</a><br>8807 Urbana Avenue<br>Lubbock, TX 79424</div>
+  </div>
+  <div class="concept">Concept homepage design prepared for Churchwell Plumbing</div>
+</footer>
+
+</body>
+</html>

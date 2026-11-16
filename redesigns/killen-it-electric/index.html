@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Killen It Electric LLC | Electrician in Lake Havasu City, AZ</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI', Arial, sans-serif; color:#1d2733; background:#f4f6f9; line-height:1.6; }
+  a { text-decoration:none; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+
+  header { background:#0d2137; color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+  .header-in { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; max-width:1080px; margin:0 auto; flex-wrap:wrap; gap:10px; }
+  .brand { display:flex; align-items:center; gap:12px; }
+  .bolt { background:#f5b301; color:#0d2137; width:48px; height:48px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; font-weight:900; }
+  .brand .name { font-weight:800; font-size:1.3rem; letter-spacing:.4px; }
+  .brand .name span { color:#f5b301; }
+  .brand .tag { font-size:.78rem; color:#a9bfd4; }
+  .call-btn { background:#f5b301; color:#0d2137; font-weight:800; padding:12px 24px; border-radius:8px; font-size:1.05rem; }
+  .call-btn:hover { background:#ffc61a; }
+
+  .hero { background:linear-gradient(120deg,#0d2137 0%,#14324f 60%,#1b4066 100%); color:#fff; padding:70px 0 60px; }
+  .hero h1 { font-size:2.6rem; line-height:1.14; max-width:660px; margin-bottom:16px; }
+  .hero h1 span { color:#f5b301; }
+  .hero p { font-size:1.13rem; max-width:600px; color:#cfdce9; margin-bottom:28px; }
+  .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-primary { background:#f5b301; color:#0d2137; font-weight:800; padding:15px 30px; border-radius:8px; font-size:1.05rem; }
+  .btn-ghost { border:2px solid #cfdce9; color:#fff; font-weight:600; padding:13px 28px; border-radius:8px; }
+  .hero-badges { margin-top:32px; display:flex; gap:28px; flex-wrap:wrap; font-size:.92rem; color:#a9bfd4; }
+  .hero-badges strong { color:#fff; display:block; font-size:1.25rem; }
+
+  section { padding:56px 0; }
+  .kicker { text-transform:uppercase; letter-spacing:2px; font-size:.78rem; color:#c07f00; font-weight:700; margin-bottom:8px; }
+  h2 { font-size:2rem; margin-bottom:14px; color:#0d2137; }
+  .lead { max-width:700px; color:#4a5a6a; margin-bottom:30px; }
+
+  .services { background:#fff; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+  .card { background:#f4f6f9; border:1px solid #dde4ec; border-top:4px solid #f5b301; border-radius:10px; padding:24px; }
+  .card h3 { font-size:1.13rem; margin-bottom:8px; color:#0d2137; }
+  .card p { font-size:.96rem; color:#4a5a6a; }
+  .card .icon { font-size:1.6rem; margin-bottom:10px; }
+
+  .about { background:#e9eef4; }
+  .about p { max-width:740px; color:#3c4c5c; margin-bottom:14px; }
+  .trust-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:18px; margin-top:24px; }
+  .trust-item { background:#fff; border-radius:10px; padding:20px; text-align:center; box-shadow:0 2px 8px rgba(13,33,55,.08); }
+  .trust-item .big { font-size:1.6rem; font-weight:800; color:#0d2137; }
+  .trust-item p { font-size:.9rem; color:#4a5a6a; margin:0; }
+
+  .reviews .grid { grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
+  .review { background:#fff; border:1px solid #dde4ec; border-radius:10px; padding:24px; }
+  .review .stars { color:#f5b301; font-size:1.1rem; letter-spacing:2px; margin-bottom:10px; }
+  .review p { font-size:.97rem; color:#33424f; font-style:italic; }
+  .review .who { margin-top:12px; font-style:normal; font-size:.86rem; color:#71808f; font-weight:600; }
+
+  .areas { background:#0d2137; color:#e6edf4; }
+  .areas h2 { color:#fff; }
+  .areas .lead { color:#a9bfd4; }
+  .area-list { display:flex; flex-wrap:wrap; gap:10px; }
+  .area-list span { background:#14324f; border:1px solid #26507c; padding:9px 18px; border-radius:20px; font-size:.95rem; }
+
+  .cta { background:#f5b301; text-align:center; padding:56px 20px; }
+  .cta h2 { color:#0d2137; }
+  .cta p { color:#5c4300; max-width:540px; margin:0 auto 24px; }
+  .cta .call-btn { background:#0d2137; color:#fff; font-size:1.2rem; padding:16px 36px; display:inline-block; border-radius:8px; font-weight:800; }
+
+  footer { background:#081826; color:#7e93a8; padding:28px 20px; text-align:center; font-size:.9rem; }
+  footer .fname { color:#fff; font-weight:800; font-size:1.05rem; }
+  footer p { margin:4px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="brand">
+      <div class="bolt">&#9889;</div>
+      <div>
+        <div class="name">KILLEN IT <span>ELECTRIC</span> LLC</div>
+        <div class="tag">Your Friendly Neighborhood Electrician</div>
+      </div>
+    </div>
+    <a class="call-btn" href="tel:+19288891769">&#128222; (928) 889-1769</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Lake Havasu&rsquo;s Electrician Who <span>Actually Shows Up</span></h1>
+    <p>Killen It Electric is a family owned residential electrical company in Lake Havasu City. Rain or shine, emergency or planned project, Dustin and his crew answer the call and show up on time.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="tel:+19288891769">Call (928) 889-1769</a>
+      <a class="btn-ghost" href="#services">See Our Services</a>
+    </div>
+    <div class="hero-badges">
+      <div><strong>5.0 &#9733;</strong> 13 Google Reviews</div>
+      <div><strong>A+</strong> BBB Rating</div>
+      <div><strong>ROC 334959</strong> Licensed Arizona Contractor</div>
+      <div><strong>Family</strong> Owned &amp; Operated</div>
+    </div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="kicker">What We Do</div>
+    <h2>Residential Electrical Services</h2>
+    <p class="lead">From a dead outlet to a full 220v circuit for your new mini split, one licensed local crew handles it, with fair pricing and no upfront money required on big projects.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">&#128268;</div><h3>Troubleshooting &amp; Repairs</h3><p>Dead circuits, tripping breakers and mystery electrical problems found and fixed fast, even on late-day emergency calls.</p></div>
+      <div class="card"><div class="icon">&#9889;</div><h3>220v Lines &amp; New Circuits</h3><p>New 220v lines for mini splits, appliances and shop equipment, run cleanly even through tight crawl spaces others will not touch.</p></div>
+      <div class="card"><div class="icon">&#128165;</div><h3>Spa &amp; Hot Tub Hookups</h3><p>Spa and hot tub electrical hookups, disconnects and reconnects when you move, done safely and to code.</p></div>
+      <div class="card"><div class="icon">&#128161;</div><h3>Ceiling Fans, Lighting &amp; Outlets</h3><p>Ceiling fan installation, lighting, and outlet and switch installation that make the whole house work the way it should.</p></div>
+      <div class="card"><div class="icon">&#127968;</div><h3>Wiring Installation</h3><p>New wiring for remodels, additions and appliances, installed neatly and inspected to Arizona standards.</p></div>
+      <div class="card"><div class="icon">&#128222;</div><h3>Emergency Service</h3><p>No power, no hot water, no problem. We make ourselves as available as possible, because electrical problems do not keep office hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="kicker">About Us</div>
+    <h2>Family Owned, Havasu Proud</h2>
+    <p>Killen It Electric LLC is owned by Dustin Killen and has served Lake Havasu City since 2021. We are a family owned and operated residential service company, which means the person who answers your call is the person who stands behind the work.</p>
+    <p>In a town used to no-shows, our reputation is simple: we arrive when promised, price the job fairly, and leave it cleaner than we found it. That is why every one of our 13 Google reviews is five stars, and why the BBB rates us A+ with no complaints in the last three years.</p>
+    <div class="trust-row">
+      <div class="trust-item"><div class="big">5.0 &#9733;</div><p>Perfect rating across 13 Google reviews</p></div>
+      <div class="trust-item"><div class="big">ROC 334959</div><p>Active Arizona Specialty Residential license</p></div>
+      <div class="trust-item"><div class="big">A+</div><p>BBB rating, zero complaints in three years</p></div>
+      <div class="trust-item"><div class="big">Top 22%</div><p>BuildZoom score of 95 among Arizona contractors</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="kicker">Reviews</div>
+    <h2>What Your Neighbors Say</h2>
+    <div class="grid">
+      <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Shows up when promised and did above and beyond what I had expected. Very clean job of adding two 220v lines for my splits.&rdquo;</p><div class="who">Google review, 220v line installation</div></div>
+      <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Dustin answered our late in the day call when our water heater was not working. He came and he fixed the problem quickly!&rdquo;</p><div class="who">Google review, emergency repair</div></div>
+      <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Can&rsquo;t say enough good things about Dustin and his crew. They are fairly priced and very friendly. I highly recommend them.&rdquo;</p><div class="who">Google review, spa hookup</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="wrap">
+    <div class="kicker">Where We Work</div>
+    <h2>Serving Lake Havasu City</h2>
+    <p class="lead">Based at 3277 Sand Piper Dr, we serve homes across Lake Havasu City and the surrounding Mohave County area.</p>
+    <div class="area-list">
+      <span>Lake Havasu City</span><span>Mohave County</span>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Need an Electrician Today?</h2>
+  <p>Call Dustin directly. Fair prices, on-time arrival, and work done right the first time.</p>
+  <a class="call-btn" href="tel:+19288891769">&#128222; Call (928) 889-1769</a>
+  <p style="margin-top:18px; font-size:.9rem;">killenelectric18@gmail.com &middot; AZ ROC 334959</p>
+</div>
+
+<footer>
+  <p class="fname">Killen It Electric LLC</p>
+  <p>Residential electrician in Lake Havasu City, AZ &middot; (928) 889-1769 &middot; 3277 Sand Piper Dr, Lake Havasu City, AZ 86406</p>
+  <p>Concept homepage design prepared for Killen It Electric LLC</p>
+</footer>
+
+</body>
+</html>
