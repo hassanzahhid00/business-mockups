@@ -45,6 +45,27 @@ def main():
             page = browser.new_page(viewport={"width": 1280, "height": 900})
             page.goto(url, wait_until="networkidle", timeout=90000)
             page.wait_for_timeout(1500)
+            # Pages hide sections behind scroll-reveal animations (opacity 0
+            # until an IntersectionObserver adds a visible class). A PDF
+            # printed without scrolling captures those sections blank, so
+            # scroll through the whole page first, then force every reveal
+            # element visible before printing.
+            page.evaluate(
+                """async () => {
+                    const step = Math.floor(window.innerHeight * 0.8);
+                    const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                    for (let y = 0; y <= max; y += step) {
+                        window.scrollTo(0, y);
+                        await new Promise(r => setTimeout(r, 120));
+                    }
+                    window.scrollTo(0, max);
+                    await new Promise(r => setTimeout(r, 500));
+                    window.scrollTo(0, 0);
+                }"""
+            )
+            page.evaluate("document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'))")
+            page.add_style_tag(content=".reveal{opacity:1 !important;transform:none !important;transition:none !important;}")
+            page.wait_for_timeout(600)
             h = page.evaluate("Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)")
             h = min(int(h), MAX_H)
             out = HERE / m["out"]
