@@ -1,0 +1,28 @@
+name: Render redesign PDFs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Playwright Chromium
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Render PDFs
+        run: python3 render_pdfs.py
+      - name: Commit PDFs
+        run: |
+          git config user.name "Lead Dashboard Bot"
+          git config user.email "hassan.zahid@developers-hub.co.uk"
+          git add pdfs/
+          if git diff --cached --quiet; then echo "No PDF changes."; else git commit -m "Render redesign PDFs" && git push; fi

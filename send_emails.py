@@ -31,6 +31,8 @@ HERE = Path(__file__).resolve().parent
 QUEUE_FILE = HERE / "send_queue.json"
 STATUS_FILE = HERE / "statuses.json"
 BACKFILL_FILE = HERE / "backfill_queue.json"
+DAILY_QUEUE_FILE = HERE / "daily_queue.json"
+DAILY_LIMIT = 15
 SMTP_HOST = "smtp.purelymail.com"
 SMTP_PORT = 465
 IMAP_HOST = "imap.purelymail.com"
@@ -119,6 +121,16 @@ def build_message(user: str, item: dict, when: datetime) -> EmailMessage:
     msg["Date"] = format_datetime(when)
     msg.set_content(item["body"])
     msg.add_alternative(body_to_html(item["body"]), subtype="html")
+    for att in item.get("attachments", []):
+        if isinstance(att, str):
+            path, label = HERE / att, Path(att).name
+        else:
+            path = HERE / att["file"]
+            label = att.get("name") or Path(att["file"]).name
+        data = path.read_bytes()
+        msg.add_attachment(
+            data, maintype="application", subtype="pdf", filename=label
+        )
     return msg
 
 
@@ -181,7 +193,10 @@ def main() -> int:
     ap.add_argument("--override", action="store_true", help="Ignore the daily cap")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--backfill", action="store_true", help="Only file queued Sent copies via IMAP")
+    ap.add_argument("--daily", action="store_true", help="Send the automated daily queue (daily_queue.json, limit 15)")
     args = ap.parse_args()
+    if args.daily and args.limit == DAILY_CAP:
+        args.limit = DAILY_LIMIT
 
     if args.backfill:
         user = os.environ.get("PURELYMAIL_USER", "")
@@ -191,14 +206,18 @@ def main() -> int:
             return 3
         return run_backfill(user, password)
 
-    queue = json.loads(QUEUE_FILE.read_text(encoding="utf-8"))
+    queue_path = DAILY_QUEUE_FILE if args.daily else QUEUE_FILE
+    queue = json.loads(queue_path.read_text(encoding="utf-8")) if queue_path.exists() else []
     status = json.loads(STATUS_FILE.read_text(encoding="utf-8"))
     status.setdefault("overrides", {})
     status.setdefault("sentCounts", {})
+    counts_key = "dailyCounts" if args.daily else "sentCounts"
+    status.setdefault(counts_key, {})
     status.setdefault("log", [])
+    cap = DAILY_LIMIT if args.daily else DAILY_CAP
 
     today = datetime.now(PKT).strftime("%Y-%m-%d")
-    already = int(status["sentCounts"].get(today, 0))
+    already = int(status[counts_key].get(today, 0))
 
     if not args.dry_run:
         status["lastRunAt"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -219,7 +238,7 @@ def main() -> int:
         targets = queue[: args.limit]
 
     if not args.override:
-        allowed = max(0, DAILY_CAP - already)
+        allowed = max(0, cap - already)
         if allowed == 0:
             print(
                 f"Daily cap reached: {already} emails already sent today ({today} PKT). "
@@ -230,7 +249,7 @@ def main() -> int:
             print(f"Daily cap: only {allowed} more send(s) allowed today. Trimming batch.")
             targets = targets[:allowed]
 
-    print(f"Plan: send {len(targets)} email(s) (already sent today: {already}, cap: {DAILY_CAP}, override: {args.override})")
+    print(f"Plan: send {len(targets)} email(s) (already sent today: {already}, cap: {cap}, override: {args.override}, daily: {args.daily})")
     for t in targets:
         print(f"  -> {t['name']} <{t['to']}> : {t['subject']}")
 
@@ -265,14 +284,14 @@ def main() -> int:
 
     if sent_names:
         queue = [q for q in queue if q["name"] not in sent_names]
-        QUEUE_FILE.write_text(json.dumps(queue, indent=2, ensure_ascii=False), encoding="utf-8")
+        queue_path.write_text(json.dumps(queue, indent=2, ensure_ascii=False), encoding="utf-8")
         for name in sent_names:
             status["overrides"][name] = "sent"
             entry = next(q for q in targets if q["name"] == name)
             status["log"].append(
                 {"name": name, "to": entry["to"], "date": today, "via": "github-actions"}
             )
-        status["sentCounts"][today] = already + len(sent_names)
+        status[counts_key][today] = already + len(sent_names)
         STATUS_FILE.write_text(json.dumps(status, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"Done. {len(sent_names)} sent. Queue now has {len(queue)} lead(s).")
     return 0

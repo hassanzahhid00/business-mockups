@@ -1,6 +1,8 @@
 name: Send outreach emails
 
 on:
+  schedule:
+    - cron: "0 14 * * *"
   workflow_dispatch:
     inputs:
       lead:
@@ -33,7 +35,15 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Send automated daily queue (scheduled runs)
+        if: github.event_name == 'schedule'
+        env:
+          PURELYMAIL_USER: ${{ secrets.PURELYMAIL_USER }}
+          PURELYMAIL_APP_PASSWORD: ${{ secrets.PURELYMAIL_APP_PASSWORD }}
+        run: python3 send_emails.py --daily
+
       - name: Send emails via PurelyMail
+        if: github.event_name != 'schedule'
         env:
           PURELYMAIL_USER: ${{ secrets.PURELYMAIL_USER }}
           PURELYMAIL_APP_PASSWORD: ${{ secrets.PURELYMAIL_APP_PASSWORD }}
@@ -48,7 +58,7 @@ jobs:
         run: |
           git config user.name "Lead Dashboard Bot"
           git config user.email "hassan.zahid@developers-hub.co.uk"
-          git add send_queue.json statuses.json backfill_queue.json
+          git add send_queue.json statuses.json backfill_queue.json daily_queue.json
           if git diff --cached --quiet; then
             echo "No changes to save."
           else
