@@ -64,7 +64,7 @@ def main():
                 }"""
             )
             page.evaluate("document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'))")
-            page.add_style_tag(content=".reveal{opacity:1 !important;transform:none !important;transition:none !important;}")
+            page.add_style_tag(content=".reveal{opacity:1 !important;transform:none !important;transition:none !important;} header{position:static !important;}")
             page.wait_for_timeout(600)
             h = page.evaluate("Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)")
             h = min(int(h), MAX_H)
