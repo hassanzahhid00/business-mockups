@@ -1,6 +1,6 @@
 {
-  "lastRunAt": "2026-11-16T21:24:30Z",
-  "lastRunNote": "Send run: lead=next batch, override=True",
+  "lastRunAt": "2026-11-17T20:51:38Z",
+  "lastRunNote": "Send run: lead=next batch, override=False",
   "log": [
     {
       "date": "2026-11-03",
@@ -331,6 +331,96 @@
       "to": "Amarquez0808@gmail.com",
       "date": "2026-11-17",
       "via": "github-actions"
+    },
+    {
+      "name": "Carpenter Bee Cabinet Works",
+      "to": "carpenterbeecabinetworks@gmail.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "AAA Roof Masters METAL ROOFING",
+      "to": "Rdnydr@gmail.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Grizzly Air LLC",
+      "to": "service@grizzlyairllc.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Orca AC",
+      "to": "info@orcaac.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "SBC Roofing (Strategy Builders Contracting LLC)",
+      "to": "office@sbcroofingaz.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Apollo Electric LLC",
+      "to": "electricmatthew@yahoo.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "L&M Pest Control (L&M Pest and Weed Control)",
+      "to": "lmpestandweeds@gmail.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "KO's Landscaping (KO's Landscaping LLC)",
+      "to": "info@koslawn.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Loves Garage Doors",
+      "to": "myrl@lovesdoors.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Pure Superior Cleaners",
+      "to": "alizabeth@puresuperiorcleaners.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Kendrick Plumbing",
+      "to": "info@KendrickPlumbing.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Georgia Roof Advisors",
+      "to": "office@garoofadvisors.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Fine Pruning",
+      "to": "hello@finepruning.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Dependable Painting & Remodeling",
+      "to": "Derek@DependablePaint.net",
+      "date": "2026-11-18",
+      "via": "github-actions"
+    },
+    {
+      "name": "Rite Touch Maids",
+      "to": "ritetouchmaids@gmail.com",
+      "date": "2026-11-18",
+      "via": "github-actions"
     }
   ],
   "overrides": {
@@ -368,7 +458,22 @@
     "Lizard Lick Pest Control": "sent",
     "Gonzales Cleaning LLC": "sent",
     "Matter-of-Fact Roofing, LLC": "sent",
-    "A & A Painting and Remodeling, LLC": "sent"
+    "A & A Painting and Remodeling, LLC": "sent",
+    "Carpenter Bee Cabinet Works": "sent",
+    "AAA Roof Masters METAL ROOFING": "sent",
+    "Grizzly Air LLC": "sent",
+    "Orca AC": "sent",
+    "SBC Roofing (Strategy Builders Contracting LLC)": "sent",
+    "Apollo Electric LLC": "sent",
+    "L&M Pest Control (L&M Pest and Weed Control)": "sent",
+    "KO's Landscaping (KO's Landscaping LLC)": "sent",
+    "Loves Garage Doors": "sent",
+    "Pure Superior Cleaners": "sent",
+    "Kendrick Plumbing": "sent",
+    "Georgia Roof Advisors": "sent",
+    "Fine Pruning": "sent",
+    "Dependable Painting & Remodeling": "sent",
+    "Rite Touch Maids": "sent"
   },
   "sentCounts": {
     "2026-11-03": 6,
@@ -394,6 +499,7 @@
     }
   },
   "dailyCounts": {
-    "2026-11-17": 30
+    "2026-11-17": 30,
+    "2026-11-18": 15
   }
 }
