@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAA Roof Masters | Roofing in Phenix City, AL and Columbus, GA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6EF; --ink:#1B1712; --accent:#2E5A78; --line:#E0D5C1; --muted:#6E6252;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;}
+  h1,h2,h3,.display{font-family:'Archivo',Arial,sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .kicker{font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);}
+  .rule{border:none;border-top:1px solid var(--line);}
+
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  .header-in{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Archivo',sans-serif;font-weight:900;font-size:19px;letter-spacing:.4px;text-transform:uppercase;}
+  .wordmark span{color:var(--accent);}
+  .header-phone{font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;}
+  .header-phone:hover{color:var(--accent);}
+
+  .hero{padding:110px 0 90px;}
+  .hero h1{font-size:clamp(52px,7.4vw,104px);line-height:.98;font-weight:900;letter-spacing:-1.5px;max-width:1000px;margin:26px 0 30px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lede{font-size:21px;line-height:1.55;color:#3D362C;max-width:640px;margin-bottom:42px;}
+  .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;padding:18px 34px;transition:background .25s ease,transform .25s ease;}
+  .btn:hover{background:var(--accent);}
+  .btn:active{transform:scale(.98);}
+  .cta-link{font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+  .factline{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .factline b{color:var(--ink);}
+  figure{margin:0;}
+  .hero-img{margin-top:56px;}
+  .hero-img img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;}
+  .img-caption{margin-top:12px;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  @media(max-width:820px){.duo{grid-template-columns:1fr;}}
+  .duo img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;}
+
+  section{padding:110px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:26px;margin-bottom:56px;}
+  .sec-num{font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;color:var(--accent);letter-spacing:2px;}
+  .sec-head h2{font-size:clamp(34px,4.4vw,58px);font-weight:800;line-height:1.05;letter-spacing:-.8px;}
+  .sec-head .kicker{display:block;margin-bottom:14px;}
+
+  .svc-list{border-top:1px solid var(--line);}
+  .svc{display:grid;grid-template-columns:70px 1fr 1.4fr 40px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:background .25s ease;}
+  .svc:hover{background:#F3ECDD;}
+  .svc .n{font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);font-size:15px;}
+  .svc h3{font-size:clamp(21px,2.4vw,29px);font-weight:700;line-height:1.15;}
+  .svc p{color:#4A4234;font-size:16.5px;}
+  .svc .arr{font-family:'Archivo',sans-serif;font-size:22px;color:var(--accent);text-align:right;}
+  @media(max-width:820px){.svc{grid-template-columns:44px 1fr;}.svc p{grid-column:2;}.svc .arr{display:none;}}
+
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr;}}
+  .why-grid .big{font-family:'Archivo',sans-serif;font-size:clamp(27px,3.2vw,40px);font-weight:700;line-height:1.25;letter-spacing:-.4px;}
+  .why-grid .big em{font-style:normal;color:var(--accent);}
+  .point{padding:24px 0;border-bottom:1px solid var(--line);}
+  .point:first-child{padding-top:6px;}
+  .point h3{font-size:19px;font-weight:700;margin-bottom:6px;}
+  .point h3 span{color:var(--accent);margin-right:12px;font-size:14px;letter-spacing:1px;}
+  .point p{color:#4A4234;font-size:16.5px;}
+
+  .owner{display:grid;grid-template-columns:400px 1fr;gap:70px;align-items:start;}
+  @media(max-width:900px){.owner{grid-template-columns:1fr;}}
+  .owner img{width:100%;display:block;filter:grayscale(12%);}
+  .owner .quote{font-family:'Archivo',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:700;line-height:1.3;letter-spacing:-.3px;margin-bottom:28px;}
+  .owner p{color:#3D362C;margin-bottom:18px;max-width:600px;}
+  .owner .sig{font-family:'Archivo',sans-serif;font-weight:700;margin-top:26px;}
+  .owner .sig small{display:block;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase;font-size:12px;margin-top:4px;}
+
+  .est-band{background:var(--ink);color:var(--paper);}
+  .est-band .sec-head h2{color:var(--paper);}
+  .est-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  @media(max-width:900px){.est-grid{grid-template-columns:1fr;}}
+  .est-grid .big{font-family:'Archivo',sans-serif;font-size:clamp(27px,3.2vw,40px);font-weight:700;line-height:1.25;letter-spacing:-.4px;}
+  .est-grid .big em{font-style:normal;color:var(--accent);}
+  .est-grid p{color:#CFC6B4;margin-bottom:18px;max-width:520px;}
+  .est-grid p b{color:var(--paper);}
+  .est-steps{border-top:1px solid #3A342A;}
+  .est-step{padding:24px 0;border-bottom:1px solid #3A342A;}
+  .est-step h3{font-size:19px;font-weight:700;margin-bottom:6px;color:var(--paper);}
+  .est-step h3 span{color:var(--accent);margin-right:12px;font-size:14px;letter-spacing:1px;}
+  .est-step p{color:#CFC6B4;font-size:16.5px;}
+
+  .area-line{font-family:'Archivo',sans-serif;font-size:clamp(24px,3.4vw,44px);font-weight:700;line-height:1.5;letter-spacing:-.3px;max-width:1000px;}
+  .area-line span{color:var(--accent);}
+  .area-note{margin-top:26px;color:var(--muted);font-size:16.5px;}
+  .area-note a{color:var(--accent);font-weight:600;}
+
+  .cta-band{background:var(--accent);color:#FFF7EC;padding:110px 0;}
+  .cta-band h2{font-size:clamp(40px,6vw,84px);font-weight:900;line-height:1.0;letter-spacing:-1.2px;max-width:900px;margin-bottom:24px;}
+  .cta-band p{font-size:19px;max-width:560px;color:#FFE8D6;margin-bottom:40px;}
+  .cta-band .phone{font-family:'Archivo',sans-serif;font-size:clamp(30px,4.6vw,58px);font-weight:800;letter-spacing:-.5px;border-bottom:3px solid #FFF7EC;padding-bottom:4px;}
+  .cta-band .addr{margin-top:34px;font-size:14px;letter-spacing:1.8px;text-transform:uppercase;color:#FFD9BE;font-weight:600;}
+
+  footer{background:var(--ink);color:#B9AF9C;padding:80px 0 46px;}
+  .foot-name{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(44px,8.6vw,124px);line-height:.95;letter-spacing:-2px;color:var(--paper);text-transform:uppercase;margin-bottom:44px;}
+  .foot-name span{color:var(--accent);}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid #3A342A;padding-top:30px;font-size:15.5px;}
+  .foot-grid a{color:var(--paper);font-weight:600;}
+  .concept{margin-top:44px;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:#7C7261;}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(max-width:640px){section{padding:74px 0;}.hero{padding:74px 0 64px;}.wrap{padding:0 22px;}.header-in{padding:16px 22px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="wordmark">AAA <span>Roof Masters</span></div>
+    <a class="header-phone" href="tel:+17063154817">(706) 315-4817</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Roofing · Phenix City, Alabama</div>
+    <h1>43 years on roofs. <em>Experience you can stand on.</em></h1>
+    <p class="lede">Veteran owned and operated. Metal, shingle, slate, tile and single-ply roofs for homes, businesses and industry, with free estimates within 30 miles and a roofer who has done this since he was 14.</p>
+    <div class="cta-row">
+      <a class="btn" href="tel:+17063154817">Call (706) 315-4817</a>
+      <a class="cta-link" href="#contact">Schedule a free estimate</a>
+    </div>
+    <div class="factline"><b>Veteran owned</b> · Phenix City, AL &nbsp;&nbsp; <b>Licensed</b> in Alabama &amp; Georgia &nbsp;&nbsp; Free estimates within 30 miles</div>
+    <figure class="hero-img reveal">
+      <img src="https://images.squarespace-cdn.com/content/v1/680983250f2dc66fd7725319/a5a80b10-5a30-482f-8450-bfb189881d74/IMG_5498.jpeg" alt="Roofing work by AAA Roof Masters">
+      <figcaption class="img-caption">On the roof · Phenix City, Alabama</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div>
+        <span class="kicker">What we do</span>
+        <h2>Every kind of roof, done right.</h2>
+      </div>
+    </div>
+    <div class="svc-list reveal">
+      <div class="svc"><div class="n">/ 01</div><h3>Metal Roofing</h3><p>Our specialty. Long lasting metal roofs installed properly, built for decades of Alabama and Georgia weather.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 02</div><h3>Shingle Roofing</h3><p>Quality shingle installation and replacement for homes across the Chattahoochee Valley.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 03</div><h3>Slate &amp; Tile</h3><p>Slate and tile roofs for homes that need a roof with real presence and a very long life.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 04</div><h3>Single-Ply Membranes</h3><p>PVC, TPO and EPDM single-ply systems for flat and low slope commercial roofs.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 05</div><h3>Roof Repairs</h3><p>Leaks and storm damage fixed by someone who can tell at a glance what the roof actually needs.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 06</div><h3>Residential, Commercial &amp; Industrial</h3><p>Homes, businesses and industrial buildings. One crew, one standard, whatever the size of the roof.</p><div class="arr">→</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div>
+        <span class="kicker">Why AAA Roof Masters</span>
+        <h2>The owner is on your roof.</h2>
+      </div>
+    </div>
+    <div class="why-grid reveal">
+      <p class="big">Rodney has been roofing since the age of 14. After 43 years it is still his number one passion. <em>He is on top of it, so you do not have to be.</em></p>
+      <div>
+        <div class="point"><h3><span>/ 01</span>Veteran owned and operated</h3><p>A local, veteran owned company. The person who quotes your job is the person who shows up to do it.</p></div>
+        <div class="point"><h3><span>/ 02</span>43 years of roofing</h3><p>Four decades of roofs in this valley. That kind of experience shows in the details other crews miss.</p></div>
+        <div class="point"><h3><span>/ 03</span>Licensed in two states</h3><p>Licensed in Alabama and Georgia, so the same crew covers both sides of the river.</p></div>
+        <div class="point"><h3><span>/ 04</span>Free estimates, 30 miles</h3><p>A straight answer on your roof at no cost, within 30 miles of Phenix City.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div>
+        <span class="kicker">The owner</span>
+        <h2>Rodney Reynolds.</h2>
+      </div>
+    </div>
+    <div class="owner reveal">
+      <img src="https://images.squarespace-cdn.com/content/v1/680983250f2dc66fd7725319/00984c6f-7219-435b-8b62-3d4261ad8767/IMG_5500.jpeg" alt="Roofing work by AAA Roof Masters">
+      <div>
+        <p class="quote">&ldquo;He&rsquo;s on top of it so you don&rsquo;t have to be!&rdquo;</p>
+        <p>Rodney Reynolds started roofing at 14 and never stopped. Forty three years later, roofing is still his number one passion, and he is on top of every job himself.</p>
+        <p>That is the whole pitch: a veteran owned company where the owner with 43 years behind him looks at your roof, tells you straight what it needs, and then does the work.</p>
+        <div class="sig">Rodney Reynolds<small>Owner · AAA Roof Masters</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="duo reveal">
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/680983250f2dc66fd7725319/fe865b32-cfa3-4dc8-b8ef-a35bfe4f1500/IMG_5499.jpeg" alt="Finished roofing work by AAA Roof Masters">
+        <figcaption class="img-caption">Finished work · Chattahoochee Valley</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/680983250f2dc66fd7725319/a5a80b10-5a30-482f-8450-bfb189881d74/IMG_5498.jpeg" alt="Roofing work by AAA Roof Masters">
+        <figcaption class="img-caption">On the job · Phenix City, Alabama</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="est-band" id="estimate">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04</div>
+      <div>
+        <span class="kicker">Free estimates</span>
+        <h2>Know the price before you commit.</h2>
+      </div>
+    </div>
+    <div class="est-grid reveal">
+      <p class="big">A free estimate within 30 miles of Phenix City. <em>No charge, no pressure, just a straight answer.</em></p>
+      <div>
+        <div class="est-steps">
+          <div class="est-step"><h3><span>/ 01</span>Call or email</h3><p>Reach Rodney at (706) 315-4817 or Rdnydr@gmail.com and tell him what your roof is doing.</p></div>
+          <div class="est-step"><h3><span>/ 02</span>He looks at the roof</h3><p>A proper look, not a drive by guess. You get a real assessment from 43 years of roofing.</p></div>
+          <div class="est-step"><h3><span>/ 03</span>You decide</h3><p>Free estimate in hand, the decision is yours. No follow up calls pushing you into it.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="area">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">05</div>
+      <div>
+        <span class="kicker">Service area</span>
+        <h2>Where we work.</h2>
+      </div>
+    </div>
+    <p class="area-line reveal">Phenix City <span>·</span> Columbus <span>·</span> the Chattahoochee Valley <span>·</span> and 30 miles around them.</p>
+    <p class="area-note reveal">Licensed in Alabama and Georgia. Do not see your town? Call <a href="tel:+17063154817">(706) 315-4817</a>, we likely serve you too.</p>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Schedule your free estimate.</h2>
+    <p class="reveal">Call or email Rodney directly. Free estimates within 30 miles, no charge and no pressure.</p>
+    <a class="phone reveal" href="tel:+17063154817">(706) 315-4817</a>
+    <div class="addr reveal">Phenix City, AL · Serving Columbus, GA · Rdnydr@gmail.com</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">AAA <span>Roof</span> Masters</div>
+    <div class="foot-grid">
+      <div>Veteran owned roofing in Phenix City, AL<br>Metal, shingle, slate, tile and single-ply roofs.</div>
+      <div>Call <a href="tel:+17063154817">(706) 315-4817</a><br><a href="mailto:Rdnydr@gmail.com">Rdnydr@gmail.com</a></div>
+    </div>
+    <div class="concept">Concept homepage design prepared for AAA Roof Masters METAL ROOFING</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

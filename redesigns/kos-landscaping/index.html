@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KO's Landscaping | Arizona Landscaping Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F4EC; --ink:#161A15; --accent:#1E5B3A; --ink-soft:#4C5148; --rule:#D6D0BE;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-size:17px;line-height:1.6;}
+  h1,h2,h3,.display{font-family:'Archivo',sans-serif;}
+  a{color:inherit;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--rule);z-index:10;}
+  .header-in{max-width:1200px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:baseline;}
+  .brand{font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;letter-spacing:.01em;text-decoration:none;}
+  .brand span{color:var(--accent);}
+  .header-phone{font-weight:600;font-size:17px;text-decoration:none;}
+  .header-phone:hover{color:var(--accent);}
+  .hero{padding:110px 0 90px;}
+  .kicker{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:26px;}
+  .hero h1{font-size:74px;line-height:.99;letter-spacing:-.015em;font-weight:800;max-width:14ch;text-transform:uppercase;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero-sub{margin-top:30px;font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:56ch;}
+  .hero-cta{margin-top:42px;display:flex;gap:34px;align-items:center;flex-wrap:wrap;}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-weight:600;font-size:16.5px;padding:17px 34px;text-decoration:none;}
+  .btn:hover{background:var(--accent);}
+  .hero-link{font-weight:600;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+  figure{margin:0;}
+  figure img{display:block;width:100%;height:100%;object-fit:cover;}
+  .hero-img{margin-top:70px;aspect-ratio:16/9;overflow:hidden;}
+  .img-caption{margin-top:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);}
+  section{padding:110px 0;border-top:1px solid var(--rule);}
+  .sec-head{display:flex;gap:30px;align-items:flex-start;margin-bottom:56px;}
+  .sec-num{font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;color:var(--accent);padding-top:12px;}
+  .sec-head h2{font-size:46px;line-height:1.05;letter-spacing:-.01em;font-weight:800;margin-top:8px;}
+  .svc-list{border-top:1px solid var(--ink);}
+  .svc{display:flex;gap:28px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--rule);}
+  .svc .n{font-family:'Archivo',sans-serif;font-size:14px;font-weight:800;color:var(--accent);white-space:nowrap;}
+  .svc h3{font-size:25px;font-weight:700;min-width:320px;}
+  .svc p{color:var(--ink-soft);max-width:52ch;}
+  .svc .arr{margin-left:auto;font-size:22px;color:var(--accent);}
+  .why-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;}
+  .why-grid .big{font-family:'Archivo',sans-serif;font-size:31px;line-height:1.3;font-weight:700;}
+  .why-grid .big em{font-style:normal;color:var(--accent);}
+  .point{padding:22px 0;border-top:1px solid var(--rule);}
+  .point:first-child{border-top:none;padding-top:0;}
+  .point h3{font-size:19px;font-weight:700;margin-bottom:6px;}
+  .point h3 span{color:var(--accent);font-family:'Archivo',sans-serif;font-size:14px;margin-right:10px;}
+  .point p{color:var(--ink-soft);font-size:16px;}
+  .work{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .work figure{aspect-ratio:4/3;overflow:hidden;}
+  .work p{color:var(--ink-soft);margin-bottom:16px;}
+  .work .lead{font-family:'Archivo',sans-serif;font-size:27px;line-height:1.35;font-weight:700;color:var(--ink);margin-bottom:22px;}
+  .cta-band{background:var(--accent);color:#FFF;padding:100px 0;border-top:none;}
+  .cta-band .kicker{color:#BFDCC9;}
+  .cta-band h2{font-size:52px;line-height:1.05;font-weight:800;max-width:16ch;}
+  .cta-phone{display:block;margin-top:36px;font-family:'Archivo',sans-serif;font-size:64px;font-weight:800;color:#FFF;text-decoration:none;letter-spacing:-.01em;}
+  .cta-phone:hover{text-decoration:underline;}
+  footer{padding:90px 0 50px;border-top:1px solid var(--rule);}
+  .foot-name{font-family:'Archivo',sans-serif;font-size:96px;line-height:.95;font-weight:800;letter-spacing:-.02em;text-transform:uppercase;}
+  .foot-name span{color:var(--accent);}
+  .foot-meta{margin-top:44px;padding-top:26px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;color:var(--ink-soft);font-size:14.5px;}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(max-width:820px){
+    .hero h1{font-size:50px;} .sec-head h2{font-size:34px;} .cta-band h2{font-size:36px;}
+    .cta-phone{font-size:40px;} .foot-name{font-size:54px;}
+    .svc{flex-wrap:wrap;} .svc h3{min-width:0;} .why-grid,.work{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){section{padding:74px 0;}.hero{padding:74px 0 64px;}.wrap{padding:0 22px;}.header-in{padding:16px 22px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <a class="brand" href="#">KO'S <span>Landscaping</span></a>
+    <a class="header-phone" href="tel:+14806224849">(480) 622-4849</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="kicker">Landscaping · Arizona</span>
+    <h1>Transforming Arizona's <em>outdoor spaces.</em></h1>
+    <p class="hero-sub">Xeriscaping, lush gardens and sustainable designs, built by a crew that finishes every project on time and within budget. Knocking out the competition, one yard at a time.</p>
+    <div class="hero-cta">
+      <a class="btn" href="tel:+14806224849">Call (480) 622-4849</a>
+      <a class="hero-link" href="#services">See the services</a>
+    </div>
+    <figure class="hero-img reveal">
+      <img src="https://koslawn.com/wp-content/uploads/2024/10/KOS-93rd-way-final-september-2024-dsc02867-scaled.jpg" alt="A finished KO's Landscaping front yard at dusk with new lawn, palms, paver walkway and landscape lighting">
+      <figcaption class="img-caption">Recent project · completed front yard, September 2024</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div>
+        <span class="kicker">What we do</span>
+        <h2>Our landscaping services.</h2>
+      </div>
+    </div>
+    <div class="svc-list reveal">
+      <div class="svc"><div class="n">/ 01</div><h3>Landscape Remodeling</h3><p>Transforming and revitalizing your outdoor space to reflect your vision and lifestyle, from tired yards to finished desert landscapes.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 02</div><h3>Hardscaping</h3><p>Durable, good-looking features built to last in the Arizona sun: patios, walkways and retaining walls.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 03</div><h3>Paver &amp; Travertine Installation</h3><p>Expert travertine and paver installation that turns plain concrete into the best-looking surface on the street: driveways, patios, walkways and pool decks.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 04</div><h3>Lawn Maintenance</h3><p>Regular care and attention that keeps your lawn healthy, green and well-manicured all season.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 05</div><h3>Commercial Landscaping</h3><p>Landscaping that improves the aesthetics, functionality and sustainability of commercial spaces, and the curb appeal customers notice first.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 06</div><h3>Tree Service</h3><p>Expert care for trees, including planting, pruning, and removal when necessary.</p><div class="arr">&rarr;</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div>
+        <span class="kicker">Why KO's</span>
+        <h2>On time. On budget.</h2>
+      </div>
+    </div>
+    <div class="why-grid reveal">
+      <p class="big">A landscape is only as good as the crew behind it. <em>Ours brings the knowledge, experience and expertise to finish properly.</em></p>
+      <div>
+        <div class="point"><h3><span>/ 01</span>Design through maintenance</h3><p>One company for the design, the remodel, the pavers and the upkeep, so nothing gets lost between crews.</p></div>
+        <div class="point"><h3><span>/ 02</span>Built for Arizona</h3><p>Xeriscaping and water-wise design that thrives in the desert, alongside the lush gardens Arizona homeowners still love.</p></div>
+        <div class="point"><h3><span>/ 03</span>Deadlines respected</h3><p>Every design and remodeling project is planned to be completed on time and within budget. That is the standard we hold ourselves to.</p></div>
+        <div class="point"><h3><span>/ 04</span>Homes and businesses</h3><p>Front yards, backyards and full commercial grounds, handled with the same care.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div>
+        <span class="kicker">Recent work</span>
+        <h2>On the job, on real sites.</h2>
+      </div>
+    </div>
+    <div class="work reveal">
+      <figure>
+        <img src="https://koslawn.com/wp-content/uploads/2024/05/Photo-Aug-28-2020-6-57-11-AM-2.jpg" alt="A KO's Landscaping crew member raking fresh gravel on a commercial xeriscape site in Phoenix">
+        <figcaption class="img-caption">On the job · commercial grounds work, Phoenix</figcaption>
+      </figure>
+      <div>
+        <p class="lead">Commercial grounds that make the right first impression.</p>
+        <p>For businesses, landscaping is the welcome mat. KO's handles commercial properties across Arizona, enhancing curb appeal and creating a welcoming environment for customers and staff alike.</p>
+        <p>From fresh xeriscape installs to ongoing grounds care, the work is done by our own crew, on schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <span class="kicker">Get started</span>
+    <h2>Tell us about your yard.</h2>
+    <a class="cta-phone" href="tel:+14806224849">(480) 622-4849</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">KO'S<br><span>Landscaping</span></div>
+    <div class="foot-meta">
+      <div>Landscaping services across Arizona · (480) 622-4849</div>
+      <div>Concept homepage design prepared for KO's Landscaping (KO's Landscaping LLC)</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

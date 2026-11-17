@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Georgia Roof Advisors | Roofing Company in Marietta, GA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F0; --ink:#181510; --accent:#A8741A; --line:#E3D9C4; --muted:#6F6450;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;}
+  h1,h2,h3,.display{font-family:'Space Grotesk',Arial,sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .kicker{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);}
+
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  .header-in{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:.4px;text-transform:uppercase;}
+  .wordmark span{color:var(--accent);}
+  .header-phone{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;}
+  .header-phone:hover{color:var(--accent);}
+
+  .hero{padding:110px 0 100px;}
+  .hero h1{font-size:clamp(52px,7.4vw,104px);line-height:.99;font-weight:700;letter-spacing:-1.5px;max-width:1020px;margin:26px 0 30px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lede{font-size:21px;line-height:1.55;color:#3E382C;max-width:680px;margin-bottom:42px;}
+  .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;padding:18px 34px;transition:background .25s ease,transform .25s ease;}
+  .btn:hover{background:var(--accent);}
+  .btn:active{transform:scale(.98);}
+  .cta-link{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+  .factline{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .factline b{color:var(--ink);}
+
+  section{padding:110px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:26px;margin-bottom:56px;}
+  .sec-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--accent);letter-spacing:2px;}
+  .sec-head h2{font-size:clamp(34px,4.4vw,58px);font-weight:700;line-height:1.05;letter-spacing:-.8px;}
+  .sec-head .kicker{display:block;margin-bottom:14px;}
+
+  .svc-list{border-top:1px solid var(--line);}
+  .svc{display:grid;grid-template-columns:70px 1fr 1.4fr 40px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:background .25s ease;}
+  .svc:hover{background:#F2ECDC;}
+  .svc .n{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:15px;}
+  .svc h3{font-size:clamp(21px,2.4vw,29px);font-weight:700;line-height:1.15;}
+  .svc p{color:#4A4334;font-size:16.5px;}
+  .svc .arr{font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--accent);text-align:right;}
+  @media(max-width:820px){.svc{grid-template-columns:44px 1fr;}.svc p{grid-column:2;}.svc .arr{display:none;}}
+
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr;}}
+  .why-grid .big{font-family:'Space Grotesk',sans-serif;font-size:clamp(27px,3.2vw,40px);font-weight:700;line-height:1.25;letter-spacing:-.4px;}
+  .why-grid .big em{font-style:normal;color:var(--accent);}
+  .point{padding:24px 0;border-bottom:1px solid var(--line);}
+  .point:first-child{padding-top:6px;}
+  .point h3{font-size:19px;font-weight:700;margin-bottom:6px;}
+  .point h3 span{color:var(--accent);margin-right:12px;font-size:14px;letter-spacing:1px;}
+  .point p{color:#4A4334;font-size:16.5px;}
+
+  .owners .big{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.6vw,46px);font-weight:700;line-height:1.22;letter-spacing:-.5px;max-width:980px;margin-bottom:32px;}
+  .owners .big em{font-style:normal;color:var(--accent);}
+  .owners p{color:#3E382C;max-width:680px;margin-bottom:18px;font-size:18px;}
+  .owners .sig{font-family:'Space Grotesk',sans-serif;font-weight:700;margin-top:30px;}
+  .owners .sig small{display:block;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase;font-size:12px;margin-top:4px;}
+
+  .reviews{background:var(--ink);color:var(--paper);}
+  .reviews .sec-head h2{color:var(--paper);}
+  .score-row{display:flex;align-items:flex-end;gap:34px;flex-wrap:wrap;margin-bottom:60px;}
+  .score{font-family:'Space Grotesk',sans-serif;font-size:clamp(90px,12vw,170px);font-weight:700;line-height:.85;letter-spacing:-3px;}
+  .score-meta{padding-bottom:14px;}
+  .stars{color:var(--accent);font-size:24px;letter-spacing:5px;}
+  .score-meta p{color:#CFC6B0;max-width:360px;margin-top:8px;font-size:16.5px;}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #3B352A;}
+  @media(max-width:900px){.rev-grid{grid-template-columns:1fr;}}
+  .rev{padding:36px 34px 6px 0;margin-right:34px;border-right:1px solid #3B352A;}
+  .rev:last-child{border-right:none;margin-right:0;padding-right:0;}
+  @media(max-width:900px){.rev{border-right:none;margin-right:0;padding-right:0;}}
+  .rev p{font-size:18px;line-height:1.6;color:#EFE9D8;}
+  .rev .who{margin-top:18px;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;color:#9C9076;font-weight:600;}
+
+  .area-line{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3.4vw,44px);font-weight:700;line-height:1.5;letter-spacing:-.3px;max-width:1040px;}
+  .area-line span{color:var(--accent);}
+  .area-note{margin-top:26px;color:var(--muted);font-size:16.5px;}
+  .area-note a{color:var(--accent);font-weight:600;}
+
+  .cta-band{background:var(--accent);color:#FFF9EC;padding:110px 0;}
+  .cta-band h2{font-size:clamp(40px,6vw,84px);font-weight:700;line-height:1.0;letter-spacing:-1.2px;max-width:900px;margin-bottom:24px;}
+  .cta-band p{font-size:19px;max-width:580px;color:#F7E7C6;margin-bottom:40px;}
+  .cta-band .phone{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4.6vw,58px);font-weight:700;letter-spacing:-.5px;border-bottom:3px solid #FFF9EC;padding-bottom:4px;}
+  .cta-band .addr{margin-top:34px;font-size:14px;letter-spacing:1.8px;text-transform:uppercase;color:#F0D9A8;font-weight:600;}
+
+  footer{background:var(--ink);color:#B9AF99;padding:80px 0 46px;}
+  .foot-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(38px,7.2vw,102px);line-height:.98;letter-spacing:-2px;color:var(--paper);text-transform:uppercase;margin-bottom:44px;}
+  .foot-name span{color:var(--accent);}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid #3B352A;padding-top:30px;font-size:15.5px;}
+  .foot-grid a{color:var(--paper);font-weight:600;}
+  .concept{margin-top:44px;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:#7D7460;}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(max-width:640px){section{padding:74px 0;}.hero{padding:74px 0 64px;}.wrap{padding:0 22px;}.header-in{padding:16px 22px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="wordmark">Georgia Roof <span>Advisors</span></div>
+    <a class="header-phone" href="tel:+16787573477">(678) 757-3477</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Roofing Company · Marietta, Georgia</div>
+    <h1>Roofing without the <em>pressure tactics.</em></h1>
+    <p class="lede">Georgia Roof Advisors is a family-owned roofing company in Marietta and a GAF Master Elite contractor, a certification held by the top 2% of roofers. Free inspections, plain-language findings, and work backed by high-end warranties.</p>
+    <div class="cta-row">
+      <a class="btn" href="tel:+16787573477">Call (678) 757-3477</a>
+      <a class="cta-link" href="#contact">Schedule a free estimate</a>
+    </div>
+    <div class="factline"><b>GAF Master Elite</b> Contractor &nbsp;&nbsp; Family-owned since 2009 &nbsp;&nbsp; <b>Free inspections</b> &amp; estimates &nbsp;&nbsp; Best of Cobb, six years running</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div>
+        <span class="kicker">Our services</span>
+        <h2>Complete care for your roof.</h2>
+      </div>
+    </div>
+    <div class="svc-list reveal">
+      <div class="svc"><div class="n">/ 01</div><h3>Roof Replacement</h3><p>Complete replacements in asphalt shingle and metal, with premium materials, fair pricing, and an honest quote before any work begins.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 02</div><h3>Roof Repair</h3><p>Leaks, damaged shingles, flashing, and storm wear, found early and fixed properly so small problems never turn into costly ones.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 03</div><h3>Storm Damage &amp; Insurance Claims</h3><p>Thorough inspections with photos and detailed reports, and direct communication with your adjuster to help you get the coverage you are entitled to.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 04</div><h3>Commercial Roofing</h3><p>Repairs, replacements, and maintenance for commercial systems, including rubber, asphalt shingle, and metal, with minimal disruption to your business.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 05</div><h3>Asphalt Shingle Roofing</h3><p>GAF architectural shingles chosen for Georgia heat, humidity, and storms, installed by a Master Elite crew and built to last 20 to 30 years.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 06</div><h3>Metal Roofing</h3><p>Durable, energy-efficient metal roofs that can last 40 to 70 years in the Georgia climate, with superior storm resistance.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 07</div><h3>Gutter Guard Installation</h3><p>Gutter guards that keep water moving away from your home and cut down on overflow damage and constant cleaning.</p><div class="arr">→</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div>
+        <span class="kicker">Why Georgia Roof Advisors</span>
+        <h2>Advisors first, salespeople never.</h2>
+      </div>
+    </div>
+    <div class="why-grid reveal">
+      <p class="big">We answer the phone, show up when we say we will, explain what we found in <em>plain language</em>, and never lean on pressure tactics.</p>
+      <div>
+        <div class="point"><h3><span>/ 01</span>GAF Master Elite contractor</h3><p>The top 2% of roofing contractors in North America, with access to the best warranties and premium GAF products.</p></div>
+        <div class="point"><h3><span>/ 02</span>One honest reviews story</h3><p>More than 520 five-star reviews, and the same number wherever you find us. No mixed messages, no fine print.</p></div>
+        <div class="point"><h3><span>/ 03</span>Warranties that protect you</h3><p>Multi-year, high-end warranty offers on all products and labor, so your roofing investment stays protected.</p></div>
+        <div class="point"><h3><span>/ 04</span>Financing available</h3><p>Flexible financing options for qualified homeowners, so a roof you need does not have to wait.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div>
+        <span class="kicker">Reviews</span>
+        <h2>What our customers are saying.</h2>
+      </div>
+    </div>
+    <div class="score-row reveal">
+      <div class="score">520+</div>
+      <div class="score-meta">
+        <div class="stars">★★★★★</div>
+        <p>More than 520 five-star reviews for a family-owned Marietta roofing company.</p>
+      </div>
+    </div>
+    <div class="rev-grid reveal">
+      <div class="rev"><p>&ldquo;Quick to respond and very thorough in their inspection. Their communication was fantastic. If all roofers were as professional and easy to work with, the entire industry would have a better reputation.&rdquo;</p><div class="who">Neill Hickey · Customer review</div></div>
+      <div class="rev"><p>&ldquo;I give Georgia Roof Advisors a 5 out of 5. There was no pressure or hard sales pitch. Pricing was competitive, the installation team was prompt and neat, and the roof looks great.&rdquo;</p><div class="who">ML Johnson · Customer review</div></div>
+      <div class="rev"><p>&ldquo;Very communicative, well-priced, professional. They took excellent care of the area around the house, cleaned up great, and we have the best-looking roof on the block.&rdquo;</p><div class="who">Ryan Kerzner · Customer review</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04</div>
+      <div>
+        <span class="kicker">The owners</span>
+        <h2>A family business, on purpose.</h2>
+      </div>
+    </div>
+    <div class="owners reveal">
+      <p class="big">Meet James &amp; Naomi. Family-owned since 2009, with <em>more than 15,000 roofs</em> replaced and repaired across metro Atlanta.</p>
+      <p>Georgia Roof Advisors started with a simple idea: a roofing company that advises instead of sells. Every inspection begins with a careful look at the whole roofing system, then a clear explanation of what we found and what your options are, whether that means a targeted repair or a full replacement.</p>
+      <p>The company is BBB accredited, a six-time Best of Cobb winner, and a member of the Sandy Springs Chamber of Commerce. Licensed and insured, and accountable to the neighbors we serve.</p>
+      <div class="sig">James &amp; Naomi G.<small>Owners · Georgia Roof Advisors</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="area" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">05</div>
+      <div>
+        <span class="kicker">Service areas</span>
+        <h2>Where we work.</h2>
+      </div>
+    </div>
+    <p class="area-line reveal">Marietta <span>·</span> Kennesaw <span>·</span> Acworth <span>·</span> Smyrna <span>·</span> Roswell <span>·</span> East Cobb <span>·</span> Powder Springs <span>·</span> Woodstock <span>·</span> Vinings <span>·</span> Austell <span>·</span> Sandy Springs <span>·</span> Alpharetta</p>
+    <p class="area-note reveal">Do not see your town? Call <a href="tel:+16787573477">(678) 757-3477</a>. We serve homeowners across the North Metro Atlanta area.</p>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Schedule your free estimate.</h2>
+    <p class="reveal">A free roof inspection, an honest assessment, and a transparent estimate with no obligation and no pressure.</p>
+    <a class="phone reveal" href="tel:+16787573477">(678) 757-3477</a>
+    <div class="addr reveal">1290 Kennestone Cir Suite A200 · Marietta, GA 30066</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">Georgia Roof <span>Advisors</span></div>
+    <div class="foot-grid">
+      <div>Roofing company in Marietta, GA.<br>Repairs, replacements, and honest advice.</div>
+      <div>Call <a href="tel:+16787573477">(678) 757-3477</a><br>1290 Kennestone Cir Suite A200, Marietta, GA 30066</div>
+    </div>
+    <div class="concept">Concept homepage design prepared for Georgia Roof Advisors</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

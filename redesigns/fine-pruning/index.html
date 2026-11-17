@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fine Pruning | Hand Pruning in Atlanta, GA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7EF; --ink:#1D1B16; --accent:#33613F; --line:#DED5C2; --muted:#6E6A58;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;}
+  h1,h2,h3,.display{font-family:'Libre Franklin',Arial,sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .kicker{font-family:'Libre Franklin',sans-serif;font-size:12px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);}
+  .rule{border:none;border-top:1px solid var(--line);}
+
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  .header-in{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Libre Franklin',sans-serif;font-weight:900;font-size:19px;letter-spacing:.4px;text-transform:uppercase;}
+  .wordmark span{color:var(--accent);}
+  .header-mail{font-family:'Libre Franklin',sans-serif;font-weight:700;font-size:15.5px;}
+  .header-mail:hover{color:var(--accent);}
+
+  .hero{padding:110px 0 90px;}
+  .hero h1{font-size:clamp(52px,7.4vw,104px);line-height:.98;font-weight:900;letter-spacing:-1.5px;max-width:1000px;margin:26px 0 30px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lede{font-size:21px;line-height:1.55;color:#3B382E;max-width:660px;margin-bottom:42px;}
+  .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Libre Franklin',sans-serif;font-weight:700;font-size:16px;padding:18px 34px;transition:background .25s ease,transform .25s ease;}
+  .btn:hover{background:var(--accent);}
+  .btn:active{transform:scale(.98);}
+  .cta-link{font-family:'Libre Franklin',sans-serif;font-weight:600;font-size:16px;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+  .factline{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .factline b{color:var(--ink);}
+  figure{margin:0;}
+  .img-caption{margin-top:12px;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  @media(max-width:820px){.duo{grid-template-columns:1fr;}}
+  .duo img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;}
+
+  section{padding:110px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:26px;margin-bottom:56px;}
+  .sec-num{font-family:'Libre Franklin',sans-serif;font-weight:800;font-size:15px;color:var(--accent);letter-spacing:2px;}
+  .sec-head h2{font-size:clamp(34px,4.4vw,58px);font-weight:800;line-height:1.05;letter-spacing:-.8px;}
+  .sec-head .kicker{display:block;margin-bottom:14px;}
+
+  .svc-list{border-top:1px solid var(--line);}
+  .svc{display:grid;grid-template-columns:70px 1fr 1.4fr 40px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:background .25s ease;}
+  .svc:hover{background:#F2EDDD;}
+  .svc .n{font-family:'Libre Franklin',sans-serif;font-weight:700;color:var(--accent);font-size:15px;}
+  .svc h3{font-size:clamp(21px,2.4vw,29px);font-weight:700;line-height:1.15;}
+  .svc p{color:#454134;font-size:16.5px;}
+  .svc .arr{font-family:'Libre Franklin',sans-serif;font-size:22px;color:var(--accent);text-align:right;}
+  @media(max-width:820px){.svc{grid-template-columns:44px 1fr;}.svc p{grid-column:2;}.svc .arr{display:none;}}
+
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr;}}
+  .why-grid .big{font-family:'Libre Franklin',sans-serif;font-size:clamp(27px,3.2vw,40px);font-weight:700;line-height:1.25;letter-spacing:-.4px;}
+  .why-grid .big em{font-style:normal;color:var(--accent);}
+  .point{padding:24px 0;border-bottom:1px solid var(--line);}
+  .point:first-child{padding-top:6px;}
+  .point h3{font-size:19px;font-weight:700;margin-bottom:6px;}
+  .point h3 span{color:var(--accent);margin-right:12px;font-size:14px;letter-spacing:1px;}
+  .point p{color:#454134;font-size:16.5px;}
+
+  .founder{display:grid;grid-template-columns:400px 1fr;gap:70px;align-items:start;}
+  @media(max-width:900px){.founder{grid-template-columns:1fr;}}
+  .founder img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;}
+  .founder .quote{font-family:'Libre Franklin',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:700;line-height:1.3;letter-spacing:-.3px;margin-bottom:28px;}
+  .founder p{color:#3B382E;margin-bottom:18px;max-width:600px;}
+  .founder .sig{font-family:'Libre Franklin',sans-serif;font-weight:700;margin-top:26px;}
+  .founder .sig small{display:block;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase;font-size:12px;margin-top:4px;}
+
+  .cta-band{background:var(--accent);color:#F4F8EC;padding:110px 0;}
+  .cta-band h2{font-size:clamp(40px,6vw,84px);font-weight:900;line-height:1.0;letter-spacing:-1.2px;max-width:900px;margin-bottom:24px;}
+  .cta-band p{font-size:19px;max-width:560px;color:#DCE8D2;margin-bottom:40px;}
+  .cta-band .mail{font-family:'Libre Franklin',sans-serif;font-size:clamp(24px,3.8vw,48px);font-weight:800;letter-spacing:-.5px;border-bottom:3px solid #F4F8EC;padding-bottom:4px;}
+  .cta-band .addr{margin-top:34px;font-size:14px;letter-spacing:1.8px;text-transform:uppercase;color:#C4D8B8;font-weight:600;}
+
+  footer{background:var(--ink);color:#B4AE9C;padding:80px 0 46px;}
+  .foot-name{font-family:'Libre Franklin',sans-serif;font-weight:900;font-size:clamp(44px,8.6vw,124px);line-height:.95;letter-spacing:-2px;color:var(--paper);text-transform:uppercase;margin-bottom:44px;}
+  .foot-name span{color:var(--accent);}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid #3B382E;padding-top:30px;font-size:15.5px;}
+  .foot-grid a{color:var(--paper);font-weight:600;}
+  .concept{margin-top:44px;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:#7C7663;}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(max-width:640px){section{padding:74px 0;}.hero{padding:74px 0 64px;}.wrap{padding:0 22px;}.header-in{padding:16px 22px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="wordmark">Fine <span>Pruning</span></div>
+    <a class="header-mail" href="mailto:hello@finepruning.com">hello@finepruning.com</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Hand Pruning · Atlanta, Georgia</div>
+    <h1>Every cut, <em>considered.</em></h1>
+    <p class="lede">Fine Pruning is a specialist service for the hand pruning of shrubs and small trees. No shearing, no guesswork: each plant is read on its own terms, then pruned for its long-term health, structure and form.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:hello@finepruning.com">Request an estimate</a>
+      <a class="cta-link" href="#services">See what we do</a>
+    </div>
+    <div class="factline"><b>Founded 2008</b> &nbsp;&nbsp; Owner-operated by Anna Hauser &nbsp;&nbsp; <b>ISA Certified Arborist</b> &nbsp;&nbsp; Atlanta, Georgia</div>
+  </div>
+</div>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="duo reveal">
+      <figure>
+        <img src="https://www.finepruning.com/img/about/00.jpg" alt="Anna Hauser of Fine Pruning pruning a branch overhead">
+        <figcaption class="img-caption">Anna Hauser, owner and fine pruner, at work</figcaption>
+      </figure>
+      <figure>
+        <img src="https://www.finepruning.com/img/services/00.jpg" alt="Hand pruners making a precise cut on a young branch">
+        <figcaption class="img-caption">Hand pruning, cut by cut</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div>
+        <span class="kicker">What we do</span>
+        <h2>Pruning, explained.</h2>
+      </div>
+    </div>
+    <div class="svc-list reveal">
+      <div class="svc"><div class="n">/ 01</div><h3>Hand Pruning of Shrubs</h3><p>Shrubs shaped and thinned by hand, one cut at a time, so each plant keeps its natural form and vigor instead of being sheared into a ball.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 02</div><h3>Small Tree Pruning</h3><p>Careful work on small trees: clearing what is dead or crossing, and guiding the canopy so the tree grows into its space, not against it.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 03</div><h3>Pruning Consultation</h3><p>A walk through your garden with a plan: what to prune, what to leave alone, and how to manage the landscape over the long term.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 04</div><h3>Hedge Rejuvenation</h3><p>Bringing back hedges that have been over-sheared for years, reopening them to light and air so they can grow out healthy again.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 05</div><h3>Structural Pruning</h3><p>Establishing proper branch structure in young trees and shrubs early, so they mature strong instead of needing rescue later.</p><div class="arr">→</div></div>
+      <div class="svc"><div class="n">/ 06</div><h3>Historic Landscape Renewal</h3><p>Renewal of ageing shrubs in historic landscapes, handled patiently and in keeping with the original planting.</p><div class="arr">→</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="approach" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div>
+        <span class="kicker">The approach</span>
+        <h2>Purposeful. Proactive.</h2>
+      </div>
+    </div>
+    <div class="why-grid reveal">
+      <p class="big">Pruning is not a haircut. It shapes how a plant <em>grows, heals and ages</em> for years after the cut is made.</p>
+      <div>
+        <div class="point"><h3><span>/ 01</span>Form and vigor, balanced</h3><p>Every job weighs the plant's natural form and energy against the space it actually has to grow in.</p></div>
+        <div class="point"><h3><span>/ 02</span>Health before size</h3><p>A cut changes a plant's physiology, not just its outline. We prune for the health of the whole plant, not the quickest tidy-up.</p></div>
+        <div class="point"><h3><span>/ 03</span>Thought about the site</h3><p>Species, soil, light and the age of the landscape all feed into the plan before a single cut is made.</p></div>
+        <div class="point"><h3><span>/ 04</span>Long-term management</h3><p>Gardens and landscapes are managed over seasons and years, not fixed in a single visit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div>
+        <span class="kicker">The pruner</span>
+        <h2>Meet Anna Hauser.</h2>
+      </div>
+    </div>
+    <div class="founder reveal">
+      <figure>
+        <img src="https://www.finepruning.com/img/services/02.jpg" alt="The branch structure of a tree in winter">
+        <figcaption class="img-caption">Branch structure, read in winter</figcaption>
+      </figure>
+      <div>
+        <p class="quote">Good pruning unites critical thinking with a real affection for woody plants.</p>
+        <p>Anna Hauser founded Fine Pruning in 2008 and still does the work herself. She trained in the Professional Gardener Training Program at Longwood Gardens and worked in horticulture and organic agriculture in Ireland and Italy before taking an honors degree at the University of Georgia.</p>
+        <p>She is an ISA Certified Arborist, and later added a Masters in City and Regional Planning from Georgia Tech. That mix of field craft and planning is exactly what she brings to a garden: hands that know the cut, and a head thinking years ahead of it.</p>
+        <div class="sig">Anna Hauser<small>Owner and Fine Pruner · Atlanta, GA</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Have a pruning quandary?</h2>
+    <p class="reveal">Questions or estimates, please be in touch. Tell us what is growing, and what it is doing that worries you.</p>
+    <a class="mail reveal" href="mailto:hello@finepruning.com">hello@finepruning.com</a>
+    <div class="addr reveal">Fine Pruning · Atlanta, Georgia · Est. 2008</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">Fine <span>Pruning</span></div>
+    <div class="foot-grid">
+      <div>Specialist hand pruning of shrubs and small trees<br>for gardens and landscapes in Atlanta, Georgia.</div>
+      <div>Estimates and questions<br><a href="mailto:hello@finepruning.com">hello@finepruning.com</a></div>
+    </div>
+    <div class="concept">Concept homepage design prepared for Fine Pruning</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

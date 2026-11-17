@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apollo Electric LLC | Electrician in Scottsdale, AZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F8F6F0; --ink:#131519; --accent:#1E50C8; --line:#E0DCD0; --muted:#62605A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;}
+  h1,h2,h3,.display{font-family:'Space Grotesk',Arial,sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .kicker{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);}
+  .rule{border:none;border-top:1px solid var(--line);}
+
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  .header-in{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:.4px;text-transform:uppercase;}
+  .wordmark span{color:var(--accent);}
+  .header-phone{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;}
+  .header-phone:hover{color:var(--accent);}
+
+  .hero{padding:110px 0 90px;}
+  .hero h1{font-size:clamp(50px,7vw,100px);line-height:1.0;font-weight:700;letter-spacing:-1.5px;max-width:1020px;margin:26px 0 30px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lede{font-size:21px;line-height:1.55;color:#3A3C40;max-width:640px;margin-bottom:42px;}
+  .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;padding:18px 34px;transition:background .25s ease,transform .25s ease;}
+  .btn:hover{background:var(--accent);}
+  .btn:active{transform:scale(.98);}
+  .cta-link{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+  .factline{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .factline b{color:var(--ink);}
+  figure{margin:0;}
+  .hero-img{margin-top:56px;}
+  .hero-img img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;}
+  .img-caption{margin-top:12px;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .wide-img img{width:100%;display:block;aspect-ratio:16/8;object-fit:cover;}
+
+  section{padding:110px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:26px;margin-bottom:56px;}
+  .sec-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--accent);letter-spacing:2px;}
+  .sec-head h2{font-size:clamp(34px,4.4vw,58px);font-weight:700;line-height:1.05;letter-spacing:-.8px;}
+  .sec-head .kicker{display:block;margin-bottom:14px;}
+
+  .svc-list{border-top:1px solid var(--line);}
+  .svc{display:grid;grid-template-columns:70px 1fr 1.4fr 40px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:background .25s ease;}
+  .svc:hover{background:#F0EEE6;}
+  .svc .n{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:15px;}
+  .svc h3{font-size:clamp(21px,2.4vw,29px);font-weight:700;line-height:1.15;}
+  .svc p{color:#46484D;font-size:16.5px;}
+  .svc .arr{font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--accent);text-align:right;}
+  @media(max-width:820px){.svc{grid-template-columns:44px 1fr;}.svc p{grid-column:2;}.svc .arr{display:none;}}
+
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr;}}
+  .why-grid .big{font-family:'Space Grotesk',sans-serif;font-size:clamp(27px,3.2vw,40px);font-weight:700;line-height:1.25;letter-spacing:-.4px;}
+  .why-grid .big em{font-style:normal;color:var(--accent);}
+  .point{padding:24px 0;border-bottom:1px solid var(--line);}
+  .point:first-child{padding-top:6px;}
+  .point h3{font-size:19px;font-weight:700;margin-bottom:6px;}
+  .point h3 span{color:var(--accent);margin-right:12px;font-size:14px;letter-spacing:1px;}
+  .point p{color:#46484D;font-size:16.5px;}
+
+  .founder{display:grid;grid-template-columns:400px 1fr;gap:70px;align-items:start;}
+  @media(max-width:900px){.founder{grid-template-columns:1fr;}}
+  .founder img{width:100%;display:block;}
+  .founder .quote{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:700;line-height:1.3;letter-spacing:-.3px;margin-bottom:28px;}
+  .founder p{color:#3A3C40;margin-bottom:18px;max-width:600px;}
+  .founder .sig{font-family:'Space Grotesk',sans-serif;font-weight:700;margin-top:26px;}
+  .founder .sig small{display:block;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase;font-size:12px;margin-top:4px;}
+
+  .area-line{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3.4vw,44px);font-weight:700;line-height:1.5;letter-spacing:-.3px;max-width:1000px;}
+  .area-line span{color:var(--accent);}
+  .area-note{margin-top:26px;color:var(--muted);font-size:16.5px;}
+
+  .cta-band{background:var(--accent);color:#F2F6FF;padding:110px 0;}
+  .cta-band h2{font-size:clamp(40px,6vw,84px);font-weight:700;line-height:1.0;letter-spacing:-1.2px;max-width:900px;margin-bottom:24px;}
+  .cta-band p{font-size:19px;max-width:560px;color:#CFE0F7;margin-bottom:40px;}
+  .cta-band .phone{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4.6vw,58px);font-weight:700;letter-spacing:-.5px;border-bottom:3px solid #F2F6FF;padding-bottom:4px;}
+  .cta-band .addr{margin-top:34px;font-size:14px;letter-spacing:1.8px;text-transform:uppercase;color:#B9CFF5;font-weight:600;}
+
+  footer{background:var(--ink);color:#A9A79E;padding:80px 0 46px;}
+  .foot-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,7.8vw,112px);line-height:.95;letter-spacing:-2px;color:var(--paper);text-transform:uppercase;margin-bottom:44px;}
+  .foot-name span{color:var(--accent);}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid #33353B;padding-top:30px;font-size:15.5px;}
+  .foot-grid a{color:var(--paper);font-weight:600;}
+  .concept{margin-top:44px;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:#74726B;}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(max-width:640px){section{padding:74px 0;}.hero{padding:74px 0 64px;}.wrap{padding:0 22px;}.header-in{padding:16px 22px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="wordmark">Apollo <span>Electric</span></div>
+    <a class="header-phone" href="tel:+14802166733">(480) 216-6733</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Electrical Contractor · Scottsdale, Arizona</div>
+    <h1>Scottsdale's own electricians, <em>second generation.</em></h1>
+    <p class="lede">Apollo Electric is a licensed, bonded and insured electrical contractor serving homes and businesses across the Valley, from quick circuit repairs to complete panel upgrades.</p>
+    <div class="cta-row">
+      <a class="btn" href="tel:+14802166733">Call (480) 216-6733</a>
+      <a class="cta-link" href="#contact">Request a quote</a>
+    </div>
+    <div class="factline"><b>Licensed, bonded &amp; insured</b> &nbsp;&nbsp; Mon to Sat, 7 AM to 6 PM &nbsp;&nbsp; <b>Scottsdale, AZ</b></div>
+    <figure class="hero-img reveal">
+      <img src="https://images.squarespace-cdn.com/content/v1/6890fb2886a1c75b010927ff/01623722-3107-4e81-8f4a-800c6ff65ed1/apollo-electric055.jpg" alt="An Apollo Electric electrician with a tool belt drilling into an outdoor electrical box on a Scottsdale home, smiling at the camera">
+      <figcaption class="img-caption">On the job · Scottsdale, Arizona</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div>
+        <span class="kicker">What we do</span>
+        <h2>Every wire, built to last.</h2>
+      </div>
+    </div>
+    <div class="svc-list reveal">
+      <div class="svc"><div class="n">/ 01</div><h3>Residential Electrical</h3><p>Repairs, remodel wiring, lighting and panel work for homes across Scottsdale and the Valley.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 02</div><h3>Commercial Electrical</h3><p>Large-scale rewiring, efficient lighting installations and fast emergency repairs for Phoenix-area businesses.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 03</div><h3>Panel Upgrades</h3><p>Replacements and capacity upgrades that keep pace with high-demand appliances, smart systems and EV chargers.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 04</div><h3>EV Charger Installation</h3><p>Safe, efficient and code-compliant EV charger installations for homes and businesses.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 05</div><h3>Smart Home Setup</h3><p>Smart home wiring, automation and LED lighting upgrades that help reduce utility costs.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 06</div><h3>Repairs &amp; Troubleshooting</h3><p>Sparking outlets, flickering lights, tripped breakers. Found fast with thermal imaging and circuit analyzers, fixed to code.</p><div class="arr">&rarr;</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div>
+        <span class="kicker">Our values</span>
+        <h2>Neighbors first. Always.</h2>
+      </div>
+    </div>
+    <div class="why-grid reveal">
+      <p class="big">When you call Apollo, you are working with <em>neighbors who care</em> about keeping your home or business running smoothly.</p>
+      <div>
+        <div class="point"><h3><span>/ 01</span>Safety first</h3><p>Safety is never just a box we check. Our electricians stay current with the latest safety training and follow national standards and Arizona's own electrical codes.</p></div>
+        <div class="point"><h3><span>/ 02</span>Quality craftsmanship</h3><p>High-quality materials and proven techniques that hold up against Arizona's heat. Every connection tested, every installation double-checked.</p></div>
+        <div class="point"><h3><span>/ 03</span>Customer-centered service</h3><p>We show up on time, answer your questions, and respect your home and budget, so you are left with more than a fix. You get peace of mind.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div>
+        <span class="kicker">The owner</span>
+        <h2>The trade runs in the family.</h2>
+      </div>
+    </div>
+    <div class="founder reveal">
+      <img src="https://images.squarespace-cdn.com/content/v1/6890fb2886a1c75b010927ff/5b1b23c3-e135-4872-b004-9aec6a798f3e/apollo-electric134.jpg" alt="Matt Ramirez standing outdoors beside the white Apollo Electric van, wearing a gray polo shirt">
+      <div>
+        <p class="quote">&ldquo;More than just a name on a service truck, we are part of Scottsdale's story.&rdquo;</p>
+        <p>Owner Matt Ramirez grew up in Scottsdale, learning the ins and outs of its neighborhoods long before he ever held a license. As a second-generation electrician, he was trained right here in Arizona and built his career serving the same neighborhoods he grew up in.</p>
+        <p>From new builds in North Scottsdale to historic homes near Old Town, the Apollo team brings that hometown connection to every panel, every wire and every emergency call across the Valley.</p>
+        <div class="sig">Matt Ramirez<small>Owner · Apollo Electric LLC</small></div>
+      </div>
+    </div>
+    <figure class="wide-img reveal" style="margin-top:70px;">
+      <img src="https://images.squarespace-cdn.com/content/v1/6890fb2886a1c75b010927ff/3a79ed36-58b3-4992-af79-008ae5713e6b/apollo-electric156.jpg" alt="Three Apollo Electric team members standing in a backyard with tools and equipment">
+      <figcaption class="img-caption">The Apollo crew · Phoenix Valley</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04</div>
+      <div>
+        <span class="kicker">Service areas</span>
+        <h2>Across the Valley.</h2>
+      </div>
+    </div>
+    <p class="area-line reveal">Scottsdale <span>·</span> Phoenix <span>·</span> Tempe <span>·</span> Mesa <span>·</span> Paradise Valley <span>·</span> Chandler <span>·</span> Arcadia <span>·</span> Gilbert</p>
+    <p class="area-note reveal">Including McCormick Ranch, Gainey Ranch and Old Town Scottsdale, and surrounding neighborhoods.</p>
+  </div>
+</section>
+
+<div class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Need an electrician in Scottsdale?</h2>
+    <p>Clear quotes with timelines, costs and warranty details. Call, or send a message and we will take it from there.</p>
+    <a class="phone" href="tel:+14802166733">(480) 216-6733</a>
+    <div class="addr">Scottsdale, AZ 85257 · Mon to Sat, 7 AM to 6 PM · Closed Sunday</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">Apollo <span>Electric</span></div>
+    <div class="foot-grid">
+      <div>Electrical contractor · Scottsdale, Arizona</div>
+      <div><a href="tel:+14802166733">(480) 216-6733</a></div>
+      <div><a href="mailto:electricmatthew@yahoo.com">electricmatthew@yahoo.com</a></div>
+      <div>Scottsdale, AZ 85257</div>
+    </div>
+    <div class="concept">Concept homepage design prepared for Apollo Electric LLC</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,19 +1,130 @@
 [
-  {"source": "https://dcroofingllc.devstagings.com/homepage.html", "out": "pdfs/dc-roofing-homepage.pdf"},
-  {"source": "https://dcroofingllc.devstagings.com/request-a-quote.html", "out": "pdfs/dc-roofing-request-a-quote.pdf"},
-  {"source": "https://dcroofingllc.devstagings.com/brand-guideline.html", "out": "pdfs/dc-roofing-brand-guideline.pdf"},
-  {"source": "redesigns/tyler-roof-repair/index.html", "out": "pdfs/tyler-roof-repair.pdf"},
-  {"source": "redesigns/churchwell-plumbing/index.html", "out": "pdfs/churchwell-plumbing.pdf"},
-  {"source": "redesigns/berryhill-sewer-service/index.html", "out": "pdfs/berryhill-sewer-service.pdf"},
-  {"source": "redesigns/ah-overhead-door/index.html", "out": "pdfs/ah-overhead-door.pdf"},
-  {"source": "redesigns/glow-up-clean/index.html", "out": "pdfs/glow-up-clean.pdf"},
-  {"source": "redesigns/graham-pest-management/index.html", "out": "pdfs/graham-pest-management.pdf"},
-  {"source": "redesigns/tri-county-landscape/index.html", "out": "pdfs/tri-county-landscape.pdf"},
-  {"source": "redesigns/renes-painting/index.html", "out": "pdfs/renes-painting.pdf"},
-  {"source": "redesigns/killen-it-electric/index.html", "out": "pdfs/killen-it-electric.pdf"},
-  {"source": "redesigns/vision-landscape-design/index.html", "out": "pdfs/vision-landscape-design.pdf"},
-  {"source": "redesigns/lizard-lick-pest-control/index.html", "out": "pdfs/lizard-lick-pest-control.pdf"},
-  {"source": "redesigns/gonzales-cleaning/index.html", "out": "pdfs/gonzales-cleaning.pdf"},
-  {"source": "redesigns/matter-of-fact-roofing/index.html", "out": "pdfs/matter-of-fact-roofing.pdf"},
-  {"source": "redesigns/aa-painting-remodeling/index.html", "out": "pdfs/aa-painting-remodeling.pdf"}
+  {
+    "source": "https://dcroofingllc.devstagings.com/homepage.html",
+    "out": "pdfs/dc-roofing-homepage.pdf"
+  },
+  {
+    "source": "https://dcroofingllc.devstagings.com/request-a-quote.html",
+    "out": "pdfs/dc-roofing-request-a-quote.pdf"
+  },
+  {
+    "source": "https://dcroofingllc.devstagings.com/brand-guideline.html",
+    "out": "pdfs/dc-roofing-brand-guideline.pdf"
+  },
+  {
+    "source": "redesigns/tyler-roof-repair/index.html",
+    "out": "pdfs/tyler-roof-repair.pdf"
+  },
+  {
+    "source": "redesigns/churchwell-plumbing/index.html",
+    "out": "pdfs/churchwell-plumbing.pdf"
+  },
+  {
+    "source": "redesigns/berryhill-sewer-service/index.html",
+    "out": "pdfs/berryhill-sewer-service.pdf"
+  },
+  {
+    "source": "redesigns/ah-overhead-door/index.html",
+    "out": "pdfs/ah-overhead-door.pdf"
+  },
+  {
+    "source": "redesigns/glow-up-clean/index.html",
+    "out": "pdfs/glow-up-clean.pdf"
+  },
+  {
+    "source": "redesigns/graham-pest-management/index.html",
+    "out": "pdfs/graham-pest-management.pdf"
+  },
+  {
+    "source": "redesigns/tri-county-landscape/index.html",
+    "out": "pdfs/tri-county-landscape.pdf"
+  },
+  {
+    "source": "redesigns/renes-painting/index.html",
+    "out": "pdfs/renes-painting.pdf"
+  },
+  {
+    "source": "redesigns/killen-it-electric/index.html",
+    "out": "pdfs/killen-it-electric.pdf"
+  },
+  {
+    "source": "redesigns/vision-landscape-design/index.html",
+    "out": "pdfs/vision-landscape-design.pdf"
+  },
+  {
+    "source": "redesigns/lizard-lick-pest-control/index.html",
+    "out": "pdfs/lizard-lick-pest-control.pdf"
+  },
+  {
+    "source": "redesigns/gonzales-cleaning/index.html",
+    "out": "pdfs/gonzales-cleaning.pdf"
+  },
+  {
+    "source": "redesigns/matter-of-fact-roofing/index.html",
+    "out": "pdfs/matter-of-fact-roofing.pdf"
+  },
+  {
+    "source": "redesigns/aa-painting-remodeling/index.html",
+    "out": "pdfs/aa-painting-remodeling.pdf"
+  },
+  {
+    "source": "redesigns/carpenter-bee-cabinet-works/index.html",
+    "out": "pdfs/carpenter-bee-cabinet-works.pdf"
+  },
+  {
+    "source": "redesigns/aaa-roof-masters/index.html",
+    "out": "pdfs/aaa-roof-masters.pdf"
+  },
+  {
+    "source": "redesigns/grizzly-air/index.html",
+    "out": "pdfs/grizzly-air.pdf"
+  },
+  {
+    "source": "redesigns/orca-ac/index.html",
+    "out": "pdfs/orca-ac.pdf"
+  },
+  {
+    "source": "redesigns/sbc-roofing/index.html",
+    "out": "pdfs/sbc-roofing.pdf"
+  },
+  {
+    "source": "redesigns/apollo-electric/index.html",
+    "out": "pdfs/apollo-electric.pdf"
+  },
+  {
+    "source": "redesigns/lm-pest-control/index.html",
+    "out": "pdfs/lm-pest-control.pdf"
+  },
+  {
+    "source": "redesigns/kos-landscaping/index.html",
+    "out": "pdfs/kos-landscaping.pdf"
+  },
+  {
+    "source": "redesigns/loves-garage-doors/index.html",
+    "out": "pdfs/loves-garage-doors.pdf"
+  },
+  {
+    "source": "redesigns/pure-superior-cleaners/index.html",
+    "out": "pdfs/pure-superior-cleaners.pdf"
+  },
+  {
+    "source": "redesigns/kendrick-plumbing/index.html",
+    "out": "pdfs/kendrick-plumbing.pdf"
+  },
+  {
+    "source": "redesigns/georgia-roof-advisors/index.html",
+    "out": "pdfs/georgia-roof-advisors.pdf"
+  },
+  {
+    "source": "redesigns/fine-pruning/index.html",
+    "out": "pdfs/fine-pruning.pdf"
+  },
+  {
+    "source": "redesigns/dependable-painting/index.html",
+    "out": "pdfs/dependable-painting.pdf"
+  },
+  {
+    "source": "redesigns/rite-touch-maids/index.html",
+    "out": "pdfs/rite-touch-maids.pdf"
+  }
 ]

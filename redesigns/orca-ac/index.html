@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orca AC | Heating &amp; Cooling in Phoenix, AZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5EF; --ink:#141A1C; --accent:#0E7490; --line:#D8DEDC; --muted:#5C6B6E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;}
+  h1,h2,h3,.display{font-family:'Sora',Arial,sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .kicker{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);}
+  .rule{border:none;border-top:1px solid var(--line);}
+
+  header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  .header-in{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Sora',sans-serif;font-weight:800;font-size:19px;letter-spacing:.4px;text-transform:uppercase;}
+  .wordmark span{color:var(--accent);}
+  .header-phone{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;}
+  .header-phone:hover{color:var(--accent);}
+
+  .hero{padding:110px 0 90px;}
+  .hero h1{font-size:clamp(50px,7vw,100px);line-height:1.0;font-weight:800;letter-spacing:-1.5px;max-width:1020px;margin:26px 0 30px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lede{font-size:21px;line-height:1.55;color:#374144;max-width:640px;margin-bottom:42px;}
+  .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Sora',sans-serif;font-weight:700;font-size:16px;padding:18px 34px;transition:background .25s ease,transform .25s ease;}
+  .btn:hover{background:var(--accent);}
+  .btn:active{transform:scale(.98);}
+  .cta-link{font-family:'Sora',sans-serif;font-weight:600;font-size:16px;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+  .factline{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .factline b{color:var(--ink);}
+  figure{margin:0;}
+  .hero-img{margin-top:56px;}
+  .hero-img img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;}
+  .img-caption{margin-top:12px;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .wide-img img{width:100%;display:block;aspect-ratio:16/8;object-fit:cover;}
+
+  section{padding:110px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:26px;margin-bottom:56px;}
+  .sec-num{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--accent);letter-spacing:2px;}
+  .sec-head h2{font-size:clamp(34px,4.4vw,58px);font-weight:700;line-height:1.05;letter-spacing:-.8px;}
+  .sec-head .kicker{display:block;margin-bottom:14px;}
+
+  .svc-list{border-top:1px solid var(--line);}
+  .svc{display:grid;grid-template-columns:70px 1fr 1.4fr 40px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:background .25s ease;}
+  .svc:hover{background:#EFF3F1;}
+  .svc .n{font-family:'Sora',sans-serif;font-weight:700;color:var(--accent);font-size:15px;}
+  .svc h3{font-size:clamp(21px,2.4vw,29px);font-weight:700;line-height:1.15;}
+  .svc p{color:#455154;font-size:16.5px;}
+  .svc .arr{font-family:'Sora',sans-serif;font-size:22px;color:var(--accent);text-align:right;}
+  @media(max-width:820px){.svc{grid-template-columns:44px 1fr;}.svc p{grid-column:2;}.svc .arr{display:none;}}
+
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr;}}
+  .why-grid .big{font-family:'Sora',sans-serif;font-size:clamp(27px,3.2vw,40px);font-weight:700;line-height:1.25;letter-spacing:-.4px;}
+  .why-grid .big em{font-style:normal;color:var(--accent);}
+  .point{padding:24px 0;border-bottom:1px solid var(--line);}
+  .point:first-child{padding-top:6px;}
+  .point h3{font-size:19px;font-weight:700;margin-bottom:6px;}
+  .point h3 span{color:var(--accent);margin-right:12px;font-size:14px;letter-spacing:1px;}
+  .point p{color:#455154;font-size:16.5px;}
+
+  .reviews{background:var(--ink);color:var(--paper);}
+  .reviews .sec-head h2{color:var(--paper);}
+  .score-row{display:flex;align-items:flex-end;gap:34px;flex-wrap:wrap;margin-bottom:56px;}
+  .score{font-family:'Sora',sans-serif;font-size:clamp(90px,12vw,170px);font-weight:800;line-height:.85;letter-spacing:-3px;}
+  .score-meta{padding-bottom:14px;}
+  .stars{color:var(--accent);font-size:24px;letter-spacing:5px;}
+  .score-meta p{color:#C4CED0;max-width:340px;margin-top:8px;font-size:16.5px;}
+  .big-quote{border-top:1px solid #39464A;padding-top:44px;max-width:880px;}
+  .big-quote p{font-family:'Sora',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:600;line-height:1.35;letter-spacing:-.3px;color:#F2EFE6;}
+  .big-quote .who{margin-top:22px;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;color:#8FA3A8;font-weight:600;}
+
+  .area-line{font-family:'Sora',sans-serif;font-size:clamp(24px,3.4vw,44px);font-weight:700;line-height:1.5;letter-spacing:-.3px;max-width:1000px;}
+  .area-line span{color:var(--accent);}
+  .area-note{margin-top:26px;color:var(--muted);font-size:16.5px;}
+
+  .cta-band{background:var(--accent);color:#F2FAFC;padding:110px 0;}
+  .cta-band h2{font-size:clamp(40px,6vw,84px);font-weight:800;line-height:1.0;letter-spacing:-1.2px;max-width:900px;margin-bottom:24px;}
+  .cta-band p{font-size:19px;max-width:560px;color:#D6EDF3;margin-bottom:40px;}
+  .cta-band .phone{font-family:'Sora',sans-serif;font-size:clamp(30px,4.6vw,58px);font-weight:700;letter-spacing:-.5px;border-bottom:3px solid #F2FAFC;padding-bottom:4px;}
+  .cta-band .addr{margin-top:34px;font-size:14px;letter-spacing:1.8px;text-transform:uppercase;color:#BFE3EC;font-weight:600;}
+
+  footer{background:var(--ink);color:#A7B4B7;padding:80px 0 46px;}
+  .foot-name{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(44px,8.6vw,124px);line-height:.95;letter-spacing:-2px;color:var(--paper);text-transform:uppercase;margin-bottom:44px;}
+  .foot-name span{color:var(--accent);}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid #39464A;padding-top:30px;font-size:15.5px;}
+  .foot-grid a{color:var(--paper);font-weight:600;}
+  .concept{margin-top:44px;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:#71858A;}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(max-width:640px){section{padding:74px 0;}.hero{padding:74px 0 64px;}.wrap{padding:0 22px;}.header-in{padding:16px 22px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="wordmark">Orca <span>AC</span></div>
+    <a class="header-phone" href="tel:+14807985756">480-798-5756</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Heating &amp; Cooling · Phoenix, Arizona</div>
+    <h1>Phoenix heat is relentless. <em>So is our response.</em></h1>
+    <p class="lede">Family-owned since 2004, Orca AC keeps homes and businesses across the Phoenix Valley cool with same-day service, upfront pricing, and emergency help on nights, weekends and holidays.</p>
+    <div class="cta-row">
+      <a class="btn" href="tel:+14807985756">Call 480-798-5756</a>
+      <a class="cta-link" href="#contact">Get a free estimate</a>
+    </div>
+    <div class="factline"><b>4.9/5 star rating</b> &nbsp;&nbsp; <b>10,000+ happy customers</b> &nbsp;&nbsp; Licensed, bonded &amp; insured &nbsp;&nbsp; ROC 3243352</div>
+    <figure class="hero-img reveal">
+      <img src="https://www.orcaac.com/_next/image?url=%2Forcaac%2Forcaac-minisplits-multizone.webp&w=3840&q=75&dpl=dpl_Cw3AL7wY6EGiyCRYkgHFSABvUskL" alt="The Orca AC service van with its orca logo, parked inside the company warehouse in Phoenix">
+      <figcaption class="img-caption">The Orca AC van · Phoenix, Arizona</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div>
+        <span class="kicker">What we do</span>
+        <h2>Complete HVAC, under one roof.</h2>
+      </div>
+    </div>
+    <div class="svc-list reveal">
+      <div class="svc"><div class="n">/ 01</div><h3>AC Repair</h3><p>Fast diagnosis and repair on all makes and models. You see upfront pricing before any work begins, never after.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 02</div><h3>AC Installation</h3><p>New systems sized right for Phoenix heat, including Trane equipment, with free estimates and flexible financing.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 03</div><h3>Heating Services</h3><p>Heating repair and installation for homes and businesses, ready for the Valley's cold snaps.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 04</div><h3>Mini-Split Systems</h3><p>Ductless mini-split and multi-zone systems for additions, garages and whole homes, sales and installation.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 05</div><h3>Emergency Service</h3><p>AC emergency? We are here nights, weekends and holidays, with an average response time of 60 minutes.</p><div class="arr">&rarr;</div></div>
+      <div class="svc"><div class="n">/ 06</div><h3>Commercial HVAC</h3><p>Repair, installation and service for commercial properties throughout the Phoenix Valley.</p><div class="arr">&rarr;</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div>
+        <span class="kicker">Why Orca AC</span>
+        <h2>Local, family-owned, accountable.</h2>
+      </div>
+    </div>
+    <div class="why-grid reveal">
+      <p class="big">Over 20 years in the Valley, and <em>still family-owned.</em> We treat every customer like family, because your comfort is our priority.</p>
+      <div>
+        <div class="point"><h3><span>/ 01</span>Family-owned &amp; operated</h3><p>A local Phoenix business since 2004. When you call, you get people who live here and stand behind the work.</p></div>
+        <div class="point"><h3><span>/ 02</span>NATE-certified technicians</h3><p>Certified professionals with continuous training, providing expert service on all makes and models.</p></div>
+        <div class="point"><h3><span>/ 03</span>Transparent pricing</h3><p>No surprises. Upfront pricing before work begins, with multiple options to fit your budget.</p></div>
+        <div class="point"><h3><span>/ 04</span>On time, or the call is free</h3><p>Our technicians arrive within the scheduled window, or the service call is free. Guaranteed work, backed by a 100% satisfaction guarantee.</p></div>
+      </div>
+    </div>
+    <figure class="wide-img reveal" style="margin-top:70px;">
+      <img src="https://www.orcaac.com/_next/image?url=%2Forcaac%2Forcaac-minisplits-multizone-residential-and-commercial.webp&w=3840&q=75&dpl=dpl_Cw3AL7wY6EGiyCRYkgHFSABvUskL" alt="Rear of the Orca AC van showing its mini-split and multi-zone branding and phone number">
+      <figcaption class="img-caption">Mini-splits, multi-zone · Residential &amp; commercial</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div>
+        <span class="kicker">Reviews</span>
+        <h2>The Valley, in its own words.</h2>
+      </div>
+    </div>
+    <div class="score-row reveal">
+      <div class="score">4.9</div>
+      <div class="score-meta">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Rated 4.9 out of 5 by customers throughout the Phoenix Valley.</p>
+      </div>
+    </div>
+    <div class="big-quote reveal">
+      <p>&ldquo;Orca AC saved the day! Our AC went out during a 115&deg; day, and they were here within 2 hours. Professional, fair pricing, and got us cool again fast!&rdquo;</p>
+      <div class="who">Sarah M. · Phoenix</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04</div>
+      <div>
+        <span class="kicker">Service area</span>
+        <h2>Proudly serving the Phoenix Valley.</h2>
+      </div>
+    </div>
+    <p class="area-line reveal">Phoenix <span>·</span> Scottsdale <span>·</span> Tempe <span>·</span> Mesa <span>·</span> Chandler <span>·</span> Gilbert <span>·</span> Glendale <span>·</span> Peoria <span>·</span> Surprise <span>·</span> Goodyear <span>·</span> Avondale <span>·</span> Queen Creek</p>
+    <p class="area-note reveal">Average response time of 60 minutes across the Valley, with emergency service within 2 hours and same-day service available.</p>
+  </div>
+</section>
+
+<div class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Ready for year-round comfort?</h2>
+    <p>Free estimates, flexible financing, and same-day emergency service from a family-owned Phoenix crew.</p>
+    <a class="phone" href="tel:+14807985756">480-798-5756</a>
+    <div class="addr">4433 W Van Buren St, Suite 1, Phoenix, AZ 85043 · Office Mon to Fri, 7:30 AM to 4:00 PM · Emergency service nights, weekends &amp; holidays</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">Orca <span>AC</span></div>
+    <div class="foot-grid">
+      <div>Heating &amp; cooling · Phoenix, Arizona</div>
+      <div><a href="tel:+14807985756">480-798-5756</a></div>
+      <div><a href="mailto:info@orcaac.com">info@orcaac.com</a></div>
+      <div>4433 W Van Buren St, Suite 1, Phoenix, AZ 85043</div>
+    </div>
+    <div class="concept">Concept homepage design prepared for Orca AC</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

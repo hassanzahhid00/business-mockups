@@ -1,0 +1,12 @@
+{
+  "name": "Orca AC",
+  "to": "info@orcaac.com",
+  "subject": "🐋 Luis, your emergency response time says 7:30-4",
+  "body": "Hi Luis,\n\nYour About page has a small mix-up that jumped out at me. In your By the Numbers row, 'Emergency Response' shows 7:30-4, which looks like your office hours pasted into the wrong stat. It sits right beside a 1 hour average response claim, and the same page says the office closes on weekends while the company markets 24/7 emergency service.\n\nAnyone cross-checking you before a big repair will spot that, and it undersells a company holding 847 reviews at 4.9 stars.\n\nSo I went ahead and redesigned your homepage, and the finished design is attached to this email as a PDF. The numbers read clean, the 24/7 emergency promise sits up top where it belongs, and one phone number runs through the whole page.\n\nI build sites for HVAC companies. Parker and Sons here in Phoenix (parkerandsons.com) is one of mine, clean stats, no contradictions, phone number everywhere it should be. Emergency HVAC Squad (emergencyhvacsquad.com) is another, built around fast contact for emergency calls.\n\nHave a look when you get a minute, no obligation at all. If you like the direction, I can build it out on your real site.\n\nBest,\nHassan",
+  "attachments": [
+    {
+      "file": "pdfs/orca-ac.pdf",
+      "name": "Orca AC - Redesigned Homepage.pdf"
+    }
+  ]
+}
